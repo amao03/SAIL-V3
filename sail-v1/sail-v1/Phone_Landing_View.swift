@@ -1,21 +1,21 @@
 //
-//  MadePatternsView.swift
-//  SAIL
+//  Phone-Landing-Page.swift
+//  sail-v1
 //
-//  Created by Alice Mao on 9/29/23.
+//  Created by Alice Mao on 12/7/23.
 //
 
 import Foundation
 import SwiftUI
 
-struct MadePatternsView:View{
+struct Phone_Landing_View : View{
     @ObservedObject var connector = ConnectToWatch.connect
     @State var patternObject = Pattern()
     
-    // true -> phone, false -> watch
     @State private var hapticsListBool:Bool = false
     
     private var typesArr = ["distance", "heartrate", "cycling power"]
+
     var body: some View {
         NavigationView{
             Form{
@@ -91,3 +91,4 @@ struct MadePatternsView:View{
         }
     }
 }
+
