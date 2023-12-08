@@ -11,8 +11,6 @@
 		68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */; };
 		68A43BCF2B22E08F007F7AA9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCE2B22E08F007F7AA9 /* Preview Assets.xcassets */; };
 		68A43BDC2B22E100007F7AA9 /* sail_v1_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BDB2B22E100007F7AA9 /* sail_v1_watchApp.swift */; };
-		68A43BE02B22E108007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BDF2B22E108007F7AA9 /* Assets.xcassets */; };
-		68A43BE32B22E108007F7AA9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BE22B22E108007F7AA9 /* Preview Assets.xcassets */; };
 		68A43BE62B22E108007F7AA9 /* sail-v1-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 68A43BD92B22E100007F7AA9 /* sail-v1-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		68A43BEF2B22E276007F7AA9 /* Phone_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BEE2B22E276007F7AA9 /* Phone_Landing_View.swift */; };
 		68A43BF32B22E32F007F7AA9 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BF12B22E32F007F7AA9 /* Haptics.swift */; };
@@ -32,6 +30,7 @@
 		68A43C122B22EB99007F7AA9 /* Watch_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */; };
 		68A43C142B22EC1A007F7AA9 /* Display_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C132B22EC1A007F7AA9 /* Display_Info.swift */; };
 		68A43C152B22EDDD007F7AA9 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BF12B22E32F007F7AA9 /* Haptics.swift */; };
+		68A43C172B22F4DC007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BDF2B22E108007F7AA9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 		68A43BD92B22E100007F7AA9 /* sail-v1-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sail-v1-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A43BDB2B22E100007F7AA9 /* sail_v1_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sail_v1_watchApp.swift; sourceTree = "<group>"; };
 		68A43BDF2B22E108007F7AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		68A43BE22B22E108007F7AA9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68A43BEB2B22E1B4007F7AA9 /* sail-v1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "sail-v1.entitlements"; sourceTree = "<group>"; };
 		68A43BEC2B22E1C2007F7AA9 /* sail-v1-watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "sail-v1-watch Watch App.entitlements"; sourceTree = "<group>"; };
 		68A43BED2B22E1C7007F7AA9 /* sail-v1-watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sail-v1-watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -152,17 +150,8 @@
 				68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */,
 				68A43C132B22EC1A007F7AA9 /* Display_Info.swift */,
 				68A43BDF2B22E108007F7AA9 /* Assets.xcassets */,
-				68A43BE12B22E108007F7AA9 /* Preview Content */,
 			);
 			path = "sail-v1-watch Watch App";
-			sourceTree = "<group>";
-		};
-		68A43BE12B22E108007F7AA9 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				68A43BE22B22E108007F7AA9 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		68A43BF02B22E317007F7AA9 /* Supporting Files */ = {
@@ -263,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68A43BCF2B22E08F007F7AA9 /* Preview Assets.xcassets in Resources */,
+				68A43C172B22F4DC007F7AA9 /* Assets.xcassets in Resources */,
 				68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,8 +261,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68A43BE32B22E108007F7AA9 /* Preview Assets.xcassets in Resources */,
-				68A43BE02B22E108007F7AA9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
