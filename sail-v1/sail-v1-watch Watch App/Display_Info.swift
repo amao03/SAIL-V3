@@ -34,3 +34,4 @@ struct DisplayInfo:View{
     }
 }
 
+ 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		689B25432B5B0A7B00034462 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B25422B5B0A7B00034462 /* TransferService.swift */; };
 		68A43BC82B22E08C007F7AA9 /* sail_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */; };
 		68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */; };
 		68A43BCF2B22E08F007F7AA9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCE2B22E08F007F7AA9 /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		689B25422B5B0A7B00034462 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		68A43BC42B22E08C007F7AA9 /* sail-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sail-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sail_v1App.swift; sourceTree = "<group>"; };
 		68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +103,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		689B25472B6423C700034462 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
 		68A43BBB2B22E08C007F7AA9 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +136,7 @@
 				68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */,
 				68A43BEE2B22E276007F7AA9 /* Phone_Landing_View.swift */,
 				68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */,
+				689B25422B5B0A7B00034462 /* TransferService.swift */,
 				68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */,
 				68A43BCD2B22E08F007F7AA9 /* Preview Content */,
 			);
@@ -149,6 +159,7 @@
 				68A43BDB2B22E100007F7AA9 /* sail_v1_watchApp.swift */,
 				68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */,
 				68A43C132B22EC1A007F7AA9 /* Display_Info.swift */,
+				689B25472B6423C700034462 /* Bluetooth */,
 				68A43BDF2B22E108007F7AA9 /* Assets.xcassets */,
 			);
 			path = "sail-v1-watch Watch App";
@@ -271,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689B25432B5B0A7B00034462 /* TransferService.swift in Sources */,
 				68A43C152B22EDDD007F7AA9 /* Haptics.swift in Sources */,
 				68A43C0D2B22EAB0007F7AA9 /* Data_Types.swift in Sources */,
 				68A43BC82B22E08C007F7AA9 /* sail_v1App.swift in Sources */,
@@ -372,6 +384,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Debug;
 		};
@@ -428,6 +441,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.6;
 			};
 			name = Release;
 		};
@@ -511,6 +525,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sail-v1-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "sail-v1-watch";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow to share health info";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow to update health info";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -545,6 +560,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sail-v1-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "sail-v1-watch";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow to share health info";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow to update health info";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
