@@ -41,11 +41,33 @@ class TimerControls: NSObject, ObservableObject{
         print("start overall timer")
         
         var index = 0
-        let dataArr = [150.0, 160.0, 170.0, 150.0]
+        var dataArr = [150.0, 160.0, 170.0, 150.0]
         self.currentData = dataArr[index]
         
-        playHaptic(val: self.currentData)
+        if randomData{
+            dataArr = randomDataArray()
+            self.currentData = dataArr[index]
+            print(dataArr)
+        }
         
+        if realData{
+            HealthKitData.getSample(type: patternObject.type) { (sample, error) in
+                
+                guard let sample = sample else {
+                    if let error = error {
+                        print(error)
+                    }
+                    return
+                }
+                
+                let unit = DataTypes.getUnits(type: self.patternObject.type)
+                let rawValue = sample.quantity.doubleValue(for: unit)
+         
+                self.currentData = round(rawValue * 100) / 100.0
+            }
+        } else{
+            playHaptic(val: self.currentData)
+        }
 
         index += 1
         
@@ -65,8 +87,26 @@ class TimerControls: NSObject, ObservableObject{
                 return
             }
             
-            self.currentData = dataArr[index]
-            self.playHaptic(val: self.currentData)
+            if realData{
+                HealthKitData.getSample(type: self.patternObject.type) { (sample, error) in
+                    
+                    guard let sample = sample else {
+                        if let error = error {
+                            print(error)
+                        }
+                        return
+                    }
+                    
+                    let unit = DataTypes.getUnits(type: self.patternObject.type)
+                    let rawValue = sample.quantity.doubleValue(for: unit)
+             
+                    self.currentData = round(rawValue * 100) / 100.0
+                    self.playHaptic(val: self.currentData)
+                }
+            } else{
+                self.currentData = dataArr[index]
+                self.playHaptic(val: self.currentData)
+            }
             
             index += 1
         }
