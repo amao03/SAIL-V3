@@ -103,13 +103,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		689B25472B6423C700034462 /* Bluetooth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Bluetooth;
-			sourceTree = "<group>";
-		};
 		68A43BBB2B22E08C007F7AA9 = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +152,6 @@
 				68A43BDB2B22E100007F7AA9 /* sail_v1_watchApp.swift */,
 				68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */,
 				68A43C132B22EC1A007F7AA9 /* Display_Info.swift */,
-				689B25472B6423C700034462 /* Bluetooth */,
 				68A43BDF2B22E108007F7AA9 /* Assets.xcassets */,
 			);
 			path = "sail-v1-watch Watch App";

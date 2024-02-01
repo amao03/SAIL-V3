@@ -1,20 +1,20 @@
 //
-//  Sail_v2App.swift
-//  Sail-v2
+//  sail_v2App.swift
+//  sail-v2
 //
-//  Created by Alice Mao on 1/30/24.
+//  Created by Alice Mao on 1/31/24.
 //
 
 import SwiftUI
 
 @main
-struct Sail_v2App: App {
-    let persistenceController = PersistenceController.shared
+struct sail_v2App: App {
+//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            Phone_Landing_View()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

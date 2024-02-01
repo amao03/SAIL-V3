@@ -7,28 +7,192 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		689B25552B69F77E00034462 /* Sail_v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B25542B69F77E00034462 /* Sail_v2App.swift */; };
-		689B25572B69F77E00034462 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B25562B69F77E00034462 /* ContentView.swift */; };
-		689B25592B69F79600034462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689B25582B69F79600034462 /* Assets.xcassets */; };
-		689B255C2B69F79600034462 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689B255B2B69F79600034462 /* Preview Assets.xcassets */; };
-		689B255E2B69F79600034462 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B255D2B69F79600034462 /* Persistence.swift */; };
-		689B25612B69F79600034462 /* Sail_v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 689B255F2B69F79600034462 /* Sail_v2.xcdatamodeld */; };
+		6838EDEA2B6B60C200E94268 /* sail_v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EDE92B6B60C200E94268 /* sail_v2App.swift */; };
+		6838EDEE2B6B60C500E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EDED2B6B60C500E94268 /* Assets.xcassets */; };
+		6838EDF12B6B60C500E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EDF02B6B60C500E94268 /* Preview Assets.xcassets */; };
+		6838EDF62B6B60C600E94268 /* sail_v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6838EDF42B6B60C600E94268 /* sail_v2.xcdatamodeld */; };
+		6838EDFF2B6B60F400E94268 /* Select_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EDFC2B6B60F400E94268 /* Select_Patterns.swift */; };
+		6838EE002B6B60F400E94268 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EDFD2B6B60F400E94268 /* TransferService.swift */; };
+		6838EE012B6B60F400E94268 /* Phone_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EDFE2B6B60F400E94268 /* Phone_Landing_View.swift */; };
+		6838EE0C2B6B610600E94268 /* Made_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE032B6B610600E94268 /* Made_Patterns.swift */; };
+		6838EE0E2B6B610600E94268 /* Timer_Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE052B6B610600E94268 /* Timer_Controls.swift */; };
+		6838EE0F2B6B610600E94268 /* Extended_Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE062B6B610600E94268 /* Extended_Session.swift */; };
+		6838EE112B6B610600E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE082B6B610600E94268 /* Patterns.swift */; };
+		6838EE122B6B610600E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE092B6B610600E94268 /* Haptics.swift */; };
+		6838EE142B6B610600E94268 /* Connect_To_Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE0B2B6B610600E94268 /* Connect_To_Watch.swift */; };
+		6838EE1C2B6B615500E94268 /* sail_v2_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE1B2B6B615500E94268 /* sail_v2_watchApp.swift */; };
+		6838EE202B6B615800E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EE1F2B6B615800E94268 /* Assets.xcassets */; };
+		6838EE232B6B615800E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EE222B6B615800E94268 /* Preview Assets.xcassets */; };
+		6838EE262B6B615800E94268 /* sail-v2-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6838EE192B6B615500E94268 /* sail-v2-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6838EE2E2B6B618B00E94268 /* Watch_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE2C2B6B618B00E94268 /* Watch_Landing_View.swift */; };
+		6838EE302B6B61C700E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE082B6B610600E94268 /* Patterns.swift */; };
+		6838EE312B6B61CE00E94268 /* Timer_Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE052B6B610600E94268 /* Timer_Controls.swift */; };
+		6838EE322B6B61D200E94268 /* Made_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE032B6B610600E94268 /* Made_Patterns.swift */; };
+		6838EE332B6B61DA00E94268 /* Connect_To_Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE0B2B6B610600E94268 /* Connect_To_Watch.swift */; };
+		6838EE342B6B61E100E94268 /* Extended_Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE062B6B610600E94268 /* Extended_Session.swift */; };
+		6838EE352B6B62D200E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE092B6B610600E94268 /* Haptics.swift */; };
+		6838EE362B6BEF4200E94268 /* Display_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE2D2B6B618B00E94268 /* Display_Info.swift */; };
+		6838EE7E2B6BEF7A00E94268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE3E2B6BEF7900E94268 /* ViewController.swift */; };
+		6838EE7F2B6BEF7A00E94268 /* IntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE412B6BEF7900E94268 /* IntervalType.swift */; };
+		6838EE802B6BEF7A00E94268 /* WorkoutDurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE422B6BEF7900E94268 /* WorkoutDurationType.swift */; };
+		6838EE812B6BEF7A00E94268 /* RowingStatusSampleRateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE432B6BEF7900E94268 /* RowingStatusSampleRateType.swift */; };
+		6838EE822B6BEF7A00E94268 /* StrokeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE442B6BEF7900E94268 /* StrokeState.swift */; };
+		6838EE832B6BEF7A00E94268 /* WorkoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE452B6BEF7900E94268 /* WorkoutState.swift */; };
+		6838EE842B6BEF7A00E94268 /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE462B6BEF7900E94268 /* WorkoutType.swift */; };
+		6838EE852B6BEF7A00E94268 /* RowingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE472B6BEF7900E94268 /* RowingState.swift */; };
+		6838EE862B6BEF7A00E94268 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE482B6BEF7900E94268 /* BluetoothManager.swift */; };
+		6838EE872B6BEF7A00E94268 /* PerformanceMonitorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE4A2B6BEF7900E94268 /* PerformanceMonitorStore.swift */; };
+		6838EE882B6BEF7A00E94268 /* RowingAdditionalStatus1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE4C2B6BEF7900E94268 /* RowingAdditionalStatus1.swift */; };
+		6838EE892B6BEF7A00E94268 /* RowingGeneralStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE4D2B6BEF7900E94268 /* RowingGeneralStatus.swift */; };
+		6838EE8A2B6BEF7A00E94268 /* RowingHeartRateBeltInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE4E2B6BEF7900E94268 /* RowingHeartRateBeltInformation.swift */; };
+		6838EE8B2B6BEF7A00E94268 /* RowingStatusSampleRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE4F2B6BEF7900E94268 /* RowingStatusSampleRate.swift */; };
+		6838EE8C2B6BEF7A00E94268 /* RowingAdditionalStatus2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE502B6BEF7900E94268 /* RowingAdditionalStatus2.swift */; };
+		6838EE8D2B6BEF7A00E94268 /* RowingWorkoutSummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE512B6BEF7900E94268 /* RowingWorkoutSummaryData.swift */; };
+		6838EE8E2B6BEF7A00E94268 /* CSAFECommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE522B6BEF7900E94268 /* CSAFECommand.swift */; };
+		6838EE8F2B6BEF7A00E94268 /* RowingAdditionalIntervalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE532B6BEF7900E94268 /* RowingAdditionalIntervalData.swift */; };
+		6838EE902B6BEF7A00E94268 /* RowingIntervalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE542B6BEF7900E94268 /* RowingIntervalData.swift */; };
+		6838EE912B6BEF7A00E94268 /* RowingAdditionalStrokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE552B6BEF7900E94268 /* RowingAdditionalStrokeData.swift */; };
+		6838EE922B6BEF7A00E94268 /* CharacteristicModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE562B6BEF7900E94268 /* CharacteristicModelProtocol.swift */; };
+		6838EE932B6BEF7A00E94268 /* RowingAdditionalWorkoutSummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE572B6BEF7900E94268 /* RowingAdditionalWorkoutSummaryData.swift */; };
+		6838EE942B6BEF7A00E94268 /* RowingStrokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE582B6BEF7900E94268 /* RowingStrokeData.swift */; };
+		6838EE952B6BEF7A00E94268 /* C2IntervalSize+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE5A2B6BEF7900E94268 /* C2IntervalSize+Parsing.swift */; };
+		6838EE962B6BEF7A00E94268 /* C2CalorieCount+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE5B2B6BEF7900E94268 /* C2CalorieCount+Parsing.swift */; };
+		6838EE972B6BEF7A00E94268 /* C2DriveLength+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE5C2B6BEF7900E94268 /* C2DriveLength+Parsing.swift */; };
+		6838EE982B6BEF7A00E94268 /* C2HeartRateBeltID+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE5D2B6BEF7900E94268 /* C2HeartRateBeltID+Parsing.swift */; };
+		6838EE992B6BEF7A00E94268 /* C2Speed+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE5E2B6BEF7900E94268 /* C2Speed+Parsing.swift */; };
+		6838EE9A2B6BEF7A00E94268 /* C2Power+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE5F2B6BEF7900E94268 /* C2Power+Parsing.swift */; };
+		6838EE9B2B6BEF7A00E94268 /* C2DriveForce+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE602B6BEF7900E94268 /* C2DriveForce+Parsing.swift */; };
+		6838EE9C2B6BEF7A00E94268 /* C2StrokeCount+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE612B6BEF7900E94268 /* C2StrokeCount+Parsing.swift */; };
+		6838EE9D2B6BEF7A00E94268 /* C2Pace+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE622B6BEF7900E94268 /* C2Pace+Parsing.swift */; };
+		6838EE9E2B6BEF7A00E94268 /* C2Work+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE632B6BEF7900E94268 /* C2Work+Parsing.swift */; };
+		6838EE9F2B6BEF7A00E94268 /* C2TimeInterval+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE642B6BEF7900E94268 /* C2TimeInterval+Parsing.swift */; };
+		6838EEA02B6BEF7A00E94268 /* C2Distance+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE652B6BEF7900E94268 /* C2Distance+Parsing.swift */; };
+		6838EEA12B6BEF7A00E94268 /* PerformanceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE662B6BEF7900E94268 /* PerformanceMonitor.swift */; };
+		6838EEA22B6BEF7A00E94268 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE672B6BEF7900E94268 /* Subject.swift */; };
+		6838EEA32B6BEF7A00E94268 /* CentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE692B6BEF7900E94268 /* CentralManagerDelegate.swift */; };
+		6838EEA42B6BEF7A00E94268 /* PeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE6A2B6BEF7900E94268 /* PeripheralDelegate.swift */; };
+		6838EEA52B6BEF7A00E94268 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE6B2B6BEF7900E94268 /* Types.swift */; };
+		6838EEA62B6BEF7A00E94268 /* RowingCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE6D2B6BEF7900E94268 /* RowingCharacteristic.swift */; };
+		6838EEA72B6BEF7A00E94268 /* DeviceInformationCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE6E2B6BEF7900E94268 /* DeviceInformationCharacteristic.swift */; };
+		6838EEA82B6BEF7A00E94268 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE6F2B6BEF7900E94268 /* Service.swift */; };
+		6838EEA92B6BEF7A00E94268 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE702B6BEF7900E94268 /* ControlCharacteristic.swift */; };
+		6838EEAA2B6BEF7A00E94268 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE712B6BEF7900E94268 /* Characteristic.swift */; };
+		6838EEAB2B6BEF7A00E94268 /* PerformanceMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE722B6BEF7900E94268 /* PerformanceMonitorViewController.swift */; };
+		6838EEAC2B6BEF7A00E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EE732B6BEF7900E94268 /* Assets.xcassets */; };
+		6838EEAE2B6BEF7A00E94268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6838EE762B6BEF7A00E94268 /* Main.storyboard */; };
+		6838EEAF2B6BEF7A00E94268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE772B6BEF7A00E94268 /* AppDelegate.swift */; };
+		6838EEB12B6BEF7A00E94268 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EE792B6BEF7A00E94268 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6838EE242B6B615800E94268 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6838EDDE2B6B60C200E94268 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6838EE182B6B615500E94268;
+			remoteInfo = "sail-v2-watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6838EE2A2B6B615800E94268 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6838EE262B6B615800E94268 /* sail-v2-watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		689B25512B69F77E00034462 /* Sail-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sail-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		689B25542B69F77E00034462 /* Sail_v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sail_v2App.swift; sourceTree = "<group>"; };
-		689B25562B69F77E00034462 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		689B25582B69F79600034462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		689B255B2B69F79600034462 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		689B255D2B69F79600034462 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		689B25602B69F79600034462 /* Sail_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sail_v2.xcdatamodel; sourceTree = "<group>"; };
-		689B25622B69F79600034462 /* Sail_v2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sail_v2.entitlements; sourceTree = "<group>"; };
-		689B25632B69F79600034462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6838EDE62B6B60C200E94268 /* sail-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sail-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6838EDE92B6B60C200E94268 /* sail_v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sail_v2App.swift; sourceTree = "<group>"; };
+		6838EDEB2B6B60C200E94268 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6838EDED2B6B60C500E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6838EDF02B6B60C500E94268 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6838EDF22B6B60C600E94268 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		6838EDF52B6B60C600E94268 /* sail_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sail_v2.xcdatamodel; sourceTree = "<group>"; };
+		6838EDFC2B6B60F400E94268 /* Select_Patterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Select_Patterns.swift; path = "../../sail-v1/sail-v1/Select_Patterns.swift"; sourceTree = "<group>"; };
+		6838EDFD2B6B60F400E94268 /* TransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransferService.swift; path = "../../sail-v1/sail-v1/TransferService.swift"; sourceTree = "<group>"; };
+		6838EDFE2B6B60F400E94268 /* Phone_Landing_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Phone_Landing_View.swift; path = "../../sail-v1/sail-v1/Phone_Landing_View.swift"; sourceTree = "<group>"; };
+		6838EE032B6B610600E94268 /* Made_Patterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Made_Patterns.swift; sourceTree = "<group>"; };
+		6838EE052B6B610600E94268 /* Timer_Controls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer_Controls.swift; sourceTree = "<group>"; };
+		6838EE062B6B610600E94268 /* Extended_Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extended_Session.swift; sourceTree = "<group>"; };
+		6838EE082B6B610600E94268 /* Patterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
+		6838EE092B6B610600E94268 /* Haptics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		6838EE0B2B6B610600E94268 /* Connect_To_Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connect_To_Watch.swift; sourceTree = "<group>"; };
+		6838EE192B6B615500E94268 /* sail-v2-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sail-v2-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6838EE1B2B6B615500E94268 /* sail_v2_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sail_v2_watchApp.swift; sourceTree = "<group>"; };
+		6838EE1F2B6B615800E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6838EE222B6B615800E94268 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6838EE2B2B6B616100E94268 /* sail-v2-watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sail-v2-watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6838EE2C2B6B618B00E94268 /* Watch_Landing_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Watch_Landing_View.swift; path = "../../sail-v1/sail-v1-watch Watch App/Watch_Landing_View.swift"; sourceTree = "<group>"; };
+		6838EE2D2B6B618B00E94268 /* Display_Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Display_Info.swift; path = "../../sail-v1/sail-v1-watch Watch App/Display_Info.swift"; sourceTree = "<group>"; };
+		6838EE3E2B6BEF7900E94268 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6838EE412B6BEF7900E94268 /* IntervalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalType.swift; sourceTree = "<group>"; };
+		6838EE422B6BEF7900E94268 /* WorkoutDurationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDurationType.swift; sourceTree = "<group>"; };
+		6838EE432B6BEF7900E94268 /* RowingStatusSampleRateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingStatusSampleRateType.swift; sourceTree = "<group>"; };
+		6838EE442B6BEF7900E94268 /* StrokeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeState.swift; sourceTree = "<group>"; };
+		6838EE452B6BEF7900E94268 /* WorkoutState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutState.swift; sourceTree = "<group>"; };
+		6838EE462B6BEF7900E94268 /* WorkoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
+		6838EE472B6BEF7900E94268 /* RowingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingState.swift; sourceTree = "<group>"; };
+		6838EE482B6BEF7900E94268 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		6838EE4A2B6BEF7900E94268 /* PerformanceMonitorStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitorStore.swift; sourceTree = "<group>"; };
+		6838EE4C2B6BEF7900E94268 /* RowingAdditionalStatus1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalStatus1.swift; sourceTree = "<group>"; };
+		6838EE4D2B6BEF7900E94268 /* RowingGeneralStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingGeneralStatus.swift; sourceTree = "<group>"; };
+		6838EE4E2B6BEF7900E94268 /* RowingHeartRateBeltInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingHeartRateBeltInformation.swift; sourceTree = "<group>"; };
+		6838EE4F2B6BEF7900E94268 /* RowingStatusSampleRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingStatusSampleRate.swift; sourceTree = "<group>"; };
+		6838EE502B6BEF7900E94268 /* RowingAdditionalStatus2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalStatus2.swift; sourceTree = "<group>"; };
+		6838EE512B6BEF7900E94268 /* RowingWorkoutSummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingWorkoutSummaryData.swift; sourceTree = "<group>"; };
+		6838EE522B6BEF7900E94268 /* CSAFECommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSAFECommand.swift; sourceTree = "<group>"; };
+		6838EE532B6BEF7900E94268 /* RowingAdditionalIntervalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalIntervalData.swift; sourceTree = "<group>"; };
+		6838EE542B6BEF7900E94268 /* RowingIntervalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingIntervalData.swift; sourceTree = "<group>"; };
+		6838EE552B6BEF7900E94268 /* RowingAdditionalStrokeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalStrokeData.swift; sourceTree = "<group>"; };
+		6838EE562B6BEF7900E94268 /* CharacteristicModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicModelProtocol.swift; sourceTree = "<group>"; };
+		6838EE572B6BEF7900E94268 /* RowingAdditionalWorkoutSummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalWorkoutSummaryData.swift; sourceTree = "<group>"; };
+		6838EE582B6BEF7900E94268 /* RowingStrokeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingStrokeData.swift; sourceTree = "<group>"; };
+		6838EE5A2B6BEF7900E94268 /* C2IntervalSize+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2IntervalSize+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE5B2B6BEF7900E94268 /* C2CalorieCount+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2CalorieCount+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE5C2B6BEF7900E94268 /* C2DriveLength+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2DriveLength+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE5D2B6BEF7900E94268 /* C2HeartRateBeltID+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2HeartRateBeltID+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE5E2B6BEF7900E94268 /* C2Speed+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Speed+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE5F2B6BEF7900E94268 /* C2Power+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Power+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE602B6BEF7900E94268 /* C2DriveForce+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2DriveForce+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE612B6BEF7900E94268 /* C2StrokeCount+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2StrokeCount+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE622B6BEF7900E94268 /* C2Pace+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Pace+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE632B6BEF7900E94268 /* C2Work+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Work+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE642B6BEF7900E94268 /* C2TimeInterval+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2TimeInterval+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE652B6BEF7900E94268 /* C2Distance+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Distance+Parsing.swift"; sourceTree = "<group>"; };
+		6838EE662B6BEF7900E94268 /* PerformanceMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitor.swift; sourceTree = "<group>"; };
+		6838EE672B6BEF7900E94268 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		6838EE692B6BEF7900E94268 /* CentralManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManagerDelegate.swift; sourceTree = "<group>"; };
+		6838EE6A2B6BEF7900E94268 /* PeripheralDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralDelegate.swift; sourceTree = "<group>"; };
+		6838EE6B2B6BEF7900E94268 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		6838EE6D2B6BEF7900E94268 /* RowingCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingCharacteristic.swift; sourceTree = "<group>"; };
+		6838EE6E2B6BEF7900E94268 /* DeviceInformationCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationCharacteristic.swift; sourceTree = "<group>"; };
+		6838EE6F2B6BEF7900E94268 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		6838EE702B6BEF7900E94268 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
+		6838EE712B6BEF7900E94268 /* Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		6838EE722B6BEF7900E94268 /* PerformanceMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitorViewController.swift; sourceTree = "<group>"; };
+		6838EE732B6BEF7900E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6838EE762B6BEF7A00E94268 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6838EE772B6BEF7A00E94268 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6838EE792B6BEF7A00E94268 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		689B254E2B69F77E00034462 /* Frameworks */ = {
+		6838EDE32B6B60C200E94268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6838EE162B6B615500E94268 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,81 +202,256 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		689B25482B69F77E00034462 = {
+		6838EDDD2B6B60C200E94268 = {
 			isa = PBXGroup;
 			children = (
-				689B25532B69F77E00034462 /* Sail-v2 */,
-				689B25522B69F77E00034462 /* Products */,
+				6838EE3D2B6BEF7900E94268 /* Rower */,
+				6838EE022B6B610600E94268 /* Supporting Files */,
+				6838EDE82B6B60C200E94268 /* sail-v2 */,
+				6838EE1A2B6B615500E94268 /* sail-v2-watch Watch App */,
+				6838EDE72B6B60C200E94268 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		689B25522B69F77E00034462 /* Products */ = {
+		6838EDE72B6B60C200E94268 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				689B25512B69F77E00034462 /* Sail-v2.app */,
+				6838EDE62B6B60C200E94268 /* sail-v2.app */,
+				6838EE192B6B615500E94268 /* sail-v2-watch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		689B25532B69F77E00034462 /* Sail-v2 */ = {
+		6838EDE82B6B60C200E94268 /* sail-v2 */ = {
 			isa = PBXGroup;
 			children = (
-				689B25542B69F77E00034462 /* Sail_v2App.swift */,
-				689B25562B69F77E00034462 /* ContentView.swift */,
-				689B25582B69F79600034462 /* Assets.xcassets */,
-				689B255D2B69F79600034462 /* Persistence.swift */,
-				689B25622B69F79600034462 /* Sail_v2.entitlements */,
-				689B25632B69F79600034462 /* Info.plist */,
-				689B255F2B69F79600034462 /* Sail_v2.xcdatamodeld */,
-				689B255A2B69F79600034462 /* Preview Content */,
+				6838EDFE2B6B60F400E94268 /* Phone_Landing_View.swift */,
+				6838EDFC2B6B60F400E94268 /* Select_Patterns.swift */,
+				6838EDFD2B6B60F400E94268 /* TransferService.swift */,
+				6838EDE92B6B60C200E94268 /* sail_v2App.swift */,
+				6838EDEB2B6B60C200E94268 /* ContentView.swift */,
+				6838EDED2B6B60C500E94268 /* Assets.xcassets */,
+				6838EDF22B6B60C600E94268 /* Persistence.swift */,
+				6838EDF42B6B60C600E94268 /* sail_v2.xcdatamodeld */,
+				6838EDEF2B6B60C500E94268 /* Preview Content */,
 			);
-			path = "Sail-v2";
+			path = "sail-v2";
 			sourceTree = "<group>";
 		};
-		689B255A2B69F79600034462 /* Preview Content */ = {
+		6838EDEF2B6B60C500E94268 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				689B255B2B69F79600034462 /* Preview Assets.xcassets */,
+				6838EDF02B6B60C500E94268 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6838EE022B6B610600E94268 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE032B6B610600E94268 /* Made_Patterns.swift */,
+				6838EE052B6B610600E94268 /* Timer_Controls.swift */,
+				6838EE062B6B610600E94268 /* Extended_Session.swift */,
+				6838EE082B6B610600E94268 /* Patterns.swift */,
+				6838EE092B6B610600E94268 /* Haptics.swift */,
+				6838EE0B2B6B610600E94268 /* Connect_To_Watch.swift */,
+			);
+			name = "Supporting Files";
+			path = "../sail-v1/Supporting Files";
+			sourceTree = "<group>";
+		};
+		6838EE1A2B6B615500E94268 /* sail-v2-watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE2D2B6B618B00E94268 /* Display_Info.swift */,
+				6838EE2C2B6B618B00E94268 /* Watch_Landing_View.swift */,
+				6838EE2B2B6B616100E94268 /* sail-v2-watch-Watch-App-Info.plist */,
+				6838EE1B2B6B615500E94268 /* sail_v2_watchApp.swift */,
+				6838EE1F2B6B615800E94268 /* Assets.xcassets */,
+				6838EE212B6B615800E94268 /* Preview Content */,
+			);
+			path = "sail-v2-watch Watch App";
+			sourceTree = "<group>";
+		};
+		6838EE212B6B615800E94268 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE222B6B615800E94268 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6838EE3D2B6BEF7900E94268 /* Rower */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE3E2B6BEF7900E94268 /* ViewController.swift */,
+				6838EE3F2B6BEF7900E94268 /* Concept2-SDK */,
+				6838EE722B6BEF7900E94268 /* PerformanceMonitorViewController.swift */,
+				6838EE732B6BEF7900E94268 /* Assets.xcassets */,
+				6838EE762B6BEF7A00E94268 /* Main.storyboard */,
+				6838EE772B6BEF7A00E94268 /* AppDelegate.swift */,
+				6838EE792B6BEF7A00E94268 /* SceneDelegate.swift */,
+			);
+			path = Rower;
+			sourceTree = "<group>";
+		};
+		6838EE3F2B6BEF7900E94268 /* Concept2-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE402B6BEF7900E94268 /* Enumerations */,
+				6838EE482B6BEF7900E94268 /* BluetoothManager.swift */,
+				6838EE492B6BEF7900E94268 /* Stores */,
+				6838EE4B2B6BEF7900E94268 /* Models */,
+				6838EE592B6BEF7900E94268 /* Extensions */,
+				6838EE662B6BEF7900E94268 /* PerformanceMonitor.swift */,
+				6838EE672B6BEF7900E94268 /* Subject.swift */,
+				6838EE682B6BEF7900E94268 /* Delegates */,
+				6838EE6B2B6BEF7900E94268 /* Types.swift */,
+				6838EE6C2B6BEF7900E94268 /* Services */,
+			);
+			path = "Concept2-SDK";
+			sourceTree = "<group>";
+		};
+		6838EE402B6BEF7900E94268 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE412B6BEF7900E94268 /* IntervalType.swift */,
+				6838EE422B6BEF7900E94268 /* WorkoutDurationType.swift */,
+				6838EE432B6BEF7900E94268 /* RowingStatusSampleRateType.swift */,
+				6838EE442B6BEF7900E94268 /* StrokeState.swift */,
+				6838EE452B6BEF7900E94268 /* WorkoutState.swift */,
+				6838EE462B6BEF7900E94268 /* WorkoutType.swift */,
+				6838EE472B6BEF7900E94268 /* RowingState.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		6838EE492B6BEF7900E94268 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE4A2B6BEF7900E94268 /* PerformanceMonitorStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		6838EE4B2B6BEF7900E94268 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE4C2B6BEF7900E94268 /* RowingAdditionalStatus1.swift */,
+				6838EE4D2B6BEF7900E94268 /* RowingGeneralStatus.swift */,
+				6838EE4E2B6BEF7900E94268 /* RowingHeartRateBeltInformation.swift */,
+				6838EE4F2B6BEF7900E94268 /* RowingStatusSampleRate.swift */,
+				6838EE502B6BEF7900E94268 /* RowingAdditionalStatus2.swift */,
+				6838EE512B6BEF7900E94268 /* RowingWorkoutSummaryData.swift */,
+				6838EE522B6BEF7900E94268 /* CSAFECommand.swift */,
+				6838EE532B6BEF7900E94268 /* RowingAdditionalIntervalData.swift */,
+				6838EE542B6BEF7900E94268 /* RowingIntervalData.swift */,
+				6838EE552B6BEF7900E94268 /* RowingAdditionalStrokeData.swift */,
+				6838EE562B6BEF7900E94268 /* CharacteristicModelProtocol.swift */,
+				6838EE572B6BEF7900E94268 /* RowingAdditionalWorkoutSummaryData.swift */,
+				6838EE582B6BEF7900E94268 /* RowingStrokeData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6838EE592B6BEF7900E94268 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE5A2B6BEF7900E94268 /* C2IntervalSize+Parsing.swift */,
+				6838EE5B2B6BEF7900E94268 /* C2CalorieCount+Parsing.swift */,
+				6838EE5C2B6BEF7900E94268 /* C2DriveLength+Parsing.swift */,
+				6838EE5D2B6BEF7900E94268 /* C2HeartRateBeltID+Parsing.swift */,
+				6838EE5E2B6BEF7900E94268 /* C2Speed+Parsing.swift */,
+				6838EE5F2B6BEF7900E94268 /* C2Power+Parsing.swift */,
+				6838EE602B6BEF7900E94268 /* C2DriveForce+Parsing.swift */,
+				6838EE612B6BEF7900E94268 /* C2StrokeCount+Parsing.swift */,
+				6838EE622B6BEF7900E94268 /* C2Pace+Parsing.swift */,
+				6838EE632B6BEF7900E94268 /* C2Work+Parsing.swift */,
+				6838EE642B6BEF7900E94268 /* C2TimeInterval+Parsing.swift */,
+				6838EE652B6BEF7900E94268 /* C2Distance+Parsing.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6838EE682B6BEF7900E94268 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE692B6BEF7900E94268 /* CentralManagerDelegate.swift */,
+				6838EE6A2B6BEF7900E94268 /* PeripheralDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		6838EE6C2B6BEF7900E94268 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6838EE6D2B6BEF7900E94268 /* RowingCharacteristic.swift */,
+				6838EE6E2B6BEF7900E94268 /* DeviceInformationCharacteristic.swift */,
+				6838EE6F2B6BEF7900E94268 /* Service.swift */,
+				6838EE702B6BEF7900E94268 /* ControlCharacteristic.swift */,
+				6838EE712B6BEF7900E94268 /* Characteristic.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		689B25502B69F77E00034462 /* Sail-v2 */ = {
+		6838EDE52B6B60C200E94268 /* sail-v2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 689B25662B69F79600034462 /* Build configuration list for PBXNativeTarget "Sail-v2" */;
+			buildConfigurationList = 6838EDF92B6B60C600E94268 /* Build configuration list for PBXNativeTarget "sail-v2" */;
 			buildPhases = (
-				689B254D2B69F77E00034462 /* Sources */,
-				689B254E2B69F77E00034462 /* Frameworks */,
-				689B254F2B69F77E00034462 /* Resources */,
+				6838EDE22B6B60C200E94268 /* Sources */,
+				6838EDE32B6B60C200E94268 /* Frameworks */,
+				6838EDE42B6B60C200E94268 /* Resources */,
+				6838EE2A2B6B615800E94268 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6838EE252B6B615800E94268 /* PBXTargetDependency */,
+			);
+			name = "sail-v2";
+			productName = "sail-v2";
+			productReference = 6838EDE62B6B60C200E94268 /* sail-v2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6838EE182B6B615500E94268 /* sail-v2-watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6838EE272B6B615800E94268 /* Build configuration list for PBXNativeTarget "sail-v2-watch Watch App" */;
+			buildPhases = (
+				6838EE152B6B615500E94268 /* Sources */,
+				6838EE162B6B615500E94268 /* Frameworks */,
+				6838EE172B6B615500E94268 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Sail-v2";
-			productName = "Sail-v2";
-			productReference = 689B25512B69F77E00034462 /* Sail-v2.app */;
+			name = "sail-v2-watch Watch App";
+			productName = "sail-v2-watch Watch App";
+			productReference = 6838EE192B6B615500E94268 /* sail-v2-watch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		689B25492B69F77E00034462 /* Project object */ = {
+		6838EDDE2B6B60C200E94268 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					689B25502B69F77E00034462 = {
+					6838EDE52B6B60C200E94268 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					6838EE182B6B615500E94268 = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 689B254C2B69F77E00034462 /* Build configuration list for PBXProject "Sail-v2" */;
+			buildConfigurationList = 6838EDE12B6B60C200E94268 /* Build configuration list for PBXProject "sail-v2" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,44 +459,135 @@
 				en,
 				Base,
 			);
-			mainGroup = 689B25482B69F77E00034462;
-			productRefGroup = 689B25522B69F77E00034462 /* Products */;
+			mainGroup = 6838EDDD2B6B60C200E94268;
+			productRefGroup = 6838EDE72B6B60C200E94268 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				689B25502B69F77E00034462 /* Sail-v2 */,
+				6838EDE52B6B60C200E94268 /* sail-v2 */,
+				6838EE182B6B615500E94268 /* sail-v2-watch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		689B254F2B69F77E00034462 /* Resources */ = {
+		6838EDE42B6B60C200E94268 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689B255C2B69F79600034462 /* Preview Assets.xcassets in Resources */,
-				689B25592B69F79600034462 /* Assets.xcassets in Resources */,
+				6838EDF12B6B60C500E94268 /* Preview Assets.xcassets in Resources */,
+				6838EDEE2B6B60C500E94268 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6838EE172B6B615500E94268 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6838EE232B6B615800E94268 /* Preview Assets.xcassets in Resources */,
+				6838EEAE2B6BEF7A00E94268 /* Main.storyboard in Resources */,
+				6838EEAC2B6BEF7A00E94268 /* Assets.xcassets in Resources */,
+				6838EE202B6B615800E94268 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		689B254D2B69F77E00034462 /* Sources */ = {
+		6838EDE22B6B60C200E94268 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689B25612B69F79600034462 /* Sail_v2.xcdatamodeld in Sources */,
-				689B255E2B69F79600034462 /* Persistence.swift in Sources */,
-				689B25572B69F77E00034462 /* ContentView.swift in Sources */,
-				689B25552B69F77E00034462 /* Sail_v2App.swift in Sources */,
+				6838EE122B6B610600E94268 /* Haptics.swift in Sources */,
+				6838EE012B6B60F400E94268 /* Phone_Landing_View.swift in Sources */,
+				6838EDFF2B6B60F400E94268 /* Select_Patterns.swift in Sources */,
+				6838EDF62B6B60C600E94268 /* sail_v2.xcdatamodeld in Sources */,
+				6838EE0E2B6B610600E94268 /* Timer_Controls.swift in Sources */,
+				6838EE002B6B60F400E94268 /* TransferService.swift in Sources */,
+				6838EE142B6B610600E94268 /* Connect_To_Watch.swift in Sources */,
+				6838EE112B6B610600E94268 /* Patterns.swift in Sources */,
+				6838EDEA2B6B60C200E94268 /* sail_v2App.swift in Sources */,
+				6838EE0C2B6B610600E94268 /* Made_Patterns.swift in Sources */,
+				6838EE0F2B6B610600E94268 /* Extended_Session.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6838EE152B6B615500E94268 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6838EE7F2B6BEF7A00E94268 /* IntervalType.swift in Sources */,
+				6838EE962B6BEF7A00E94268 /* C2CalorieCount+Parsing.swift in Sources */,
+				6838EE8A2B6BEF7A00E94268 /* RowingHeartRateBeltInformation.swift in Sources */,
+				6838EE9F2B6BEF7A00E94268 /* C2TimeInterval+Parsing.swift in Sources */,
+				6838EE902B6BEF7A00E94268 /* RowingIntervalData.swift in Sources */,
+				6838EE8D2B6BEF7A00E94268 /* RowingWorkoutSummaryData.swift in Sources */,
+				6838EEA32B6BEF7A00E94268 /* CentralManagerDelegate.swift in Sources */,
+				6838EE912B6BEF7A00E94268 /* RowingAdditionalStrokeData.swift in Sources */,
+				6838EE842B6BEF7A00E94268 /* WorkoutType.swift in Sources */,
+				6838EE942B6BEF7A00E94268 /* RowingStrokeData.swift in Sources */,
+				6838EE352B6B62D200E94268 /* Haptics.swift in Sources */,
+				6838EE982B6BEF7A00E94268 /* C2HeartRateBeltID+Parsing.swift in Sources */,
+				6838EEAA2B6BEF7A00E94268 /* Characteristic.swift in Sources */,
+				6838EE862B6BEF7A00E94268 /* BluetoothManager.swift in Sources */,
+				6838EE892B6BEF7A00E94268 /* RowingGeneralStatus.swift in Sources */,
+				6838EE8F2B6BEF7A00E94268 /* RowingAdditionalIntervalData.swift in Sources */,
+				6838EE852B6BEF7A00E94268 /* RowingState.swift in Sources */,
+				6838EE9A2B6BEF7A00E94268 /* C2Power+Parsing.swift in Sources */,
+				6838EE8B2B6BEF7A00E94268 /* RowingStatusSampleRate.swift in Sources */,
+				6838EE332B6B61DA00E94268 /* Connect_To_Watch.swift in Sources */,
+				6838EE802B6BEF7A00E94268 /* WorkoutDurationType.swift in Sources */,
+				6838EEAF2B6BEF7A00E94268 /* AppDelegate.swift in Sources */,
+				6838EE9B2B6BEF7A00E94268 /* C2DriveForce+Parsing.swift in Sources */,
+				6838EE8C2B6BEF7A00E94268 /* RowingAdditionalStatus2.swift in Sources */,
+				6838EE9D2B6BEF7A00E94268 /* C2Pace+Parsing.swift in Sources */,
+				6838EE2E2B6B618B00E94268 /* Watch_Landing_View.swift in Sources */,
+				6838EE992B6BEF7A00E94268 /* C2Speed+Parsing.swift in Sources */,
+				6838EE7E2B6BEF7A00E94268 /* ViewController.swift in Sources */,
+				6838EEA02B6BEF7A00E94268 /* C2Distance+Parsing.swift in Sources */,
+				6838EEA12B6BEF7A00E94268 /* PerformanceMonitor.swift in Sources */,
+				6838EE312B6B61CE00E94268 /* Timer_Controls.swift in Sources */,
+				6838EE872B6BEF7A00E94268 /* PerformanceMonitorStore.swift in Sources */,
+				6838EE972B6BEF7A00E94268 /* C2DriveLength+Parsing.swift in Sources */,
+				6838EE952B6BEF7A00E94268 /* C2IntervalSize+Parsing.swift in Sources */,
+				6838EEA52B6BEF7A00E94268 /* Types.swift in Sources */,
+				6838EEA62B6BEF7A00E94268 /* RowingCharacteristic.swift in Sources */,
+				6838EE302B6B61C700E94268 /* Patterns.swift in Sources */,
+				6838EEA92B6BEF7A00E94268 /* ControlCharacteristic.swift in Sources */,
+				6838EE932B6BEF7A00E94268 /* RowingAdditionalWorkoutSummaryData.swift in Sources */,
+				6838EE832B6BEF7A00E94268 /* WorkoutState.swift in Sources */,
+				6838EEB12B6BEF7A00E94268 /* SceneDelegate.swift in Sources */,
+				6838EE922B6BEF7A00E94268 /* CharacteristicModelProtocol.swift in Sources */,
+				6838EEA72B6BEF7A00E94268 /* DeviceInformationCharacteristic.swift in Sources */,
+				6838EEAB2B6BEF7A00E94268 /* PerformanceMonitorViewController.swift in Sources */,
+				6838EE342B6B61E100E94268 /* Extended_Session.swift in Sources */,
+				6838EE8E2B6BEF7A00E94268 /* CSAFECommand.swift in Sources */,
+				6838EE822B6BEF7A00E94268 /* StrokeState.swift in Sources */,
+				6838EE9C2B6BEF7A00E94268 /* C2StrokeCount+Parsing.swift in Sources */,
+				6838EE1C2B6B615500E94268 /* sail_v2_watchApp.swift in Sources */,
+				6838EE9E2B6BEF7A00E94268 /* C2Work+Parsing.swift in Sources */,
+				6838EE362B6BEF4200E94268 /* Display_Info.swift in Sources */,
+				6838EEA82B6BEF7A00E94268 /* Service.swift in Sources */,
+				6838EEA42B6BEF7A00E94268 /* PeripheralDelegate.swift in Sources */,
+				6838EE812B6BEF7A00E94268 /* RowingStatusSampleRateType.swift in Sources */,
+				6838EE882B6BEF7A00E94268 /* RowingAdditionalStatus1.swift in Sources */,
+				6838EE322B6B61D200E94268 /* Made_Patterns.swift in Sources */,
+				6838EEA22B6BEF7A00E94268 /* Subject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6838EE252B6B615800E94268 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6838EE182B6B615500E94268 /* sail-v2-watch Watch App */;
+			targetProxy = 6838EE242B6B615800E94268 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		689B25642B69F79600034462 /* Debug */ = {
+		6838EDF72B6B60C600E94268 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -220,7 +650,7 @@
 			};
 			name = Debug;
 		};
-		689B25652B69F79600034462 /* Release */ = {
+		6838EDF82B6B60C600E94268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,19 +706,18 @@
 			};
 			name = Release;
 		};
-		689B25672B69F79600034462 /* Debug */ = {
+		6838EDFA2B6B60C600E94268 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Sail-v2/Sail_v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sail-v2/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"sail-v2/Preview Content\"";
 				DEVELOPMENT_TEAM = KT6L52LDDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Sail-v2/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,7 +728,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Alice.Sail-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.sail2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -307,19 +736,18 @@
 			};
 			name = Debug;
 		};
-		689B25682B69F79600034462 /* Release */ = {
+		6838EDFB2B6B60C600E94268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Sail-v2/Sail_v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sail-v2/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"sail-v2/Preview Content\"";
 				DEVELOPMENT_TEAM = KT6L52LDDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Sail-v2/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -330,7 +758,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Alice.Sail-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.sail2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -338,23 +766,94 @@
 			};
 			name = Release;
 		};
+		6838EE282B6B615800E94268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"sail-v2-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KT6L52LDDC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "sail-v2-watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "sail-v2-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "Alice.sail-v2";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.sail2.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		6838EE292B6B615800E94268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"sail-v2-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KT6L52LDDC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "sail-v2-watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "sail-v2-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "Alice.sail-v2";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.sail2.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		689B254C2B69F77E00034462 /* Build configuration list for PBXProject "Sail-v2" */ = {
+		6838EDE12B6B60C200E94268 /* Build configuration list for PBXProject "sail-v2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				689B25642B69F79600034462 /* Debug */,
-				689B25652B69F79600034462 /* Release */,
+				6838EDF72B6B60C600E94268 /* Debug */,
+				6838EDF82B6B60C600E94268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		689B25662B69F79600034462 /* Build configuration list for PBXNativeTarget "Sail-v2" */ = {
+		6838EDF92B6B60C600E94268 /* Build configuration list for PBXNativeTarget "sail-v2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				689B25672B69F79600034462 /* Debug */,
-				689B25682B69F79600034462 /* Release */,
+				6838EDFA2B6B60C600E94268 /* Debug */,
+				6838EDFB2B6B60C600E94268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6838EE272B6B615800E94268 /* Build configuration list for PBXNativeTarget "sail-v2-watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6838EE282B6B615800E94268 /* Debug */,
+				6838EE292B6B615800E94268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -362,17 +861,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		689B255F2B69F79600034462 /* Sail_v2.xcdatamodeld */ = {
+		6838EDF42B6B60C600E94268 /* sail_v2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				689B25602B69F79600034462 /* Sail_v2.xcdatamodel */,
+				6838EDF52B6B60C600E94268 /* sail_v2.xcdatamodel */,
 			);
-			currentVersion = 689B25602B69F79600034462 /* Sail_v2.xcdatamodel */;
-			path = Sail_v2.xcdatamodeld;
+			currentVersion = 6838EDF52B6B60C600E94268 /* sail_v2.xcdatamodel */;
+			path = sail_v2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 689B25492B69F77E00034462 /* Project object */;
+	rootObject = 6838EDDE2B6B60C200E94268 /* Project object */;
 }

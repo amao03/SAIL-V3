@@ -11,7 +11,7 @@ import SwiftUI
 struct sail_v2_watch_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Watch_Landing_View()
         }
     }
 }

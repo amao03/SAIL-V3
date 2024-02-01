@@ -1,8 +1,8 @@
 //
 //  Persistence.swift
-//  Sail-v2
+//  sail-v2
 //
-//  Created by Alice Mao on 1/30/24.
+//  Created by Alice Mao on 1/31/24.
 //
 
 import CoreData
@@ -28,10 +28,10 @@ struct PersistenceController {
         return result
     }()
 
-    let container: NSPersistentCloudKitContainer
+    let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "Sail_v2")
+        container = NSPersistentContainer(name: "sail_v2")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

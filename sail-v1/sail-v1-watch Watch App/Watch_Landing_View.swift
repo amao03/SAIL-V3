@@ -17,29 +17,7 @@ struct Watch_Landing_View : View {
     @State private var randomData:Bool = false
     
    private var backgroundColor = Color.black
-    
-    private func authorizeHealthKit(){
-        print("authorizing....")
-        
-        HealthKitData.authorizeHealthKit(){ (authorized, error) in
-            
-            guard authorized else {
-                
-                let baseMessage = "HealthKit Authorization Failed - Watch"
-                
-                if let error = error {
-                    print("\(baseMessage). Reason: \(error.localizedDescription)")
-                } else {
-                    print(baseMessage)
-                }
-                return
-            }
-            
-            authorize = true
-            print("HealthKit Successfully Authorized - Watch")
-        }
-    }
-    
+
     private func update(){
         print("updating timer")
         Timer.scheduledTimer(withTimeInterval: 3, repeats: false){ timer in
@@ -100,7 +78,6 @@ struct Watch_Landing_View : View {
                 }
             }
         }
-        .onAppear(perform: authorizeHealthKit)
       
     }
 }

@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  Sail-v2
+//  sail-v2
 //
-//  Created by Alice Mao on 1/30/24.
+//  Created by Alice Mao on 1/31/24.
 //
 
 import SwiftUI

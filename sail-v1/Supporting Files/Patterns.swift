@@ -17,7 +17,7 @@ struct Pattern: Hashable, Codable{
     var aboveTime: Double = 0.5
     var timeOverall: Double = 5.0
     
-    var type = "distance"
+    var type = "rowing"
     var target: Double = 160.0
     var range: Double = 30.0
     

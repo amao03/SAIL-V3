@@ -1,0 +1,898 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6838EEBF2B6BF03D00E94268 /* v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEBE2B6BF03D00E94268 /* v2App.swift */; };
+		6838EEC12B6BF03D00E94268 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEC02B6BF03D00E94268 /* ContentView.swift */; };
+		6838EEC32B6BF04000E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEC22B6BF04000E94268 /* Assets.xcassets */; };
+		6838EEC62B6BF04000E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEC52B6BF04000E94268 /* Preview Assets.xcassets */; };
+		6838EEC82B6BF04000E94268 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEC72B6BF04000E94268 /* Persistence.swift */; };
+		6838EECB2B6BF04000E94268 /* v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEC92B6BF04000E94268 /* v2.xcdatamodeld */; };
+		6838EED22B6BF08C00E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED12B6BF08C00E94268 /* Haptics.swift */; };
+		6838EED42B6BF0A400E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Patterns.swift */; };
+		6838EED62B6BF0BC00E94268 /* MadePatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePatterns.swift */; };
+		6838EED82B6BF0E700E94268 /* PhoneLandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED72B6BF0E700E94268 /* PhoneLandingPage.swift */; };
+		6838EEDD2B6BF12900E94268 /* SelectPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEDC2B6BF12900E94268 /* SelectPatterns.swift */; };
+		6838EEDF2B6BF14D00E94268 /* sail-v2-phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */; };
+		6838EEE12B6BF23600E94268 /* ConnectToWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */; };
+		6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEE82B6BF25800E94268 /* v2_watchApp.swift */; };
+		6838EEEB2B6BF25800E94268 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEEA2B6BF25800E94268 /* ContentView.swift */; };
+		6838EEED2B6BF25B00E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEEC2B6BF25B00E94268 /* Assets.xcassets */; };
+		6838EEF02B6BF25B00E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEEF2B6BF25B00E94268 /* Preview Assets.xcassets */; };
+		6838EEF32B6BF25B00E94268 /* v2-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6838EEF92B6BF2C400E94268 /* WatchLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEF82B6BF2C400E94268 /* WatchLandingView.swift */; };
+		6838EEFC2B6BF2DC00E94268 /* DisplayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEFB2B6BF2DC00E94268 /* DisplayInfo.swift */; };
+		6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Patterns.swift */; };
+		6838EEFE2B6BF2E600E94268 /* MadePatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePatterns.swift */; };
+		6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED12B6BF08C00E94268 /* Haptics.swift */; };
+		6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */; };
+		6838EF022B6BF31B00E94268 /* TimerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF012B6BF31B00E94268 /* TimerControl.swift */; };
+		6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF042B6BF33000E94268 /* ExtendedSession.swift */; };
+		6838EF7B2B6BF47F00E94268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF0A2B6BF43600E94268 /* ViewController.swift */; };
+		6838EF7C2B6BF48500E94268 /* IntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF0D2B6BF43600E94268 /* IntervalType.swift */; };
+		6838EF7D2B6BF48800E94268 /* WorkoutDurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF0E2B6BF43600E94268 /* WorkoutDurationType.swift */; };
+		6838EF7E2B6BF48B00E94268 /* RowingStatusSampleRateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF0F2B6BF43600E94268 /* RowingStatusSampleRateType.swift */; };
+		6838EF7F2B6BF48D00E94268 /* StrokeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF102B6BF43600E94268 /* StrokeState.swift */; };
+		6838EF802B6BF49000E94268 /* WorkoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF112B6BF43600E94268 /* WorkoutState.swift */; };
+		6838EF812B6BF49300E94268 /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF122B6BF43600E94268 /* WorkoutType.swift */; };
+		6838EF822B6BF49600E94268 /* RowingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF132B6BF43600E94268 /* RowingState.swift */; };
+		6838EF832B6BF49900E94268 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF142B6BF43600E94268 /* BluetoothManager.swift */; };
+		6838EF842B6BF49D00E94268 /* PerformanceMonitorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF162B6BF43600E94268 /* PerformanceMonitorStore.swift */; };
+		6838EF852B6BF4A100E94268 /* RowingAdditionalStatus1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF182B6BF43600E94268 /* RowingAdditionalStatus1.swift */; };
+		6838EF862B6BF4A300E94268 /* RowingGeneralStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF192B6BF43600E94268 /* RowingGeneralStatus.swift */; };
+		6838EF872B6BF4A600E94268 /* RowingHeartRateBeltInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF1A2B6BF43600E94268 /* RowingHeartRateBeltInformation.swift */; };
+		6838EF882B6BF4A900E94268 /* RowingStatusSampleRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF1B2B6BF43600E94268 /* RowingStatusSampleRate.swift */; };
+		6838EF892B6BF4AC00E94268 /* RowingAdditionalStatus2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF1C2B6BF43600E94268 /* RowingAdditionalStatus2.swift */; };
+		6838EF8A2B6BF4AF00E94268 /* RowingWorkoutSummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF1D2B6BF43600E94268 /* RowingWorkoutSummaryData.swift */; };
+		6838EF8B2B6BF4B100E94268 /* CSAFECommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF1E2B6BF43600E94268 /* CSAFECommand.swift */; };
+		6838EF8C2B6BF4B400E94268 /* RowingAdditionalIntervalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF1F2B6BF43600E94268 /* RowingAdditionalIntervalData.swift */; };
+		6838EF8D2B6BF4B600E94268 /* RowingIntervalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF202B6BF43600E94268 /* RowingIntervalData.swift */; };
+		6838EF8E2B6BF4B900E94268 /* RowingAdditionalStrokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF212B6BF43600E94268 /* RowingAdditionalStrokeData.swift */; };
+		6838EF8F2B6BF4BB00E94268 /* CharacteristicModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF222B6BF43600E94268 /* CharacteristicModelProtocol.swift */; };
+		6838EF902B6BF4BE00E94268 /* RowingAdditionalWorkoutSummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF232B6BF43600E94268 /* RowingAdditionalWorkoutSummaryData.swift */; };
+		6838EF912B6BF4C000E94268 /* RowingStrokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF242B6BF43600E94268 /* RowingStrokeData.swift */; };
+		6838EF922B6BF4C500E94268 /* C2IntervalSize+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF262B6BF43600E94268 /* C2IntervalSize+Parsing.swift */; };
+		6838EF942B6BF4CA00E94268 /* C2CalorieCount+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF272B6BF43600E94268 /* C2CalorieCount+Parsing.swift */; };
+		6838EF952B6BF4CE00E94268 /* C2DriveLength+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF282B6BF43600E94268 /* C2DriveLength+Parsing.swift */; };
+		6838EF962B6BF4D100E94268 /* C2HeartRateBeltID+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF292B6BF43600E94268 /* C2HeartRateBeltID+Parsing.swift */; };
+		6838EF972B6BF4D400E94268 /* C2Speed+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF2A2B6BF43600E94268 /* C2Speed+Parsing.swift */; };
+		6838EF982B6BF4D700E94268 /* C2Power+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF2B2B6BF43600E94268 /* C2Power+Parsing.swift */; };
+		6838EF992B6BF4DA00E94268 /* C2DriveForce+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF2C2B6BF43600E94268 /* C2DriveForce+Parsing.swift */; };
+		6838EF9A2B6BF4DD00E94268 /* C2StrokeCount+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF2D2B6BF43600E94268 /* C2StrokeCount+Parsing.swift */; };
+		6838EF9B2B6BF4DF00E94268 /* C2Pace+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF2E2B6BF43600E94268 /* C2Pace+Parsing.swift */; };
+		6838EF9C2B6BF4E200E94268 /* C2Work+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF2F2B6BF43600E94268 /* C2Work+Parsing.swift */; };
+		6838EF9D2B6BF4E400E94268 /* C2TimeInterval+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF302B6BF43600E94268 /* C2TimeInterval+Parsing.swift */; };
+		6838EF9E2B6BF4E700E94268 /* C2Distance+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF312B6BF43600E94268 /* C2Distance+Parsing.swift */; };
+		6838EF9F2B6BF4EA00E94268 /* PerformanceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF322B6BF43600E94268 /* PerformanceMonitor.swift */; };
+		6838EFA02B6BF4ED00E94268 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF332B6BF43600E94268 /* Subject.swift */; };
+		6838EFA12B6BF4F000E94268 /* CentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF352B6BF43600E94268 /* CentralManagerDelegate.swift */; };
+		6838EFA22B6BF4F300E94268 /* PeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF362B6BF43600E94268 /* PeripheralDelegate.swift */; };
+		6838EFA32B6BF4F600E94268 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF372B6BF43600E94268 /* Types.swift */; };
+		6838EFA42B6BF4F900E94268 /* RowingCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF392B6BF43600E94268 /* RowingCharacteristic.swift */; };
+		6838EFA52B6BF4FC00E94268 /* DeviceInformationCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3A2B6BF43600E94268 /* DeviceInformationCharacteristic.swift */; };
+		6838EFA62B6BF50000E94268 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3B2B6BF43600E94268 /* Service.swift */; };
+		6838EFA72B6BF50200E94268 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */; };
+		6838EFA82B6BF50500E94268 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3D2B6BF43600E94268 /* Characteristic.swift */; };
+		6838EFAA2B6BF50D00E94268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF432B6BF43600E94268 /* AppDelegate.swift */; };
+		6838EFAB2B6BF51200E94268 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF452B6BF43600E94268 /* SceneDelegate.swift */; };
+		6838EFAC2B6BF7B900E94268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6838EF422B6BF43600E94268 /* Main.storyboard */; };
+		6838EFAD2B6BF7CD00E94268 /* PerformanceMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3E2B6BF43600E94268 /* PerformanceMonitorViewController.swift */; };
+		6838EFB02B6BF85800E94268 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EFAE2B6BF85500E94268 /* Bluetooth.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6838EEF12B6BF25B00E94268 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6838EEB32B6BF03C00E94268 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6838EEE52B6BF25800E94268;
+			remoteInfo = "v2-watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6838EEF72B6BF25B00E94268 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6838EEF32B6BF25B00E94268 /* v2-watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6838EEBB2B6BF03D00E94268 /* v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6838EEBE2B6BF03D00E94268 /* v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v2App.swift; sourceTree = "<group>"; };
+		6838EEC02B6BF03D00E94268 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6838EEC22B6BF04000E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6838EEC52B6BF04000E94268 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6838EEC72B6BF04000E94268 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		6838EECA2B6BF04000E94268 /* v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.xcdatamodel; sourceTree = "<group>"; };
+		6838EED12B6BF08C00E94268 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		6838EED32B6BF0A400E94268 /* Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
+		6838EED52B6BF0BC00E94268 /* MadePatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadePatterns.swift; sourceTree = "<group>"; };
+		6838EED72B6BF0E700E94268 /* PhoneLandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLandingPage.swift; sourceTree = "<group>"; };
+		6838EEDC2B6BF12900E94268 /* SelectPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPatterns.swift; sourceTree = "<group>"; };
+		6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "sail-v2-phone.swift"; sourceTree = "<group>"; };
+		6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToWatch.swift; sourceTree = "<group>"; };
+		6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "v2-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6838EEE82B6BF25800E94268 /* v2_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v2_watchApp.swift; sourceTree = "<group>"; };
+		6838EEEA2B6BF25800E94268 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6838EEEC2B6BF25B00E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6838EEEF2B6BF25B00E94268 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6838EEF82B6BF2C400E94268 /* WatchLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLandingView.swift; sourceTree = "<group>"; };
+		6838EEFB2B6BF2DC00E94268 /* DisplayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayInfo.swift; sourceTree = "<group>"; };
+		6838EF012B6BF31B00E94268 /* TimerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControl.swift; sourceTree = "<group>"; };
+		6838EF042B6BF33000E94268 /* ExtendedSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedSession.swift; sourceTree = "<group>"; };
+		6838EF062B6BF35000E94268 /* v2-watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "v2-watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6838EF0A2B6BF43600E94268 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6838EF0D2B6BF43600E94268 /* IntervalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalType.swift; sourceTree = "<group>"; };
+		6838EF0E2B6BF43600E94268 /* WorkoutDurationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDurationType.swift; sourceTree = "<group>"; };
+		6838EF0F2B6BF43600E94268 /* RowingStatusSampleRateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingStatusSampleRateType.swift; sourceTree = "<group>"; };
+		6838EF102B6BF43600E94268 /* StrokeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeState.swift; sourceTree = "<group>"; };
+		6838EF112B6BF43600E94268 /* WorkoutState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutState.swift; sourceTree = "<group>"; };
+		6838EF122B6BF43600E94268 /* WorkoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
+		6838EF132B6BF43600E94268 /* RowingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingState.swift; sourceTree = "<group>"; };
+		6838EF142B6BF43600E94268 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		6838EF162B6BF43600E94268 /* PerformanceMonitorStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitorStore.swift; sourceTree = "<group>"; };
+		6838EF182B6BF43600E94268 /* RowingAdditionalStatus1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalStatus1.swift; sourceTree = "<group>"; };
+		6838EF192B6BF43600E94268 /* RowingGeneralStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingGeneralStatus.swift; sourceTree = "<group>"; };
+		6838EF1A2B6BF43600E94268 /* RowingHeartRateBeltInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingHeartRateBeltInformation.swift; sourceTree = "<group>"; };
+		6838EF1B2B6BF43600E94268 /* RowingStatusSampleRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingStatusSampleRate.swift; sourceTree = "<group>"; };
+		6838EF1C2B6BF43600E94268 /* RowingAdditionalStatus2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalStatus2.swift; sourceTree = "<group>"; };
+		6838EF1D2B6BF43600E94268 /* RowingWorkoutSummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingWorkoutSummaryData.swift; sourceTree = "<group>"; };
+		6838EF1E2B6BF43600E94268 /* CSAFECommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSAFECommand.swift; sourceTree = "<group>"; };
+		6838EF1F2B6BF43600E94268 /* RowingAdditionalIntervalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalIntervalData.swift; sourceTree = "<group>"; };
+		6838EF202B6BF43600E94268 /* RowingIntervalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingIntervalData.swift; sourceTree = "<group>"; };
+		6838EF212B6BF43600E94268 /* RowingAdditionalStrokeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalStrokeData.swift; sourceTree = "<group>"; };
+		6838EF222B6BF43600E94268 /* CharacteristicModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicModelProtocol.swift; sourceTree = "<group>"; };
+		6838EF232B6BF43600E94268 /* RowingAdditionalWorkoutSummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingAdditionalWorkoutSummaryData.swift; sourceTree = "<group>"; };
+		6838EF242B6BF43600E94268 /* RowingStrokeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingStrokeData.swift; sourceTree = "<group>"; };
+		6838EF262B6BF43600E94268 /* C2IntervalSize+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2IntervalSize+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF272B6BF43600E94268 /* C2CalorieCount+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2CalorieCount+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF282B6BF43600E94268 /* C2DriveLength+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2DriveLength+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF292B6BF43600E94268 /* C2HeartRateBeltID+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2HeartRateBeltID+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF2A2B6BF43600E94268 /* C2Speed+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Speed+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF2B2B6BF43600E94268 /* C2Power+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Power+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF2C2B6BF43600E94268 /* C2DriveForce+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2DriveForce+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF2D2B6BF43600E94268 /* C2StrokeCount+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2StrokeCount+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF2E2B6BF43600E94268 /* C2Pace+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Pace+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF2F2B6BF43600E94268 /* C2Work+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Work+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF302B6BF43600E94268 /* C2TimeInterval+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2TimeInterval+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF312B6BF43600E94268 /* C2Distance+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C2Distance+Parsing.swift"; sourceTree = "<group>"; };
+		6838EF322B6BF43600E94268 /* PerformanceMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitor.swift; sourceTree = "<group>"; };
+		6838EF332B6BF43600E94268 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		6838EF352B6BF43600E94268 /* CentralManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManagerDelegate.swift; sourceTree = "<group>"; };
+		6838EF362B6BF43600E94268 /* PeripheralDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralDelegate.swift; sourceTree = "<group>"; };
+		6838EF372B6BF43600E94268 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		6838EF392B6BF43600E94268 /* RowingCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowingCharacteristic.swift; sourceTree = "<group>"; };
+		6838EF3A2B6BF43600E94268 /* DeviceInformationCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationCharacteristic.swift; sourceTree = "<group>"; };
+		6838EF3B2B6BF43600E94268 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
+		6838EF3D2B6BF43600E94268 /* Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		6838EF3E2B6BF43600E94268 /* PerformanceMonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitorViewController.swift; sourceTree = "<group>"; };
+		6838EF422B6BF43600E94268 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6838EF432B6BF43600E94268 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6838EF452B6BF43600E94268 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6838EFAE2B6BF85500E94268 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6838EEB82B6BF03D00E94268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6838EEE32B6BF25800E94268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6838EEB22B6BF03C00E94268 = {
+			isa = PBXGroup;
+			children = (
+				6838EF072B6BF41900E94268 /* Rower */,
+				6838EED92B6BF0F900E94268 /* Phone */,
+				6838EEDA2B6BF10400E94268 /* Shared Files */,
+				6838EEBD2B6BF03D00E94268 /* v2 */,
+				6838EEE72B6BF25800E94268 /* v2-watch Watch App */,
+				6838EEBC2B6BF03D00E94268 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6838EEBC2B6BF03D00E94268 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6838EEBB2B6BF03D00E94268 /* v2.app */,
+				6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6838EEBD2B6BF03D00E94268 /* v2 */ = {
+			isa = PBXGroup;
+			children = (
+				6838EEBE2B6BF03D00E94268 /* v2App.swift */,
+				6838EEC02B6BF03D00E94268 /* ContentView.swift */,
+				6838EEC22B6BF04000E94268 /* Assets.xcassets */,
+				6838EEC72B6BF04000E94268 /* Persistence.swift */,
+				6838EEC92B6BF04000E94268 /* v2.xcdatamodeld */,
+				6838EEC42B6BF04000E94268 /* Preview Content */,
+			);
+			path = v2;
+			sourceTree = "<group>";
+		};
+		6838EEC42B6BF04000E94268 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6838EEC52B6BF04000E94268 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6838EED92B6BF0F900E94268 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				6838EED72B6BF0E700E94268 /* PhoneLandingPage.swift */,
+				6838EEDC2B6BF12900E94268 /* SelectPatterns.swift */,
+				6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */,
+				6838EFAE2B6BF85500E94268 /* Bluetooth.swift */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		6838EEDA2B6BF10400E94268 /* Shared Files */ = {
+			isa = PBXGroup;
+			children = (
+				6838EED12B6BF08C00E94268 /* Haptics.swift */,
+				6838EED32B6BF0A400E94268 /* Patterns.swift */,
+				6838EED52B6BF0BC00E94268 /* MadePatterns.swift */,
+				6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */,
+				6838EF012B6BF31B00E94268 /* TimerControl.swift */,
+				6838EF042B6BF33000E94268 /* ExtendedSession.swift */,
+			);
+			path = "Shared Files";
+			sourceTree = "<group>";
+		};
+		6838EEE72B6BF25800E94268 /* v2-watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF062B6BF35000E94268 /* v2-watch-Watch-App-Info.plist */,
+				6838EEE82B6BF25800E94268 /* v2_watchApp.swift */,
+				6838EEF82B6BF2C400E94268 /* WatchLandingView.swift */,
+				6838EEFB2B6BF2DC00E94268 /* DisplayInfo.swift */,
+				6838EEEA2B6BF25800E94268 /* ContentView.swift */,
+				6838EEEC2B6BF25B00E94268 /* Assets.xcassets */,
+				6838EEEE2B6BF25B00E94268 /* Preview Content */,
+			);
+			path = "v2-watch Watch App";
+			sourceTree = "<group>";
+		};
+		6838EEEE2B6BF25B00E94268 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6838EEEF2B6BF25B00E94268 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6838EF072B6BF41900E94268 /* Rower */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF092B6BF43600E94268 /* Rower */,
+			);
+			path = Rower;
+			sourceTree = "<group>";
+		};
+		6838EF092B6BF43600E94268 /* Rower */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF0A2B6BF43600E94268 /* ViewController.swift */,
+				6838EF0B2B6BF43600E94268 /* Concept2-SDK */,
+				6838EF3E2B6BF43600E94268 /* PerformanceMonitorViewController.swift */,
+				6838EF422B6BF43600E94268 /* Main.storyboard */,
+				6838EF432B6BF43600E94268 /* AppDelegate.swift */,
+				6838EF452B6BF43600E94268 /* SceneDelegate.swift */,
+			);
+			path = Rower;
+			sourceTree = "<group>";
+		};
+		6838EF0B2B6BF43600E94268 /* Concept2-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF0C2B6BF43600E94268 /* Enumerations */,
+				6838EF142B6BF43600E94268 /* BluetoothManager.swift */,
+				6838EF152B6BF43600E94268 /* Stores */,
+				6838EF172B6BF43600E94268 /* Models */,
+				6838EF252B6BF43600E94268 /* Extensions */,
+				6838EF322B6BF43600E94268 /* PerformanceMonitor.swift */,
+				6838EF332B6BF43600E94268 /* Subject.swift */,
+				6838EF342B6BF43600E94268 /* Delegates */,
+				6838EF372B6BF43600E94268 /* Types.swift */,
+				6838EF382B6BF43600E94268 /* Services */,
+			);
+			path = "Concept2-SDK";
+			sourceTree = "<group>";
+		};
+		6838EF0C2B6BF43600E94268 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF0D2B6BF43600E94268 /* IntervalType.swift */,
+				6838EF0E2B6BF43600E94268 /* WorkoutDurationType.swift */,
+				6838EF0F2B6BF43600E94268 /* RowingStatusSampleRateType.swift */,
+				6838EF102B6BF43600E94268 /* StrokeState.swift */,
+				6838EF112B6BF43600E94268 /* WorkoutState.swift */,
+				6838EF122B6BF43600E94268 /* WorkoutType.swift */,
+				6838EF132B6BF43600E94268 /* RowingState.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		6838EF152B6BF43600E94268 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF162B6BF43600E94268 /* PerformanceMonitorStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		6838EF172B6BF43600E94268 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF182B6BF43600E94268 /* RowingAdditionalStatus1.swift */,
+				6838EF192B6BF43600E94268 /* RowingGeneralStatus.swift */,
+				6838EF1A2B6BF43600E94268 /* RowingHeartRateBeltInformation.swift */,
+				6838EF1B2B6BF43600E94268 /* RowingStatusSampleRate.swift */,
+				6838EF1C2B6BF43600E94268 /* RowingAdditionalStatus2.swift */,
+				6838EF1D2B6BF43600E94268 /* RowingWorkoutSummaryData.swift */,
+				6838EF1E2B6BF43600E94268 /* CSAFECommand.swift */,
+				6838EF1F2B6BF43600E94268 /* RowingAdditionalIntervalData.swift */,
+				6838EF202B6BF43600E94268 /* RowingIntervalData.swift */,
+				6838EF212B6BF43600E94268 /* RowingAdditionalStrokeData.swift */,
+				6838EF222B6BF43600E94268 /* CharacteristicModelProtocol.swift */,
+				6838EF232B6BF43600E94268 /* RowingAdditionalWorkoutSummaryData.swift */,
+				6838EF242B6BF43600E94268 /* RowingStrokeData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6838EF252B6BF43600E94268 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF262B6BF43600E94268 /* C2IntervalSize+Parsing.swift */,
+				6838EF272B6BF43600E94268 /* C2CalorieCount+Parsing.swift */,
+				6838EF282B6BF43600E94268 /* C2DriveLength+Parsing.swift */,
+				6838EF292B6BF43600E94268 /* C2HeartRateBeltID+Parsing.swift */,
+				6838EF2A2B6BF43600E94268 /* C2Speed+Parsing.swift */,
+				6838EF2B2B6BF43600E94268 /* C2Power+Parsing.swift */,
+				6838EF2C2B6BF43600E94268 /* C2DriveForce+Parsing.swift */,
+				6838EF2D2B6BF43600E94268 /* C2StrokeCount+Parsing.swift */,
+				6838EF2E2B6BF43600E94268 /* C2Pace+Parsing.swift */,
+				6838EF2F2B6BF43600E94268 /* C2Work+Parsing.swift */,
+				6838EF302B6BF43600E94268 /* C2TimeInterval+Parsing.swift */,
+				6838EF312B6BF43600E94268 /* C2Distance+Parsing.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6838EF342B6BF43600E94268 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF352B6BF43600E94268 /* CentralManagerDelegate.swift */,
+				6838EF362B6BF43600E94268 /* PeripheralDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		6838EF382B6BF43600E94268 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6838EF392B6BF43600E94268 /* RowingCharacteristic.swift */,
+				6838EF3A2B6BF43600E94268 /* DeviceInformationCharacteristic.swift */,
+				6838EF3B2B6BF43600E94268 /* Service.swift */,
+				6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */,
+				6838EF3D2B6BF43600E94268 /* Characteristic.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6838EEBA2B6BF03D00E94268 /* v2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6838EECE2B6BF04000E94268 /* Build configuration list for PBXNativeTarget "v2" */;
+			buildPhases = (
+				6838EEB72B6BF03D00E94268 /* Sources */,
+				6838EEB82B6BF03D00E94268 /* Frameworks */,
+				6838EEB92B6BF03D00E94268 /* Resources */,
+				6838EEF72B6BF25B00E94268 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6838EEF22B6BF25B00E94268 /* PBXTargetDependency */,
+			);
+			name = v2;
+			productName = v2;
+			productReference = 6838EEBB2B6BF03D00E94268 /* v2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6838EEE52B6BF25800E94268 /* v2-watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6838EEF42B6BF25B00E94268 /* Build configuration list for PBXNativeTarget "v2-watch Watch App" */;
+			buildPhases = (
+				6838EEE22B6BF25800E94268 /* Sources */,
+				6838EEE32B6BF25800E94268 /* Frameworks */,
+				6838EEE42B6BF25800E94268 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "v2-watch Watch App";
+			productName = "v2-watch Watch App";
+			productReference = 6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6838EEB32B6BF03C00E94268 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					6838EEBA2B6BF03D00E94268 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					6838EEE52B6BF25800E94268 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 6838EEB62B6BF03C00E94268 /* Build configuration list for PBXProject "v2" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6838EEB22B6BF03C00E94268;
+			productRefGroup = 6838EEBC2B6BF03D00E94268 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6838EEBA2B6BF03D00E94268 /* v2 */,
+				6838EEE52B6BF25800E94268 /* v2-watch Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6838EEB92B6BF03D00E94268 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6838EFAC2B6BF7B900E94268 /* Main.storyboard in Resources */,
+				6838EEC62B6BF04000E94268 /* Preview Assets.xcassets in Resources */,
+				6838EEC32B6BF04000E94268 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6838EEE42B6BF25800E94268 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6838EEF02B6BF25B00E94268 /* Preview Assets.xcassets in Resources */,
+				6838EEED2B6BF25B00E94268 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6838EEB72B6BF03D00E94268 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6838EF7C2B6BF48500E94268 /* IntervalType.swift in Sources */,
+				6838EEDD2B6BF12900E94268 /* SelectPatterns.swift in Sources */,
+				6838EF852B6BF4A100E94268 /* RowingAdditionalStatus1.swift in Sources */,
+				6838EF982B6BF4D700E94268 /* C2Power+Parsing.swift in Sources */,
+				6838EFA12B6BF4F000E94268 /* CentralManagerDelegate.swift in Sources */,
+				6838EF9B2B6BF4DF00E94268 /* C2Pace+Parsing.swift in Sources */,
+				6838EFA82B6BF50500E94268 /* Characteristic.swift in Sources */,
+				6838EF902B6BF4BE00E94268 /* RowingAdditionalWorkoutSummaryData.swift in Sources */,
+				6838EF882B6BF4A900E94268 /* RowingStatusSampleRate.swift in Sources */,
+				6838EEDF2B6BF14D00E94268 /* sail-v2-phone.swift in Sources */,
+				6838EF952B6BF4CE00E94268 /* C2DriveLength+Parsing.swift in Sources */,
+				6838EFAD2B6BF7CD00E94268 /* PerformanceMonitorViewController.swift in Sources */,
+				6838EF7F2B6BF48D00E94268 /* StrokeState.swift in Sources */,
+				6838EED62B6BF0BC00E94268 /* MadePatterns.swift in Sources */,
+				6838EEC82B6BF04000E94268 /* Persistence.swift in Sources */,
+				6838EEC12B6BF03D00E94268 /* ContentView.swift in Sources */,
+				6838EFB02B6BF85800E94268 /* Bluetooth.swift in Sources */,
+				6838EF992B6BF4DA00E94268 /* C2DriveForce+Parsing.swift in Sources */,
+				6838EED42B6BF0A400E94268 /* Patterns.swift in Sources */,
+				6838EF942B6BF4CA00E94268 /* C2CalorieCount+Parsing.swift in Sources */,
+				6838EF972B6BF4D400E94268 /* C2Speed+Parsing.swift in Sources */,
+				6838EFA22B6BF4F300E94268 /* PeripheralDelegate.swift in Sources */,
+				6838EF922B6BF4C500E94268 /* C2IntervalSize+Parsing.swift in Sources */,
+				6838EFAA2B6BF50D00E94268 /* AppDelegate.swift in Sources */,
+				6838EF8A2B6BF4AF00E94268 /* RowingWorkoutSummaryData.swift in Sources */,
+				6838EF8C2B6BF4B400E94268 /* RowingAdditionalIntervalData.swift in Sources */,
+				6838EF7D2B6BF48800E94268 /* WorkoutDurationType.swift in Sources */,
+				6838EF832B6BF49900E94268 /* BluetoothManager.swift in Sources */,
+				6838EED22B6BF08C00E94268 /* Haptics.swift in Sources */,
+				6838EF8B2B6BF4B100E94268 /* CSAFECommand.swift in Sources */,
+				6838EF8F2B6BF4BB00E94268 /* CharacteristicModelProtocol.swift in Sources */,
+				6838EF962B6BF4D100E94268 /* C2HeartRateBeltID+Parsing.swift in Sources */,
+				6838EF7E2B6BF48B00E94268 /* RowingStatusSampleRateType.swift in Sources */,
+				6838EF892B6BF4AC00E94268 /* RowingAdditionalStatus2.swift in Sources */,
+				6838EF9F2B6BF4EA00E94268 /* PerformanceMonitor.swift in Sources */,
+				6838EF9D2B6BF4E400E94268 /* C2TimeInterval+Parsing.swift in Sources */,
+				6838EF7B2B6BF47F00E94268 /* ViewController.swift in Sources */,
+				6838EED82B6BF0E700E94268 /* PhoneLandingPage.swift in Sources */,
+				6838EEBF2B6BF03D00E94268 /* v2App.swift in Sources */,
+				6838EF8D2B6BF4B600E94268 /* RowingIntervalData.swift in Sources */,
+				6838EEE12B6BF23600E94268 /* ConnectToWatch.swift in Sources */,
+				6838EF912B6BF4C000E94268 /* RowingStrokeData.swift in Sources */,
+				6838EFA02B6BF4ED00E94268 /* Subject.swift in Sources */,
+				6838EFAB2B6BF51200E94268 /* SceneDelegate.swift in Sources */,
+				6838EFA72B6BF50200E94268 /* ControlCharacteristic.swift in Sources */,
+				6838EF8E2B6BF4B900E94268 /* RowingAdditionalStrokeData.swift in Sources */,
+				6838EF842B6BF49D00E94268 /* PerformanceMonitorStore.swift in Sources */,
+				6838EECB2B6BF04000E94268 /* v2.xcdatamodeld in Sources */,
+				6838EF862B6BF4A300E94268 /* RowingGeneralStatus.swift in Sources */,
+				6838EF812B6BF49300E94268 /* WorkoutType.swift in Sources */,
+				6838EFA42B6BF4F900E94268 /* RowingCharacteristic.swift in Sources */,
+				6838EF9E2B6BF4E700E94268 /* C2Distance+Parsing.swift in Sources */,
+				6838EF802B6BF49000E94268 /* WorkoutState.swift in Sources */,
+				6838EFA32B6BF4F600E94268 /* Types.swift in Sources */,
+				6838EF872B6BF4A600E94268 /* RowingHeartRateBeltInformation.swift in Sources */,
+				6838EF822B6BF49600E94268 /* RowingState.swift in Sources */,
+				6838EF9A2B6BF4DD00E94268 /* C2StrokeCount+Parsing.swift in Sources */,
+				6838EFA62B6BF50000E94268 /* Service.swift in Sources */,
+				6838EF9C2B6BF4E200E94268 /* C2Work+Parsing.swift in Sources */,
+				6838EFA52B6BF4FC00E94268 /* DeviceInformationCharacteristic.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6838EEE22B6BF25800E94268 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6838EEFE2B6BF2E600E94268 /* MadePatterns.swift in Sources */,
+				6838EEEB2B6BF25800E94268 /* ContentView.swift in Sources */,
+				6838EEFC2B6BF2DC00E94268 /* DisplayInfo.swift in Sources */,
+				6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */,
+				6838EF022B6BF31B00E94268 /* TimerControl.swift in Sources */,
+				6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */,
+				6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */,
+				6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */,
+				6838EEF92B6BF2C400E94268 /* WatchLandingView.swift in Sources */,
+				6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6838EEF22B6BF25B00E94268 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6838EEE52B6BF25800E94268 /* v2-watch Watch App */;
+			targetProxy = 6838EEF12B6BF25B00E94268 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6838EECC2B6BF04000E94268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6838EECD2B6BF04000E94268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6838EECF2B6BF04000E94268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"v2/Preview Content\"";
+				DEVELOPMENT_TEAM = KT6L52LDDC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.v2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6838EED02B6BF04000E94268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"v2/Preview Content\"";
+				DEVELOPMENT_TEAM = KT6L52LDDC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.v2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6838EEF52B6BF25B00E94268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"v2-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KT6L52LDDC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "v2-watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "v2-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Alice.v2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.v2.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		6838EEF62B6BF25B00E94268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"v2-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KT6L52LDDC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "v2-watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "v2-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Alice.v2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alice.v2.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6838EEB62B6BF03C00E94268 /* Build configuration list for PBXProject "v2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6838EECC2B6BF04000E94268 /* Debug */,
+				6838EECD2B6BF04000E94268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6838EECE2B6BF04000E94268 /* Build configuration list for PBXNativeTarget "v2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6838EECF2B6BF04000E94268 /* Debug */,
+				6838EED02B6BF04000E94268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6838EEF42B6BF25B00E94268 /* Build configuration list for PBXNativeTarget "v2-watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6838EEF52B6BF25B00E94268 /* Debug */,
+				6838EEF62B6BF25B00E94268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6838EEC92B6BF04000E94268 /* v2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6838EECA2B6BF04000E94268 /* v2.xcdatamodel */,
+			);
+			currentVersion = 6838EECA2B6BF04000E94268 /* v2.xcdatamodel */;
+			path = v2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6838EEB32B6BF03C00E94268 /* Project object */;
+}
