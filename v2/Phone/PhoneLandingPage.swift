@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Phone_Landing_View : View{
+//    @Binding var pariedDevice:PerformanceMonitor
     @ObservedObject var connector = ConnectToWatch.connect
     @State var patternObject = Pattern()
     

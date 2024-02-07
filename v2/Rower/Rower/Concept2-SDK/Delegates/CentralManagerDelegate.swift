@@ -43,7 +43,7 @@ final class CentralManagerDelegate:NSObject, CBCentralManagerDelegate {
     // MARK: Peripheral Discovery
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print("[BluetoothManager]didDiscoverPeripheral \(peripheral)")
+//        print("[BluetoothManager]didDiscoverPeripheral \(peripheral)")
         PerformanceMonitorStore.sharedInstance.addPerformanceMonitor(
             performanceMonitor: PerformanceMonitor(withPeripheral: peripheral)
         )

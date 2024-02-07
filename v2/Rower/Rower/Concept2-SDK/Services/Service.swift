@@ -38,6 +38,7 @@ public enum Service {
         switch self {
         case .DeviceDiscovery:
             return CBUUID(string: "CE060000-43E5-11E4-916C-0800200C9A66")
+//            return CBUUID(string: "bda77345-1c55-4580-8e80-10873962aa38")
         case .DeviceInformation:
             return CBUUID(string: "CE060010-43E5-11E4-916C-0800200C9A66")
         case .Control:

@@ -15,6 +15,7 @@ public final class BluetoothManager
     public static let sharedInstance = BluetoothManager()
     
     public static func scanForPerformanceMonitors() {
+        print("scan public static func")
         sharedInstance.scanForPerformanceMonitors()
     }
     
@@ -43,6 +44,7 @@ public final class BluetoothManager
     
     public static var performanceMonitors:Subject<Array<PerformanceMonitor>> {
         get {
+            print("fetch PerformanceMonitor")
             return sharedInstance.performanceMonitors
         }
     }
@@ -73,6 +75,7 @@ public final class BluetoothManager
                     DispatchQueue.global(qos: .background).async {
                         DispatchQueue.main.async {
                             weakSelf.performanceMonitors.value = Array(PerformanceMonitorStore.sharedInstance.performanceMonitors)
+//                            print("val \( weakSelf.performanceMonitors.value )")
                         }
                     }
                 }
@@ -80,9 +83,10 @@ public final class BluetoothManager
     }
     
     func scanForPerformanceMonitors() {
-        centralManager.scanForPeripherals(withServices: [Service.DeviceDiscovery.UUID], options: nil)
+//        centralManager.scanForPeripherals(withServices: [Service.DeviceDiscovery.UUID], options: nil)
+        print("scan func")
         //MARK: Using the below method will find all bluetooth devices :)
-        //centralManager.scanForPeripherals(withServices: nil)
+        centralManager.scanForPeripherals(withServices: nil)
     }
     
     func stopScanningForPerformanceMonitors() {

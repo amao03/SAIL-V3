@@ -82,7 +82,8 @@
 		6838EFAB2B6BF51200E94268 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF452B6BF43600E94268 /* SceneDelegate.swift */; };
 		6838EFAC2B6BF7B900E94268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6838EF422B6BF43600E94268 /* Main.storyboard */; };
 		6838EFAD2B6BF7CD00E94268 /* PerformanceMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3E2B6BF43600E94268 /* PerformanceMonitorViewController.swift */; };
-		6838EFB02B6BF85800E94268 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EFAE2B6BF85500E94268 /* Bluetooth.swift */; };
+		6838EFB02B6BF85800E94268 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EFAE2B6BF85500E94268 /* BluetoothView.swift */; };
+		68A326852B72A43B00023834 /* PlayHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A326842B72A43B00023834 /* PlayHaptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,7 +184,8 @@
 		6838EF422B6BF43600E94268 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6838EF432B6BF43600E94268 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6838EF452B6BF43600E94268 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6838EFAE2B6BF85500E94268 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+		6838EFAE2B6BF85500E94268 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		68A326842B72A43B00023834 /* PlayHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHaptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +254,7 @@
 				6838EED72B6BF0E700E94268 /* PhoneLandingPage.swift */,
 				6838EEDC2B6BF12900E94268 /* SelectPatterns.swift */,
 				6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */,
-				6838EFAE2B6BF85500E94268 /* Bluetooth.swift */,
+				6838EFAE2B6BF85500E94268 /* BluetoothView.swift */,
 			);
 			path = Phone;
 			sourceTree = "<group>";
@@ -265,6 +267,7 @@
 				6838EED52B6BF0BC00E94268 /* MadePatterns.swift */,
 				6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */,
 				6838EF012B6BF31B00E94268 /* TimerControl.swift */,
+				68A326842B72A43B00023834 /* PlayHaptics.swift */,
 				6838EF042B6BF33000E94268 /* ExtendedSession.swift */,
 			);
 			path = "Shared Files";
@@ -303,9 +306,13 @@
 		6838EF092B6BF43600E94268 /* Rower */ = {
 			isa = PBXGroup;
 			children = (
-				6838EF0A2B6BF43600E94268 /* ViewController.swift */,
 				6838EF0B2B6BF43600E94268 /* Concept2-SDK */,
+				6838EF0A2B6BF43600E94268 /* ViewController.swift */,
 				6838EF3E2B6BF43600E94268 /* PerformanceMonitorViewController.swift */,
+				6838EF142B6BF43600E94268 /* BluetoothManager.swift */,
+				6838EF322B6BF43600E94268 /* PerformanceMonitor.swift */,
+				6838EF332B6BF43600E94268 /* Subject.swift */,
+				6838EF372B6BF43600E94268 /* Types.swift */,
 				6838EF422B6BF43600E94268 /* Main.storyboard */,
 				6838EF432B6BF43600E94268 /* AppDelegate.swift */,
 				6838EF452B6BF43600E94268 /* SceneDelegate.swift */,
@@ -316,15 +323,11 @@
 		6838EF0B2B6BF43600E94268 /* Concept2-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				6838EF0C2B6BF43600E94268 /* Enumerations */,
-				6838EF142B6BF43600E94268 /* BluetoothManager.swift */,
 				6838EF152B6BF43600E94268 /* Stores */,
+				6838EF0C2B6BF43600E94268 /* Enumerations */,
 				6838EF172B6BF43600E94268 /* Models */,
 				6838EF252B6BF43600E94268 /* Extensions */,
-				6838EF322B6BF43600E94268 /* PerformanceMonitor.swift */,
-				6838EF332B6BF43600E94268 /* Subject.swift */,
 				6838EF342B6BF43600E94268 /* Delegates */,
-				6838EF372B6BF43600E94268 /* Types.swift */,
 				6838EF382B6BF43600E94268 /* Services */,
 			);
 			path = "Concept2-SDK";
@@ -531,7 +534,7 @@
 				6838EED62B6BF0BC00E94268 /* MadePatterns.swift in Sources */,
 				6838EEC82B6BF04000E94268 /* Persistence.swift in Sources */,
 				6838EEC12B6BF03D00E94268 /* ContentView.swift in Sources */,
-				6838EFB02B6BF85800E94268 /* Bluetooth.swift in Sources */,
+				6838EFB02B6BF85800E94268 /* BluetoothView.swift in Sources */,
 				6838EF992B6BF4DA00E94268 /* C2DriveForce+Parsing.swift in Sources */,
 				6838EED42B6BF0A400E94268 /* Patterns.swift in Sources */,
 				6838EF942B6BF4CA00E94268 /* C2CalorieCount+Parsing.swift in Sources */,
@@ -590,6 +593,7 @@
 				6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */,
 				6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */,
 				6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */,
+				68A326852B72A43B00023834 /* PlayHaptics.swift in Sources */,
 				6838EEF92B6BF2C400E94268 /* WatchLandingView.swift in Sources */,
 				6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */,
 			);
@@ -737,7 +741,7 @@
 				DEVELOPMENT_TEAM = KT6L52LDDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -768,7 +772,7 @@
 				DEVELOPMENT_TEAM = KT6L52LDDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
