@@ -10,14 +10,25 @@ import SwiftUI
 
 struct Phone_Landing_View : View{
 //    @Binding var pariedDevice:PerformanceMonitor
-    @ObservedObject var connector = ConnectToWatch.connect
+//    @ObservedObject var connector = ConnectToWatch.connect
     @State var patternObject = Pattern()
+    @State private var realData:Bool = false
+    @State private var randomData:Bool = false
+
     
     @State private var hapticsListBool:Bool = false
 
     var body: some View {
         NavigationView{
             Form{
+                Button(action:{
+                    CreateTimer().startTimer(patternObject: patternObject, realData: realData, randomData: randomData)
+                }){
+                    Text("Start")
+                }
+                
+                Toggle("Real data", isOn: $realData)
+                Toggle("Random data", isOn: $randomData)
                 HStack{
                     Text("Target")
                     TextField("",value: $patternObject.target, format: .number).multilineTextAlignment(.trailing)
@@ -65,13 +76,9 @@ struct Phone_Landing_View : View{
                     }
                 })
                 
-                Button(action:{
-                    connector.sendDataToWatch(sendObject: patternObject)
-                }){
-                    Text("Send data to Watch")
-                }
+                .navigationTitle("Custom Haptics")
             }
-            .navigationTitle("Custom Haptics")
+           
         }
     }
 }

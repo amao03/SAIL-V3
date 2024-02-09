@@ -11,7 +11,7 @@ import HealthKit
 
 struct Watch_Landing_View : View {
     @ObservedObject var connector = ConnectToWatch.connect
-    @ObservedObject var timerObj = TimerControls.time
+    @ObservedObject var timerObj = PlayHapticOnWatch.time
     @State private var authorize: Bool = false
     @State private var realData:Bool = false
     @State private var randomData:Bool = false
@@ -29,7 +29,6 @@ struct Watch_Landing_View : View {
     var body: some View {
         NavigationView{
             VStack{
-                if authorize{
                     if ConnectToWatch.connect.receivedInitial{
                         ScrollView{
                             VStack{
@@ -44,7 +43,7 @@ struct Watch_Landing_View : View {
                                         print("starting....")
                                         timerObj.toggleEnd()
                                         timerObj.setPattern(pattern: connector.pattern)
-                                        timerObj.overallTimer(realData: realData, randomData: randomData)
+//                                        timerObj.overallTimer(realData: realData, randomData: randomData)
                                     }){
                                         Text("Start")
                                     }
@@ -54,17 +53,13 @@ struct Watch_Landing_View : View {
                                         timerObj.toggleEnd()
                                         print("stopping")
                                     }){
-                                        Text(timerObj.patternObject.type)
+//                                        Text(timerObj.patternObject.type)
                                         Text("stop")
                                     }
                                 }
-                                
-                                NavigationLink(destination: DisplayInfo(currPattern: $connector.pattern)){
-                                    Text("View Patterns")
-                                }
+                                Text("**Pattern:** \n \(connector.pattern.description)")
                                 
                                 Text("currData: \(timerObj.currentData, specifier: "%.2f")")
-//                                let _ = updateColor()
                             }
                         }
                         .background(backgroundColor)
@@ -72,10 +67,6 @@ struct Watch_Landing_View : View {
                     else{
                         Text("awaiting info from phone")
                     }
-                }
-                else {
-                    Text("need to authorize")
-                }
             }
         }
       

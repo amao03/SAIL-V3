@@ -26,7 +26,6 @@
 		6838EEF02B6BF25B00E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEEF2B6BF25B00E94268 /* Preview Assets.xcassets */; };
 		6838EEF32B6BF25B00E94268 /* v2-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6838EEF92B6BF2C400E94268 /* WatchLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEF82B6BF2C400E94268 /* WatchLandingView.swift */; };
-		6838EEFC2B6BF2DC00E94268 /* DisplayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEFB2B6BF2DC00E94268 /* DisplayInfo.swift */; };
 		6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Patterns.swift */; };
 		6838EEFE2B6BF2E600E94268 /* MadePatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePatterns.swift */; };
 		6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED12B6BF08C00E94268 /* Haptics.swift */; };
@@ -84,6 +83,9 @@
 		6838EFAD2B6BF7CD00E94268 /* PerformanceMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3E2B6BF43600E94268 /* PerformanceMonitorViewController.swift */; };
 		6838EFB02B6BF85800E94268 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EFAE2B6BF85500E94268 /* BluetoothView.swift */; };
 		68A326852B72A43B00023834 /* PlayHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A326842B72A43B00023834 /* PlayHaptics.swift */; };
+		68BEEDC02B753B4000812B57 /* CreateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDBF2B753B4000812B57 /* CreateTimer.swift */; };
+		68BEEDC12B753B4000812B57 /* CreateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDBF2B753B4000812B57 /* CreateTimer.swift */; };
+		68BEEDC42B76887200812B57 /* PlayHapticOnWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDC22B76887200812B57 /* PlayHapticOnWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		6838EF452B6BF43600E94268 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6838EFAE2B6BF85500E94268 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		68A326842B72A43B00023834 /* PlayHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHaptics.swift; sourceTree = "<group>"; };
+		68BEEDBF2B753B4000812B57 /* CreateTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTimer.swift; sourceTree = "<group>"; };
+		68BEEDC22B76887200812B57 /* PlayHapticOnWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHapticOnWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				6838EF072B6BF41900E94268 /* Rower */,
-				6838EED92B6BF0F900E94268 /* Phone */,
 				6838EEDA2B6BF10400E94268 /* Shared Files */,
+				6838EED92B6BF0F900E94268 /* Phone */,
 				6838EEBD2B6BF03D00E94268 /* v2 */,
 				6838EEE72B6BF25800E94268 /* v2-watch Watch App */,
 				6838EEBC2B6BF03D00E94268 /* Products */,
@@ -266,9 +270,11 @@
 				6838EED32B6BF0A400E94268 /* Patterns.swift */,
 				6838EED52B6BF0BC00E94268 /* MadePatterns.swift */,
 				6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */,
+				68BEEDC22B76887200812B57 /* PlayHapticOnWatch.swift */,
 				6838EF012B6BF31B00E94268 /* TimerControl.swift */,
 				68A326842B72A43B00023834 /* PlayHaptics.swift */,
 				6838EF042B6BF33000E94268 /* ExtendedSession.swift */,
+				68BEEDBF2B753B4000812B57 /* CreateTimer.swift */,
 			);
 			path = "Shared Files";
 			sourceTree = "<group>";
@@ -573,6 +579,7 @@
 				6838EF802B6BF49000E94268 /* WorkoutState.swift in Sources */,
 				6838EFA32B6BF4F600E94268 /* Types.swift in Sources */,
 				6838EF872B6BF4A600E94268 /* RowingHeartRateBeltInformation.swift in Sources */,
+				68BEEDC02B753B4000812B57 /* CreateTimer.swift in Sources */,
 				6838EF822B6BF49600E94268 /* RowingState.swift in Sources */,
 				6838EF9A2B6BF4DD00E94268 /* C2StrokeCount+Parsing.swift in Sources */,
 				6838EFA62B6BF50000E94268 /* Service.swift in Sources */,
@@ -587,13 +594,14 @@
 			files = (
 				6838EEFE2B6BF2E600E94268 /* MadePatterns.swift in Sources */,
 				6838EEEB2B6BF25800E94268 /* ContentView.swift in Sources */,
-				6838EEFC2B6BF2DC00E94268 /* DisplayInfo.swift in Sources */,
 				6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */,
 				6838EF022B6BF31B00E94268 /* TimerControl.swift in Sources */,
+				68BEEDC42B76887200812B57 /* PlayHapticOnWatch.swift in Sources */,
 				6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */,
 				6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */,
 				6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */,
 				68A326852B72A43B00023834 /* PlayHaptics.swift in Sources */,
+				68BEEDC12B753B4000812B57 /* CreateTimer.swift in Sources */,
 				6838EEF92B6BF2C400E94268 /* WatchLandingView.swift in Sources */,
 				6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */,
 			);

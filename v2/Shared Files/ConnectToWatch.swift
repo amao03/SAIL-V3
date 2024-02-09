@@ -14,7 +14,7 @@ class ConnectToWatch: NSObject, ObservableObject {
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
-    @Published var pattern:Pattern = Pattern()
+    @Published var pattern:MadePattern = MadePattern()
     @Published var receivedInitial:Bool = false
     @Published var updating:Bool = false
     
@@ -60,6 +60,24 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
+    public func sendDataToWatch(sendObject: MadePattern){
+        Swift.print("send method")
+        if activateSession(){
+            if (session.isReachable){
+                Swift.print("reached")
+                let data:[String:Any] = ["data":sendObject.encoder()]
+                Swift.print("sending data: \(data)")
+                session.sendMessage(data, replyHandler: nil)
+            }
+            else{
+                print("failed to send haptics because it is not reachable")
+            }
+        }
+        else {
+            print("not activated")
+        }
+    }
+    
     
     // Convert Data from phone to a Pattern object to be set in TimerControls
     public func dataReceivedFromPhone(_ info:[String:Any]) {
@@ -67,7 +85,7 @@ class ConnectToWatch: NSObject, ObservableObject {
             Swift.print("couldn't retrieve data from phone")
             return
         }
-        
+        print("dataReceivedFromPhone")
         if !receivedInitial{
             self.receivedInitial = true
         } else{
@@ -75,18 +93,18 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
         
         let data:Data = info["data"] as! Data
-        let decodedPattern = Pattern.decoder(data)
+        let decodedPattern = MadePattern.decoder(data)
         Swift.print("Receiving..")
         DispatchQueue.main.async {
             Swift.print("pattern received: \(decodedPattern)")
             self.pattern = decodedPattern
-            self.updatePattern(pattern: self.pattern)
+//            self.updatePattern(pattern: self.pattern)
         }
     }
     
-    func updatePattern(pattern: Pattern){
-        Pattern.init(underPattern: pattern.underPattern, atPattern: pattern.atPattern, abovePattern: pattern.abovePattern, underTime: pattern.underTime, atTime: pattern.atTime, aboveTime: pattern.aboveTime, timeOverall: pattern.timeOverall, type: pattern.type, target: pattern.target)
-    }
+//    func updatePattern(pattern: Pattern){
+//        Pattern.init(underPattern: pattern.underPattern, atPattern: pattern.atPattern, abovePattern: pattern.abovePattern, underTime: pattern.underTime, atTime: pattern.atTime, aboveTime: pattern.aboveTime, timeOverall: pattern.timeOverall, type: pattern.type, target: pattern.target)
+//    }
     
 }
 
