@@ -7,16 +7,19 @@
 
 import Foundation
 import SwiftUI
+import CoreBluetooth
 
 struct BluetoothView : View{
     @State private var  bluetoothSuccess = false
     @State private var bluetoothReady = false
     @State var deviceArr:Array<PerformanceMonitor> = []
-//    @State var selectedDevice:PerformanceMonitor
+//    @State var selectedDevice:PerformanceMonitor = PerformanceMonitor(withPeripheral: <#T##CBPeripheral#>)
+//    @State var PerformanceMonitorStore = PerformanceMonitorStore()
 
     private func attachBluetooth(){
         bluetoothReady = BluetoothManager.isReady.value
     }
+    
     private func scanForDevices(){
         bluetoothSuccess = true;
         print(bluetoothSuccess)
@@ -36,7 +39,12 @@ struct BluetoothView : View{
     
     private func connectToDevice(pm: PerformanceMonitor){
         print("connect: \(pm)")
+//        selectedDevice = pm
         BluetoothManager.connectPerformanceMonitor(performanceMonitor: pm)
+        BluetoothManager.stopScanningForPerformanceMonitors()
+        
+        
+        
     }
     
     
@@ -47,23 +55,33 @@ struct BluetoothView : View{
                 Button(action:scanForDevices){
                     Text("Find Device")
                 }
+                
                 ScrollView{
                     ForEach(deviceArr, id: \.self) { device in
                         
                         if (device.peripheralName != "Unknown"){
-//                            self.selectedDevice = device
-                            NavigationLink(destination: Phone_Landing_View()){
+                            Button(action:{
+                                connectToDevice(pm: device)
+                            }){
                                 Text(device.peripheralName)
                             }
                         }
                     }
                 }
+                
+//                if selectedDevice != nil{
+//                    if(selectedDevice!.isConnected){
+                        NavigationLink(destination: {
+                            Phone_Landing_View(deviceArr: deviceArr)
+                        }, label: {
+                            Text("SelectPattern")
+                        })
+//                    }
+//                }
+                
             }
         }
         .onAppear(perform: attachBluetooth)
     }
 }
 
-#Preview{
-    BluetoothView()
-}

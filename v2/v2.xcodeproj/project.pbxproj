@@ -86,6 +86,7 @@
 		68BEEDC02B753B4000812B57 /* CreateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDBF2B753B4000812B57 /* CreateTimer.swift */; };
 		68BEEDC12B753B4000812B57 /* CreateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDBF2B753B4000812B57 /* CreateTimer.swift */; };
 		68BEEDC42B76887200812B57 /* PlayHapticOnWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDC22B76887200812B57 /* PlayHapticOnWatch.swift */; };
+		68BEEDC62B769AA600812B57 /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDC52B769AA600812B57 /* ReadData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		68A326842B72A43B00023834 /* PlayHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHaptics.swift; sourceTree = "<group>"; };
 		68BEEDBF2B753B4000812B57 /* CreateTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTimer.swift; sourceTree = "<group>"; };
 		68BEEDC22B76887200812B57 /* PlayHapticOnWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHapticOnWatch.swift; sourceTree = "<group>"; };
+		68BEEDC52B769AA600812B57 /* ReadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				68A326842B72A43B00023834 /* PlayHaptics.swift */,
 				6838EF042B6BF33000E94268 /* ExtendedSession.swift */,
 				68BEEDBF2B753B4000812B57 /* CreateTimer.swift */,
+				68BEEDC52B769AA600812B57 /* ReadData.swift */,
 			);
 			path = "Shared Files";
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				6838EFA82B6BF50500E94268 /* Characteristic.swift in Sources */,
 				6838EF902B6BF4BE00E94268 /* RowingAdditionalWorkoutSummaryData.swift in Sources */,
 				6838EF882B6BF4A900E94268 /* RowingStatusSampleRate.swift in Sources */,
+				68BEEDC62B769AA600812B57 /* ReadData.swift in Sources */,
 				6838EEDF2B6BF14D00E94268 /* sail-v2-phone.swift in Sources */,
 				6838EF952B6BF4CE00E94268 /* C2DriveLength+Parsing.swift in Sources */,
 				6838EFAD2B6BF7CD00E94268 /* PerformanceMonitorViewController.swift in Sources */,

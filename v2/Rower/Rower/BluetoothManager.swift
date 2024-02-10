@@ -89,6 +89,7 @@ public final class BluetoothManager
     
     func stopScanningForPerformanceMonitors() {
         centralManager.stopScan()
+        print("stop scanning")
     }
     
     func connectPerformanceMonitor(performanceMonitor:PerformanceMonitor, exclusive:Bool) {
