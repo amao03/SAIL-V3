@@ -10,43 +10,20 @@ import SwiftUI
 
 struct Phone_Landing_View : View{
 //    @State var pairedDevice:PerformanceMonitor
+//    var pairedDevice:PerformanceMonitor?
 //    @ObservedObject var connector = ConnectToWatch.connect
-    @State var deviceArr:Array<PerformanceMonitor>
+//    @State var deviceArr:Array<PerformanceMonitor>
+    @State var pm:FetchData
     @State var patternObject = Pattern()
     @State private var realData:Bool = false
     @State private var randomData:Bool = false
-
-
     
     @State private var hapticsListBool:Bool = false
     
-//    private func determineDevice(){
-//        deviceArr.forEach { device in
-//            if device.isConnected{
-//                pairedDevice = device
-//            }
-//        }
-//    }
-    
-//    @State var pairedDevice:PerformanceMonitor = determineDevice()
     var body: some View {
         VStack{
-            
             NavigationView{
-                ForEach(deviceArr, id:\.self) { device in
-                    if device.isConnected{
-//                        pairedDevice = device
-                        Text("Paird Device: \(device.peripheralName)")
-                    }
-                }
-                
                 Form{
-                    Button(action:{
-                        CreateTimer().startTimer(patternObject: patternObject, realData: realData, randomData: randomData)
-                    }){
-                        Text("Start")
-                    }
-                    
                     Toggle("Real data", isOn: $realData)
                     Toggle("Random data", isOn: $randomData)
                     HStack{
@@ -96,13 +73,14 @@ struct Phone_Landing_View : View{
                         }
                     })
                     
-                    .navigationTitle("Custom Haptics")
+                    Button(action:{
+                        pm.getPower()
+                        
+                    }){
+                        Text("Start")
+                    }
                 }
-            }
+            }.navigationTitle("Custom Haptics")
         }
-//        .onAppear(perform: determineDevice)
     }
-       
 }
-
-
