@@ -11,7 +11,8 @@ struct AppView: View {
     let persistenceController = PersistenceController.shared
 
     var body: some View {
-//        BluetoothView() // Can we open this as a modal or something? 
+//        BluetoothView()
+        
         ContentView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
@@ -27,10 +28,11 @@ struct sail_v1App: App {
     }
 }
 
-//
-//#Preview {
+
+#Preview {
+    AppView()
 //    let persistenceController = PersistenceController.shared
 //
 //    
 //    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//}
+}
