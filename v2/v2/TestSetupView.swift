@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestSetupView: View {
     @Binding var subjectId: String
-    @Binding var protocolName: ProtocolNames
+    @Binding var selectProtocol: Protocols
     var hasActiveTest: Bool
     
     var body: some View {
@@ -22,9 +22,9 @@ struct TestSetupView: View {
             .disableAutocorrection(true)
             .disabled(hasActiveTest)
             
-            Picker("Protocol:", selection: $protocolName) {
-                ForEach(ProtocolNames.allCases) { name in
-                    Text(name.rawValue.capitalized)
+            Picker("Protocol:", selection: $selectProtocol) {
+                ForEach(ProtocolList.protocolList) { item in
+                    Text(item.name)
                 }
             }
             .disabled(hasActiveTest)

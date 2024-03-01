@@ -76,6 +76,11 @@ struct ContentView: View {
     @State var activeIntervalsArray: [Interval] = []
     @State var concept2monitor:PerformanceMonitor?
     @StateObject var fetchData:FetchData = FetchData()
+    
+    @State var protocolObj:Protocols = Protocols()
+    @State var currPattern:MadePattern = MadePattern()
+    @State var previousPattern:MadePattern = MadePattern()
+    @ObservedObject var connector = ConnectToWatch.connect
 
     private var timerInterval: TimeInterval = 1;
 
@@ -101,7 +106,7 @@ struct ContentView: View {
                 
                 TestSetupView(
                     subjectId: $subjectId, 
-                    protocolName: $protocolName,
+                    selectProtocol: $protocolObj,
                     hasActiveTest: hasActiveTest
                 )
                 
@@ -223,7 +228,7 @@ struct ContentView: View {
         activeIntervalsArray = []
         let newRowingTest = RowingTest(context: viewContext)
         newRowingTest.starttime = Date()
-        newRowingTest.protocolName = protocolName.rawValue
+        newRowingTest.protocolName = protocolObj.name
         newRowingTest.subjectId = subjectId
         activeTest = newRowingTest
         activeTestTimer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true, block: onTimerTick)
@@ -233,6 +238,12 @@ struct ContentView: View {
     private func onTimerTick(timer: Timer) {
         debugPrint("Added Interval");
         addNewInterval()
+        evaluateInterval()
+        
+        if currPattern != previousPattern {
+            previousPattern = currPattern
+            updateWatch()
+        }
     }
     
     private func addNewInterval() {
@@ -249,6 +260,7 @@ struct ContentView: View {
         if(activeTest != nil) {
             newInterval.parentTest = activeTest
             activeIntervalsArray.append(newInterval)
+            previousInterval = activeInterval;
         }
     }
     
@@ -258,12 +270,29 @@ struct ContentView: View {
         saveData()
         previousTest = activeTest;
         activeTest = nil;
-        previousInterval = activeInterval;
+        
         activeInterval = nil;
         if(activeTestTimer != nil) {
             activeTestTimer?.invalidate()
             activeTestTimer = nil;
         }
+    }
+    
+    private func evaluateInterval(){
+        print("evaluate interval")
+        if activeInterval?.power ?? 0.0 < protocolObj.pattern.target - protocolObj.pattern.range {
+            currPattern = protocolObj.pattern.underPattern
+        }
+        else if activeInterval?.power ?? 0.0 < protocolObj.pattern.target + protocolObj.pattern.range {
+            currPattern = protocolObj.pattern.abovePattern
+        } else{
+            currPattern = protocolObj.pattern.atPattern
+        }
+    }
+    
+    private func updateWatch(){
+        print("update watch")
+        connector.sendDataToWatch(sendObject: currPattern)
     }
 
     private func saveData() {

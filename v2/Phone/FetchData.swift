@@ -30,12 +30,7 @@ class FetchData: ObservableObject {
     
     private func attachObservers() {
         detachObservers()
-        
-<<<<<<< HEAD
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            print("power timer: \(self.concept2monitor.strokePower.value)")
-        }
-=======
+    
         strokeRateDisposable = concept2monitor?.strokeRate.attach(observer: {
             [weak self] (strokeRate:C2StrokeRate) -> Void in
             if let weakSelf = self {
@@ -77,6 +72,5 @@ class FetchData: ObservableObject {
         strokeRateDisposable?.dispose()
         distanceDisposable?.dispose()
         strokePowerDisposable?.dispose()
->>>>>>> alice
     }
 }
