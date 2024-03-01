@@ -27,7 +27,6 @@ class FetchData{
         print("GET POWER")
         print(concept2monitor.peripheralName)
         
-        
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             print("power timer: \(self.concept2monitor.strokePower.value)")
         }

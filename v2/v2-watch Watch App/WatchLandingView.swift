@@ -53,7 +53,6 @@ struct Watch_Landing_View : View {
                                         timerObj.toggleEnd()
                                         print("stopping")
                                     }){
-//                                        Text(timerObj.patternObject.type)
                                         Text("stop")
                                     }
                                 }
@@ -62,7 +61,6 @@ struct Watch_Landing_View : View {
                                 Text("currData: \(timerObj.currentData, specifier: "%.2f")")
                             }
                         }
-                        .background(backgroundColor)
                     }
                     else{
                         Text("awaiting info from phone")
