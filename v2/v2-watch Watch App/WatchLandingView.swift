@@ -11,7 +11,7 @@ import HealthKit
 
 struct Watch_Landing_View : View {
     @ObservedObject var connector = ConnectToWatch.connect
-    @ObservedObject var timerObj = PlayHapticOnWatch.time
+//    @ObservedObject var timerObj = TimerControls.time
     @State private var authorize: Bool = false
     @State private var realData:Bool = false
     @State private var randomData:Bool = false
@@ -38,31 +38,29 @@ struct Watch_Landing_View : View {
                                 }
                                 Toggle("Real data", isOn: $realData)
                                 Toggle("Random data", isOn: $randomData)
-                                if timerObj.end{
-                                    Button(action:{
-                                        print("starting....")
-                                        timerObj.toggleEnd()
-                                        timerObj.setPattern(pattern: connector.pattern)
-//                                        timerObj.overallTimer(realData: realData, randomData: randomData)
-                                    }){
-                                        Text("Start")
-                                    }
-                                }
-                                else{
-                                    Button(action:{
-                                        timerObj.toggleEnd()
-                                        print("stopping")
-                                    }){
-//                                        Text(timerObj.patternObject.type)
-                                        Text("stop")
-                                    }
-                                }
-                                Text("**Pattern:** \n \(connector.pattern.description)")
-                                
-                                Text("currData: \(timerObj.currentData, specifier: "%.2f")")
+//                                if timerObj.end{
+//                                    Button(action:{
+//                                        print("starting....")
+//                                        timerObj.toggleEnd()
+//                                        timerObj.setPattern(pattern: connector.pattern)
+////                                        timerObj.overallTimer(realData: realData, randomData: randomData)
+//                                    }){
+//                                        Text("Start")
+//                                    }
+//                                }
+//                                else{
+//                                    Button(action:{
+//                                        timerObj.toggleEnd()
+//                                        print("stopping")
+//                                    }){
+//                                        Text("stop")
+//                                    }
+//                                }
+//                                Text("**Pattern:** \n \(connector.pattern.description)")
+//                                
+//                                Text("currData: \(timerObj.currentData, specifier: "%.2f")")
                             }
                         }
-                        .background(backgroundColor)
                     }
                     else{
                         Text("awaiting info from phone")

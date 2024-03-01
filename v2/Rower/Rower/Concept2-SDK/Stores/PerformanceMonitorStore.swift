@@ -18,7 +18,7 @@ final class PerformanceMonitorStore {
   
   //////////////////////////////////////////////////////////////////////////////////////////////////
   var performanceMonitors = Set<PerformanceMonitor>()
-
+    
   func addPerformanceMonitor(performanceMonitor:PerformanceMonitor) {
     performanceMonitors.insert(performanceMonitor)
     

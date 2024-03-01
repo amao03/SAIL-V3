@@ -7,63 +7,89 @@
 
 import Foundation
 import SwiftUI
+import CoreBluetooth
 
 struct BluetoothView : View{
-    @State private var  bluetoothSuccess = false
     @State private var bluetoothReady = false
-    @State var deviceArr:Array<PerformanceMonitor> = []
-//    @State var selectedDevice:PerformanceMonitor
+    @State private var connectedToDevice = false
+    @State private var isChoosingDevice = false
+    @State private var deviceArr:Array<PerformanceMonitor> = []
+    @State private var isReadyDisposable:Disposable? = nil
+    @Binding var concept2monitor:PerformanceMonitor?
+    @ObservedObject var fetchData:FetchData
 
-    private func attachBluetooth(){
-        bluetoothReady = BluetoothManager.isReady.value
-    }
     private func scanForDevices(){
-        bluetoothSuccess = true;
-        print(bluetoothSuccess)
-        BluetoothManager.scanForPerformanceMonitors()
-        
+        debugPrint("Scanning")
+    
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: PerformanceMonitorStoreDidAddItemNotification),
             object: PerformanceMonitorStore.sharedInstance,
             queue: nil) { (notification) -> Void in
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
-                        deviceArr = Array(PerformanceMonitorStore.sharedInstance.performanceMonitors)
+                        self.deviceArr = Array(PerformanceMonitorStore.sharedInstance.performanceMonitors)
                     }
                 }
         }
+        
+        BluetoothManager.scanForPerformanceMonitors()
     }
     
     private func connectToDevice(pm: PerformanceMonitor){
         print("connect: \(pm)")
+        concept2monitor = pm
         BluetoothManager.connectPerformanceMonitor(performanceMonitor: pm)
+        BluetoothManager.stopScanningForPerformanceMonitors()
+        connectedToDevice = true
+        isChoosingDevice = false
     }
     
-    
-    
     var body: some View {
-        VStack{
-            NavigationStack{
-                Button(action:scanForDevices){
-                    Text("Find Device")
+        if(!bluetoothReady) {
+            HStack {
+                Text("Loading Bluetooth    ")
+                ProgressView()
+            }
+            .onAppear {
+                debugPrint("Waiting for Bluetooth")
+                isReadyDisposable = BluetoothManager.isReady.attach{
+                    [self] (isReady:Bool) -> Void in
+                        print(isReady)
+                        self.bluetoothReady = isReady
                 }
-                ScrollView{
-                    ForEach(deviceArr, id: \.self) { device in
-                        
-                        if (device.peripheralName != "Unknown"){
-//                            self.selectedDevice = device
-                            NavigationLink(destination: Phone_Landing_View()){
-                                Text(device.peripheralName)
-                            }
+            }
+            .onDisappear {
+                debugPrint("Found Bluetooth: Remove")
+                isReadyDisposable?.dispose()
+                isReadyDisposable = nil
+                scanForDevices()
+            }
+        }
+        else if(!connectedToDevice) {
+            Button("Connect to Rower") {
+                isChoosingDevice = true
+            }
+            .confirmationDialog(
+                "Connect to Concept2 Rower",
+                isPresented: $isChoosingDevice
+            ) {
+                ForEach(deviceArr, id: \.self) { device in
+                    if (device.peripheralName != "Unknown"){
+                        Button(action:{ [self] in
+                            connectToDevice(pm: device)
+                            concept2monitor = device
+                            fetchData.setPerformanceMonitor(device)
+                        }){
+                            Text(device.peripheralName)
                         }
                     }
                 }
+            } message: {
+                Text("If no rowers found, make sure WiFi is enabled on Concept2")
             }
         }
-        .onAppear(perform: attachBluetooth)
+        else {
+            Text("Connect Rower: \(concept2monitor?.peripheralName ?? "")")
+        }
     }
-}
-
-#Preview{
-    BluetoothView()
 }

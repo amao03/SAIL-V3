@@ -7,15 +7,37 @@
 
 import CoreData
 
+@discardableResult func createSampleInterval(context: NSManagedObjectContext, rowingTest: RowingTest, date: Date?) -> Interval {
+    let interval = Interval(context: context)
+    interval.timestamp = date ?? Date()
+    interval.power = Double.random(in: 0..<200)
+    interval.parentTest = rowingTest
+    return interval
+}
+
+func createSampleTest(_ context: NSManagedObjectContext, date: Date?) -> RowingTest {
+    let rowingTest = RowingTest(context: context)
+    rowingTest.starttime = date ?? Date()
+    rowingTest.endtime = Date().addingTimeInterval(1000)
+    for i in 0..<5 {
+        createSampleInterval(
+            context: context,
+            rowingTest: rowingTest,
+            date: rowingTest.starttime?.addingTimeInterval(100 * Double(i))
+        );
+    }
+    return rowingTest
+}
+
 struct PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        for i in 0..<10 {
+            let now = Date()
+            let _ = createSampleTest(viewContext, date: now.addingTimeInterval(-Double(i) * 5000))
         }
         do {
             try viewContext.save()

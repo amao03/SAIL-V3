@@ -8,9 +8,9 @@
 import Foundation
 
 struct Pattern: Hashable, Codable{
-    var underPattern: MadePattern = MadePattern()
-    var atPattern: MadePattern = MadePattern()
-    var abovePattern: MadePattern = MadePattern()
+    var underPattern: MadePattern = MadePatternsList.getPatternByName("super pulse") ?? MadePattern()
+    var atPattern: MadePattern = MadePatternsList.getPatternByName("heartbeat") ?? MadePattern()
+    var abovePattern: MadePattern = MadePatternsList.getPatternByName("short-long") ?? MadePattern()
     
     var underTime: Double = 0.5
     var atTime: Double = 0.5
