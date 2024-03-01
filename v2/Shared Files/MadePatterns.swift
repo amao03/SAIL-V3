@@ -49,5 +49,9 @@ struct MadePatternsList{
         MadePattern(name:"super pulse", HapticArray: [Haptics(name: "directionUp", type: "watch")], duration: 0.01,
                     description: "-----------------------"),
     ]
+    
+    static func getPatternByName(_ name: String) -> MadePattern? {
+        return madePatternsList.first(where: {$0.name == name});
+    }
 }
 
