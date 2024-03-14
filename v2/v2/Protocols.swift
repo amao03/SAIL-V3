@@ -6,18 +6,34 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Protocols: Hashable, Identifiable{
+class Protocols: Identifiable, Codable, Hashable, ObservableObject{
+    static func == (lhs: Protocols, rhs: Protocols) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    
     var pattern:Pattern = Pattern()
     var name:String = ""
     var id: String { name }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(pattern)
+        hasher.combine(name)
+    }
+    
+    init(pattern: Pattern, name: String) {
+        self.pattern = pattern
+        self.name = name
+    }
 }
 
-struct ProtocolList {
+class ProtocolList {
     static var protocolList:[Protocols] = [
-        Protocols(name: "V1"),
-        Protocols(name: "V2"),
-        Protocols(name: "V3"),
+        Protocols(pattern: Pattern(), name: "V1"),
+        Protocols(pattern: Pattern(), name: "V2"),
+        Protocols(pattern: Pattern(), name: "V3"),
     ]
         
     static func getProtocolByName(_ name: String) -> Protocols? {

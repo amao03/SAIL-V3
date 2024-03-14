@@ -14,9 +14,13 @@ class ConnectToWatch: NSObject, ObservableObject {
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
-    @Published var pattern:MadePattern = MadePattern()
+//    var watchView = WatchView()
+    
+//    @Published var pattern:MadePattern
     @Published var receivedInitial:Bool = false
+    @Published var received:Bool = false
     @Published var updating:Bool = false
+//    var play = PlayOnWatch()
     
     private override init(){
         super.init()
@@ -92,19 +96,21 @@ class ConnectToWatch: NSObject, ObservableObject {
             self.updating = true
         }
         
+        if !received{
+            self.received = true
+        }
+        
         let data:Data = info["data"] as! Data
         let decodedPattern = MadePattern.decoder(data)
         Swift.print("Receiving..")
         DispatchQueue.main.async {
             Swift.print("pattern received: \(decodedPattern)")
-            self.pattern = decodedPattern
+//            self.pattern = decodedPattern
+//            self.watchView.updateHaptic(newPattern: decodedPattern)
+//            self.play.playOnWatch(pattern: decodedPattern)
 //            self.updatePattern(pattern: self.pattern)
         }
     }
-    
-//    func updatePattern(pattern: Pattern){
-//        Pattern.init(underPattern: pattern.underPattern, atPattern: pattern.atPattern, abovePattern: pattern.abovePattern, underTime: pattern.underTime, atTime: pattern.atTime, aboveTime: pattern.aboveTime, timeOverall: pattern.timeOverall, type: pattern.type, target: pattern.target)
-//    }
     
 }
 

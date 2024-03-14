@@ -23,11 +23,12 @@ struct TestSetupView: View {
             .disabled(hasActiveTest)
             
             Picker("Protocol:", selection: $selectProtocol) {
-                ForEach(ProtocolList.protocolList) { item in
+                ForEach(ProtocolList.protocolList, id: \.self) { item in
                     Text(item.name)
                 }
             }
             .disabled(hasActiveTest)
+            
             
             NavigationLink {
                 Text("Watch Haptics View")

@@ -7,20 +7,30 @@
 
 import Foundation
 
-struct Pattern: Hashable, Codable{
-    var underPattern: MadePattern = MadePatternsList.getPatternByName("super pulse") ?? MadePattern()
-    var atPattern: MadePattern = MadePatternsList.getPatternByName("heartbeat") ?? MadePattern()
-    var abovePattern: MadePattern = MadePatternsList.getPatternByName("short-long") ?? MadePattern()
+class Pattern: Codable, ObservableObject, Hashable{
+    static func == (lhs: Pattern, rhs: Pattern) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
     
-    var underTime: Double = 0.5
-    var atTime: Double = 0.5
-    var aboveTime: Double = 0.5
+    var underPattern: MadePattern = MadePatternsList.getPatternByName("super pulse")!
+    var atPattern: MadePattern = MadePatternsList.getPatternByName("heartbeat")!
+    var abovePattern: MadePattern = MadePatternsList.getPatternByName("short-long")!
+    
     var timeOverall: Double = 5.0
     
     var type = "rowing"
     var target: Double = 160.0
     var range: Double = 30.0
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(underPattern)
+        hasher.combine(atPattern)
+        hasher.combine(abovePattern)
+        hasher.combine(timeOverall)
+        hasher.combine(type)
+        hasher.combine(target)
+        hasher.combine(range)
+    }
     
     // Form a string of haptic names to be displayed
     func stringifyArr(currPattern: MadePattern) -> String{
@@ -53,5 +63,3 @@ struct Pattern: Hashable, Codable{
         return pattern
     }
 }
-
-
