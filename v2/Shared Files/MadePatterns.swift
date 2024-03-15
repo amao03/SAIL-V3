@@ -8,12 +8,38 @@
 import Foundation
 import SwiftUI
 
-struct MadePattern: Hashable, Identifiable, Codable{
+class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
+    static func == (lhs: MadePattern, rhs: MadePattern) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
     var name: String = ""
     var id: String { name }
     var HapticArray: [Haptics] = []
     var duration: Double = 0.5
     var description:String = ""
+    
+    init() {
+        self.name = ""
+        self.HapticArray = []
+        self.duration = 0.5
+        self.description = ""
+    }
+    
+    init(name: String, HapticArray: [Haptics], duration: Double, description: String) {
+        self.name = name
+        self.HapticArray = HapticArray
+        self.duration = duration
+        self.description = description
+    }
+    
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(HapticArray)
+        hasher.combine(duration)
+        hasher.combine(description)
+    }
 
     // Converts a Pattern to a Data object to be sent to watch
     func encoder() -> Data{
@@ -25,14 +51,13 @@ struct MadePattern: Hashable, Identifiable, Codable{
     
     // Converts Data from phone to a Pattern object
     static func decoder(_ data: Data) -> MadePattern {
-        let pattern = try! PropertyListDecoder.init().decode(MadePattern.self, from: data)
         print("decoding...")
-        
+        let pattern = try! PropertyListDecoder.init().decode(MadePattern.self, from: data)
         return pattern
     }
 }
 
-struct MadePatternsList{
+class MadePatternsList: Identifiable, Codable, ObservableObject{
     static var madePatternsList:[MadePattern] = [
         MadePattern(name: "short-long", HapticArray: [Haptics(name: "notification", type: "watch")], duration: 0.5,
                     description: "-  ———  -  ———  -"),

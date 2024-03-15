@@ -9,10 +9,10 @@ import SwiftUI
 import CoreData
 import Charts
 
-enum ProtocolNames: String, CaseIterable, Identifiable {
-    case V1 = "V1", V2 = "V2", V3 = "V3"
-    var id: Self { self }
-}
+//enum ProtocolNames: String, CaseIterable, Identifiable {
+//    case V1 = "V1", V2 = "V2", V3 = "V3"
+//    var id: Self { self }
+//}
 
 let timeSort = NSSortDescriptor(key: "timestamp", ascending: true)
 let starttimeSort = NSSortDescriptor(key: "starttime", ascending: true)
@@ -67,7 +67,7 @@ struct ContentView: View {
         animation: .default)
     private var rowingTests: FetchedResults<RowingTest>
     @State var subjectId: String = "";
-    @State var protocolName: ProtocolNames = ProtocolNames.V1
+    @State var protocolName: String = ""
     @State var activeTest: RowingTest?
     @State var previousTest: RowingTest?
     @State var activeTestTimer: Timer?
@@ -77,7 +77,7 @@ struct ContentView: View {
     @State var concept2monitor:PerformanceMonitor?
     @StateObject var fetchData:FetchData = FetchData()
     
-    @State var protocolObj:Protocols = Protocols()
+    @State var protocolObj = ProtocolList.protocolList[0]
     @State var currPattern:MadePattern = MadePattern()
     @State var previousPattern:MadePattern = MadePattern()
     @ObservedObject var connector = ConnectToWatch.connect
@@ -96,6 +96,8 @@ struct ContentView: View {
         return concept2monitor != nil;
     }
     
+    @State var i = 0
+    var dataArr = [150.0, 160.0, 170.0, 150.0]
     var body: some View {
         NavigationStack {
             List {
@@ -109,6 +111,43 @@ struct ContentView: View {
                     selectProtocol: $protocolObj,
                     hasActiveTest: hasActiveTest
                 )
+                Text(protocolObj.name)
+                
+                Section(header: Text("Connect to watch")) {
+                    Button(action:{
+                        i = 0
+                        if dataArr [i] < protocolObj.pattern.target{
+                            connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
+                        }
+                        else if dataArr [i] > protocolObj.pattern.target{
+                            connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
+                        }
+                        else{
+                            connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
+                        }
+                        i += 1
+                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                            if i >= 4{
+                                timer.invalidate()
+                                print("end test")
+                                return
+                            }
+                            
+                            if dataArr [i] < protocolObj.pattern.target{
+                                connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
+                            }
+                            else if dataArr [i] > protocolObj.pattern.target{
+                                connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
+                            }
+                            else{
+                                connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
+                            }
+                            i += 1
+                        }
+                    }){
+                        Text("Send data to Watch")
+                    }
+                }
                 
                 Section(header: Text("Rower")) {
                     HStack(alignment: .bottom) {
@@ -240,7 +279,7 @@ struct ContentView: View {
         addNewInterval()
         evaluateInterval()
         
-        if currPattern != previousPattern {
+        if currPattern.id != previousPattern.id {
             previousPattern = currPattern
             updateWatch()
         }

@@ -9,17 +9,20 @@ import Foundation
 
 
 class PlayOnWatch {
-    @Published var connector = ConnectToWatch.connect
+//    @Published var connector = ConnectToWatch.connect
     
-    @Published var currPattern:MadePattern = MadePattern()
+//    @Published var currPattern:MadePattern = MadePattern()
+//    
+//    @Published var end:Bool = true
+    var end:Bool = false
     
-    @Published var end:Bool = true
-    
+    func EndAll(){
+        self.end = true
+    }
     
     func playOnWatch(pattern:MadePattern){
+        print("play")
             if pattern.HapticArray.count == 0{
-                Timer.scheduledTimer(withTimeInterval: pattern.duration, repeats: false) { timer in
-                }
                 return
             }
             
@@ -34,11 +37,9 @@ class PlayOnWatch {
                 }
           
                 let currHaptic = pattern.HapticArray[index % pattern.HapticArray.count]
-                    Haptics.play(currHaptic: currHaptic)
-                    index += 1
+                Haptics.play(currHaptic: currHaptic)
+                index += 1
             }
         }
-    
-    
     
 }
