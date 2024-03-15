@@ -12,8 +12,7 @@ struct WatchView: View{
     @ObservedObject var connector = ConnectToWatch.connect
     @ObservedObject var ExtendedSess = ExtendedSession()
     @State var playing = true
-    @ObservedObject var pattern = MadePattern()
-    @State var previousReceived = true
+    @State var timer: Timer?
     
     func toggleEnd(){
         print("toggle end \(playing)")
@@ -30,16 +29,6 @@ struct WatchView: View{
         ExtendedSess.stopExtendedSession()
     }
     
-    public func updateHaptic(newPattern: MadePattern){
-        print("update pattern")
-//        pattern = newPattern
-    }
-    @State var lastTriggered = NSDate()
-    @State var dynamicInterval = 1.0
-    @State var timerInterval = 0.1
-    
-    @State var timer: Timer?
-    
     func startTimer() {
         var index = 0
         
@@ -49,12 +38,6 @@ struct WatchView: View{
                 print("end timer")
                 return
             }
-//            else if connector.received != previousReceived{
-//                timer.invalidate()
-//                previousReceived = connector.received
-//                print("end timer - received")
-//                return
-//            }
           
             let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
             print("currHaptic: \(connector.pattern.name)")
@@ -74,73 +57,6 @@ struct WatchView: View{
         }
         
     }
-    
-//    public func playOnWatch(){
-//        print("play")
-//        
-////        DispatchQueue.main.async {
-////            print("off receive")
-////            connector.received = false
-////        }
-//        
-//        if connector.pattern.HapticArray.count == 0{
-//            return
-//        }
-//        
-//        
-//        Timer.scheduledTimer(withTimeInterval: connector.pattern.duration, repeats: true) { timer in
-//            if playing{
-//                timer.invalidate()
-//                print("end timer")
-//                return
-//            } else if connector.received != previousReceived{
-//                timer.invalidate()
-//                previousReceived = connector.received
-//                print("end timer - received")
-//                return
-//            }
-//          
-//            let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
-//            print("currHaptic: \(connector.pattern.name)")
-//            print("duration: \(connector.pattern.duration)")
-//            Haptics.play(currHaptic: currHaptic)
-//            index += 1
-//        }
-//        
-//        Timer.scheduledTimer(withTimeInterval: connector.pattern.duration, repeats: true) { timer in
-//            if playing{
-//                timer.invalidate()
-//                print("end timer")
-//                return
-//            } else if connector.received == previousReceived{
-//                timer.invalidate()
-//                previousReceived = connector.received
-//                print("end timer - received")
-//                return
-//            }
-//          
-//            let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
-//            print("currHaptic: \(connector.pattern.name)")
-//            print("duration: \(connector.pattern.duration)")
-//            Haptics.play(currHaptic: currHaptic)
-//            index += 1
-//        }
-////        while !playing{
-////            let currentDate = NSDate()
-////            if(currentDate.timeIntervalSince(lastTriggered as Date) >= connector.pattern.duration) {
-////                // This will only be called every dynamicInterval seconds
-////                // Now call getDifficulty and/or update your dynamicInterval
-////                let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
-////                print("currHaptic: \(connector.pattern.name)")
-////                print("duration: \(connector.pattern.duration)")
-////                Haptics.play(currHaptic: currHaptic)
-////                index += 1
-////                
-////                lastTriggered = currentDate
-////            }
-////        }
-//
-//    }
     
     
     var body: some View {

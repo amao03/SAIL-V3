@@ -103,9 +103,6 @@ class ConnectToWatch: NSObject, ObservableObject {
             Swift.print("pattern received: \(self.pattern.name)")
             self.received = true
             self.receivedInitial = true
-//            self.watchView.updateHaptic(newPattern: decodedPattern)
-//            self.play.playOnWatch(pattern: decodedPattern)
-//            self.updatePattern(pattern: self.pattern)
         }
     }
     
