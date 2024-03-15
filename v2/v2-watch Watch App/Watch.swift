@@ -49,16 +49,15 @@ struct WatchView: View{
         
         var index = 0
         Timer.scheduledTimer(withTimeInterval: connector.pattern.duration, repeats: true) { timer in
-            print("playing")
-            // Contitions to end timer
-            if index  > 15{
+            if playing{
                 timer.invalidate()
-//                playing = !playing
-//
+                print("end timer")
                 return
             }
           
             let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
+            print("currHaptic: \(connector.pattern.name)")
+            print("duration: \(connector.pattern.duration)")
             Haptics.play(currHaptic: currHaptic)
             index += 1
         }
@@ -73,6 +72,7 @@ struct WatchView: View{
                         startSession()
                         print("start")
                         toggleEnd()
+                        let _ = self.playOnWatch()
                         
                     }){
                         Text("Start")
@@ -87,12 +87,6 @@ struct WatchView: View{
                         Text("End")
                     }
                 }
-
-                
-                if connector.received && !playing{
-                    let _ = self.playOnWatch()
-                    Text("asdffsdlfkjl")
-                }
                 
                 Text("**Pattern:** \n \(connector.pattern.description)")
                 Text("**Pattern:** \n \(connector.pattern.name)")
@@ -102,6 +96,5 @@ struct WatchView: View{
                 Text("awaiting info from phone")
             }
         }
-//        .onAppear(perform: startSession)
     }
 }

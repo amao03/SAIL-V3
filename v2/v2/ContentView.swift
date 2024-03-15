@@ -96,6 +96,7 @@ struct ContentView: View {
         return concept2monitor != nil;
     }
     
+    @State var i = 0
     var body: some View {
         NavigationStack {
             List {
@@ -113,7 +114,8 @@ struct ContentView: View {
                 
                 Section(header: Text("Connect to watch")) {
                     Button(action:{
-                        connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
+                        connector.sendDataToWatch(sendObject: MadePatternsList.madePatternsList[i])
+                        i += 1
                     }){
                         Text("Send data to Watch")
                     }
