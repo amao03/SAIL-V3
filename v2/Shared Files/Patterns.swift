@@ -22,6 +22,17 @@ class Pattern: Codable, ObservableObject, Hashable{
     var target: Double = 160.0
     var range: Double = 30.0
     
+    init(underPattern: MadePattern, atPattern: MadePattern, abovePattern: MadePattern, timeOverall: Double = 5.0, type: String = "rowing", target: Double, range: Double) {
+        self.underPattern = underPattern
+        self.atPattern = atPattern
+        self.abovePattern = abovePattern
+        self.timeOverall = timeOverall
+        self.type = type
+        self.target = target
+        self.range = range
+    }
+    
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(underPattern)
         hasher.combine(atPattern)

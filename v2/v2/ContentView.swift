@@ -97,6 +97,7 @@ struct ContentView: View {
     }
     
     @State var i = 0
+    var dataArr = [150.0, 160.0, 170.0, 150.0]
     var body: some View {
         NavigationStack {
             List {
@@ -114,8 +115,35 @@ struct ContentView: View {
                 
                 Section(header: Text("Connect to watch")) {
                     Button(action:{
-                        connector.sendDataToWatch(sendObject: MadePatternsList.madePatternsList[i])
+                        i = 0
+                        if dataArr [i] < protocolObj.pattern.target{
+                            connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
+                        }
+                        else if dataArr [i] > protocolObj.pattern.target{
+                            connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
+                        }
+                        else{
+                            connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
+                        }
                         i += 1
+                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                            if i >= 4{
+                                timer.invalidate()
+                                print("end test")
+                                return
+                            }
+                            
+                            if dataArr [i] < protocolObj.pattern.target{
+                                connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
+                            }
+                            else if dataArr [i] > protocolObj.pattern.target{
+                                connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
+                            }
+                            else{
+                                connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
+                            }
+                            i += 1
+                        }
                     }){
                         Text("Send data to Watch")
                     }
