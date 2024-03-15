@@ -24,6 +24,11 @@ struct WatchView: View{
         ExtendedSess.startExtendedSession()
     }
     
+    private func endSession(){
+        print("end session")
+        ExtendedSess.stopExtendedSession()
+    }
+    
     public func updateHaptic(newPattern: MadePattern){
         print("update pattern")
 //        pattern = newPattern
@@ -32,23 +37,28 @@ struct WatchView: View{
     
     public func playOnWatch(){
         print("play")
-        ConnectToWatch.connect.received = false
-        if pattern.HapticArray.count == 0{
+        
+        DispatchQueue.main.async {
+            print("off receive")
+            connector.received = false
+        }
+        
+        if connector.pattern.HapticArray.count == 0{
             return
         }
         
         var index = 0
-        Timer.scheduledTimer(withTimeInterval: pattern.duration, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: connector.pattern.duration, repeats: true) { timer in
             print("playing")
             // Contitions to end timer
-            if !playing{
+            if index  > 15{
                 timer.invalidate()
-                playing = !playing
-                ExtendedSess.stopExtendedSession()
+//                playing = !playing
+//
                 return
             }
           
-            let currHaptic = pattern.HapticArray[index % pattern.HapticArray.count]
+            let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
             Haptics.play(currHaptic: currHaptic)
             index += 1
         }
@@ -57,23 +67,41 @@ struct WatchView: View{
     
     var body: some View {
         VStack{
-            if ConnectToWatch.connect.receivedInitial{
-                if ConnectToWatch.connect.received{
+            if connector.receivedInitial{
+                if playing{
                     Button(action:{
-                        print("end")
+                        startSession()
+                        print("start")
                         toggleEnd()
+                        
                     }){
                         Text("Start")
                     }
-                    
                 }
-                let _ = self.playOnWatch()
-                Text("**Pattern:** \n \(pattern.description)")
-                Text("**Pattern:** \n \(pattern.name)")
+                else{
+                    Button(action:{
+                        print("end")
+                        toggleEnd()
+                        endSession()
+                    }){
+                        Text("End")
+                    }
+                }
+
+                
+                if connector.received && !playing{
+                    let _ = self.playOnWatch()
+                    Text("asdffsdlfkjl")
+                }
+                
+                Text("**Pattern:** \n \(connector.pattern.description)")
+                Text("**Pattern:** \n \(connector.pattern.name)")
+
             }
             else{
                 Text("awaiting info from phone")
             }
-        }.onAppear(perform: startSession)
+        }
+//        .onAppear(perform: startSession)
     }
 }

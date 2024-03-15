@@ -16,7 +16,7 @@ class ConnectToWatch: NSObject, ObservableObject {
     
 //    var watchView = WatchView()
     
-//    @Published var pattern:MadePattern
+    @Published var pattern:MadePattern = MadePattern()
     @Published var receivedInitial:Bool = false
     @Published var received:Bool = false
     @Published var updating:Bool = false
@@ -90,22 +90,19 @@ class ConnectToWatch: NSObject, ObservableObject {
             return
         }
         print("dataReceivedFromPhone")
-        if !receivedInitial{
-            self.receivedInitial = true
-        } else{
-            self.updating = true
-        }
+
         
-        if !received{
-            self.received = true
-        }
         
-        let data:Data = info["data"] as! Data
-        let decodedPattern = MadePattern.decoder(data)
+        
         Swift.print("Receiving..")
         DispatchQueue.main.async {
-            Swift.print("pattern received: \(decodedPattern)")
-//            self.pattern = decodedPattern
+            let data:Data = info["data"] as! Data
+            let decodedPattern = MadePattern.decoder(data)
+            
+            self.pattern = decodedPattern
+            Swift.print("pattern received: \(self.pattern.name)")
+            self.received = true
+            self.receivedInitial = true
 //            self.watchView.updateHaptic(newPattern: decodedPattern)
 //            self.play.playOnWatch(pattern: decodedPattern)
 //            self.updatePattern(pattern: self.pattern)
