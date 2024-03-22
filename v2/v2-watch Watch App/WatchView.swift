@@ -26,6 +26,11 @@ struct WatchView: View{
     
     private func endSession(){
         print("end session")
+        
+        
+        
+        
+        
         ExtendedSess.stopExtendedSession()
     }
     
