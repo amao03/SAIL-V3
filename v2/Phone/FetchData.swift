@@ -36,7 +36,7 @@ class FetchData: ObservableObject {
             if let weakSelf = self {
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
-                        print("Stroke Rate: \(strokeRate)")
+//                        print("Stroke Rate: \(strokeRate)")
                         weakSelf.strokeRate = strokeRate
                     }
                 }
@@ -48,7 +48,7 @@ class FetchData: ObservableObject {
             if let weakSelf = self {
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
-                        print("Distance: \(distance)")
+//                        print("Distance: \(distance)")
                         weakSelf.distance = distance
                     }
                 }

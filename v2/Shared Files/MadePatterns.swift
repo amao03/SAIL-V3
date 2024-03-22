@@ -13,7 +13,7 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
         return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
     
-    var name: String = ""
+    var name: String = "empty"
     var id: String { name }
     var HapticArray: [Haptics] = []
     var duration: Double = 0.5

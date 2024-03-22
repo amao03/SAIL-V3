@@ -97,7 +97,7 @@ struct ContentView: View {
     }
     
     @State var i = 0
-    var dataArr = [150.0, 160.0, 170.0, 150.0]
+    var dataArr = [0.0, 50.0, 170.0, 0.0]
     var body: some View {
         NavigationStack {
             List {
@@ -113,39 +113,73 @@ struct ContentView: View {
                 )
                 Text(protocolObj.name)
                 
-                Section(header: Text("Connect to watch")) {
+                Section(header: Text("fake data")) {
                     Button(action:{
                         i = 0
+                        print("val: " , dataArr[i])
                         if dataArr [i] < protocolObj.pattern.target{
+                            print("send under")
                             connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
                         }
                         else if dataArr [i] > protocolObj.pattern.target{
+                            print("send above")
                             connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
                         }
                         else{
+                            print("send at")
                             connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
                         }
                         i += 1
                         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
-                            if i >= 4{
-                                timer.invalidate()
-                                print("end test")
-                                return
-                            }
-                            
+                                if i >= 4{
+                                    timer.invalidate()
+                                    print("end test")
+                                    return
+                                }
+                            print("val: " , dataArr[i])
                             if dataArr [i] < protocolObj.pattern.target{
+                                print("send under")
                                 connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
                             }
                             else if dataArr [i] > protocolObj.pattern.target{
+                                print("send above")
                                 connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
                             }
                             else{
+                                print("send at")
                                 connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
                             }
                             i += 1
                         }
                     }){
-                        Text("Send data to Watch")
+                        Text("Send fake data to Watch")
+                    }
+                }
+                    
+                Section(header: Text("random data")) {
+                    Button(action:{
+                        var i = 0
+                        evaluateIntervalFakeData()
+                        if currPattern.id != previousPattern.id {
+                            previousPattern = currPattern
+                            updateWatch()
+                        }
+                        i += 1
+                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                            if i >= 12{
+                                timer.invalidate()
+                                print("end test")
+                                return
+                            }
+                            evaluateIntervalFakeData()
+                            if currPattern.id != previousPattern.id {
+                                previousPattern = currPattern
+                                updateWatch()
+                            }
+                            i += 1
+                        }
+                    }){
+                        Text("Send randome data to Watch")
                     }
                 }
                 
@@ -270,15 +304,15 @@ struct ContentView: View {
         newRowingTest.protocolName = protocolObj.name
         newRowingTest.subjectId = subjectId
         activeTest = newRowingTest
-        activeTestTimer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true, block: onTimerTick)
+        activeTestTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: onTimerTick)
         addNewInterval()
     }
     
     private func onTimerTick(timer: Timer) {
-        debugPrint("Added Interval");
+//        debugPrint("Added Interval");
         addNewInterval()
         evaluateInterval()
-        
+//        evaluateIntervalFakeData()
         if currPattern.id != previousPattern.id {
             previousPattern = currPattern
             updateWatch()
@@ -287,7 +321,7 @@ struct ContentView: View {
     
     private func addNewInterval() {
         if(concept2monitor == nil) {
-            print("No monitor connected")
+//            print("No monitor connected")
             return
         }
         let newInterval = Interval(context: viewContext)
@@ -318,11 +352,27 @@ struct ContentView: View {
     }
     
     private func evaluateInterval(){
-        print("evaluate interval")
+//        print("evaluate interval")
         if activeInterval?.power ?? 0.0 < protocolObj.pattern.target - protocolObj.pattern.range {
+            print("under")
             currPattern = protocolObj.pattern.underPattern
         }
         else if activeInterval?.power ?? 0.0 < protocolObj.pattern.target + protocolObj.pattern.range {
+            print("at")
+            currPattern = protocolObj.pattern.abovePattern
+        } else{
+            print("above")
+            currPattern = protocolObj.pattern.atPattern
+        }
+    }
+    
+    private func evaluateIntervalFakeData(){
+        let val = Int.random(in: 0..<3)
+        print(val)
+        if val == 0{
+            currPattern = protocolObj.pattern.underPattern
+        }
+        else if val == 1{
             currPattern = protocolObj.pattern.abovePattern
         } else{
             currPattern = protocolObj.pattern.atPattern

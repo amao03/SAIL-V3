@@ -65,12 +65,12 @@ class ConnectToWatch: NSObject, ObservableObject {
     }
     
     public func sendDataToWatch(sendObject: MadePattern){
-        Swift.print("send method")
+//        Swift.print("send method")
         if activateSession(){
             if (session.isReachable){
-                Swift.print("reached")
+//                Swift.print("reached")
                 let data:[String:Any] = ["data":sendObject.encoder()]
-                Swift.print("sending data: \(data)")
+//                Swift.print("sending data: \(data)")
                 session.sendMessage(data, replyHandler: nil)
             }
             else{
