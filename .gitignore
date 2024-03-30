@@ -1,9 +1,9 @@
 
 .DS_Store
 **/.DS_Store
-xcuserdata/**/*
 xcuserdata/**
+xcuserdata/**/*
+**/xcuserdata/**
 
 v2/v2.xcodeproj/project.xcworkspace/xcuserdata/lucasdrummond.xcuserdatad/UserInterfaceState.xcuserstate
-
 v2/v2.xcodeproj/xcuserdata/lucasdrummond.xcuserdatad/xcschemes/xcschememanagement.plist
