@@ -81,7 +81,7 @@ struct ContentView: View {
     @State var currPattern:MadePattern = MadePattern()
     @State var previousPattern:MadePattern = MadePattern()
     @ObservedObject var connector = ConnectToWatch.connect
-
+    
     private var timerInterval: TimeInterval = 1;
 
     var hasActiveTest: Bool {
@@ -113,7 +113,16 @@ struct ContentView: View {
                 )
                 Text(protocolObj.name)
                 
-                Section(header: Text("fake data")) {
+                Section(header: Text("Send Pattern")) {
+                    Button(action:{
+                        connector.sendDataToWatch(sendObject: protocolObj.pattern)
+                        print(connector.patternPackageSent)
+                    }){
+                        Text("Send Pattern")
+                    }
+                }
+                
+                Section(header: Text("Connect to watch")) {
                     Button(action:{
                         i = 0
                         print("val: " , dataArr[i])
