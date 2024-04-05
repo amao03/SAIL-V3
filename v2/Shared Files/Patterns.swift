@@ -32,6 +32,10 @@ class Pattern: Codable, ObservableObject, Hashable{
         self.range = range
     }
     
+    init() {
+ 
+    }
+    
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(underPattern)

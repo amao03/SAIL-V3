@@ -52,6 +52,28 @@ struct WatchView: View{
         }
     }
     
+    func startTimer(singlePattern: MadePattern ) {
+        var index = 0
+        let totalDuration  = 6.0
+        let startTime = Date()
+        
+        timer = .scheduledTimer(withTimeInterval: singlePattern.duration, repeats: true) { timer in
+            let currentTime = Date()
+            let elapsedTime = currentTime.timeIntervalSince(startTime)
+            //playing haptic pattern for totalDuration seconds when startTimer is called
+            if (elapsedTime >= totalDuration) {
+                timer.invalidate()
+                return
+            }
+          
+            let currHaptic = singlePattern.HapticArray[index % singlePattern.HapticArray.count]
+            print("currHaptic: \(singlePattern.name)")
+            print("duration: \(singlePattern.duration)")
+            Haptics.play(currHaptic: currHaptic)
+            index += 1
+        }
+    }
+    
     func resetTimer() {
         
         DispatchQueue.main.async {
@@ -66,7 +88,29 @@ struct WatchView: View{
     
     var body: some View {
         VStack{
-            if connector.receivedInitial{
+            //Buttons for user to try patterns before test begins
+            if(connector.patternPackageReceived){
+                Button(action:{
+                    startTimer(singlePattern: connector.patternPackage.abovePattern)
+                    print("play above")
+                }){
+                    Text("Above Pattern")
+                }
+                Button(action:{
+                    startTimer(singlePattern: connector.patternPackage.atPattern)
+                    print("play at")
+                }){
+                    Text("At Pattern")
+                }
+                Button(action:{
+                    startTimer(singlePattern: connector.patternPackage.underPattern)
+                    print("play under")
+                }){
+                    Text("Under Pattern")
+                }
+            }
+            
+            else if connector.receivedInitial{
                 if playing{
                     Button(action:{
                         startSession()
