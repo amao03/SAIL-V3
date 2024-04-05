@@ -52,8 +52,14 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
     // Converts Data from phone to a Pattern object
     static func decoder(_ data: Data) -> MadePattern {
         print("decoding...")
-        let pattern = try! PropertyListDecoder.init().decode(MadePattern.self, from: data)
-        return pattern
+        let pattern:MadePattern?
+        
+        do{
+            pattern = try PropertyListDecoder.init().decode(MadePattern.self, from: data)
+        }catch{
+            pattern = MadePatternsList.getPatternByName("ERROR")
+        }
+        return pattern!
     }
 }
 
@@ -73,6 +79,7 @@ class MadePatternsList: Identifiable, Codable, ObservableObject{
                     description: "-    -    -    -    -    -    -    - "),
         MadePattern(name:"super pulse", HapticArray: [Haptics(name: "directionUp", type: "watch")], duration: 0.01,
                     description: "-----------------------"),
+        MadePattern(name:"ERROR", HapticArray: [], duration:0, description: "ERROR")
     ]
     
     static func getPatternByName(_ name: String) -> MadePattern? {

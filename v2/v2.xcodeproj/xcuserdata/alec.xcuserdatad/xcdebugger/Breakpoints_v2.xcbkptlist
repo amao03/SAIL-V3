@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4EB17673-913A-48AC-9EBB-BBEB14FF27E3"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8347656F-FF51-4B86-95E0-B826A12E70AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "v2-watch Watch App/WatchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C96B243C-18B4-4C66-B086-C2544E8002C9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "v2/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C96B243C-18B4-4C66-B086-C2544E8002C9 - b7c3ed6561954fd1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.Button&lt;SwiftUI.Text&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(v2.BluetoothView, v2.TestSetupView, SwiftUI.Text, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, SwiftUI.Section&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt;, v2.SavedTestsView)&gt; in closure #1 () -&gt; SwiftUI.List&lt;Swift.Never, SwiftUI.TupleView&lt;(v2.BluetoothView, v2.TestSetupView, SwiftUI.Text, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, SwiftUI.Section&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt;, v2.SavedTestsView)&gt;&gt; in v2.ContentView.body.getter : some"
+                  moduleName = "v2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alec/Documents/Documents%20-%20Alec%E2%80%99s%20MacBook%20Air/SAIL/SAIL-FINAL/v2/v2/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "C96B243C-18B4-4C66-B086-C2544E8002C9 - b7c3ed6561954fd1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.Button&lt;SwiftUI.Text&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(v2.BluetoothView, v2.TestSetupView, SwiftUI.Text, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, SwiftUI.Section&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt;, v2.SavedTestsView)&gt; in closure #1 () -&gt; SwiftUI.List&lt;Swift.Never, SwiftUI.TupleView&lt;(v2.BluetoothView, v2.TestSetupView, SwiftUI.Text, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, SwiftUI.Section&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.EmptyView&gt;, v2.SavedTestsView)&gt;&gt; in v2.ContentView.body.getter : some"
+                  moduleName = "v2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alec/Documents/Documents%20-%20Alec%E2%80%99s%20MacBook%20Air/SAIL/SAIL-FINAL/v2/v2/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F58FCE7-1AFF-43C9-9E7E-F3A72CB5CF85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared Files/ConnectToWatch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "dataPackageReceivedFromPhone(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5F58FCE7-1AFF-43C9-9E7E-F3A72CB5CF85 - 823dbcbdfd183c57"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in v2_watch_Watch_App.ConnectToWatch.dataPackageReceivedFromPhone(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "v2-watch Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alec/Documents/Documents%20-%20Alec%E2%80%99s%20MacBook%20Air/SAIL/SAIL-FINAL/v2/Shared%20Files/ConnectToWatch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "856">
+               </Location>
+               <Location
+                  uuid = "5F58FCE7-1AFF-43C9-9E7E-F3A72CB5CF85 - 78d3ce211d47535a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in v2.ConnectToWatch.dataPackageReceivedFromPhone(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "v2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alec/Documents/Documents%20-%20Alec%E2%80%99s%20MacBook%20Air/SAIL/SAIL-FINAL/v2/Shared%20Files/ConnectToWatch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "856">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
