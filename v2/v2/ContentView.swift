@@ -97,7 +97,7 @@ struct ContentView: View {
     }
     
     @State var i = 0
-    var dataArr = [0.0, 50.0, 170.0, 0.0]
+    var dataArr = [150.0, 160.0, 170.0, 150.0]
     var body: some View {
         NavigationStack {
             List {
@@ -113,16 +113,16 @@ struct ContentView: View {
                 )
                 Text(protocolObj.name)
                 
-                Section(header: Text("Send Pattern")) {
+                Section(header: Text("Test patterns")) {
                     Button(action:{
                         connector.sendDataToWatch(sendObject: protocolObj.pattern)
                         print(connector.patternPackageSent)
                     }){
-                        Text("Send Pattern")
+                        Text("Test Pattern")
                     }
                 }
                 
-                Section(header: Text("Connect to watch")) {
+                Section(header: Text("Fake Data")) {
                     Button(action:{
                         i = 0
                         print("val: " , dataArr[i])
@@ -188,7 +188,7 @@ struct ContentView: View {
                             i += 1
                         }
                     }){
-                        Text("Send randome data to Watch")
+                        Text("Send random data to Watch")
                     }
                 }
                 

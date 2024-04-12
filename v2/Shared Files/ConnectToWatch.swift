@@ -88,78 +88,32 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
-    public func dataPackageReceivedFromPhone(_ info:[String:Any]) {
-        if !session.isReachable{
-            Swift.print("couldn't retrieve data from phone")
-            return
-        }
-        print("dataReceivedFromPhone")
-        
-        Swift.print("Receiving Package...")
-        DispatchQueue.main.async {
-            let data:Data = info["data"] as! Data
-            var decodedPattern = MadePattern.decoder(data)
-            print("decoded: ", decodedPattern)
-            if (decodedPattern.name == "ERROR"){
-                self.patternPackage = Pattern.decoder(data)
-                print("ERRRO: ", self.patternPackage)
-                self.patternPackageReceived = true
-            }
-//            
-//            self.patternPackage = decodedPattern
-//            Swift.print("pattern package received")
-           
-        }
-    }
-    
-    
     
     
     // Convert Data from phone to a Pattern object to be set in TimerControls
     public func dataReceivedFromPhone(_ info:[String:Any]) {
-//        if !session.isReachable{
-//            Swift.print("couldn't retrieve data from phone")
-//            return
-//        }
-//        print("dataReceivedFromPhone")
-//
-//        
-//        
-//        
-//        Swift.print("Receiving..")
-//        DispatchQueue.main.async {
-//            let data:Data = info["data"] as! Data
-//            let decodedPattern = MadePattern.decoder(data)
-//                
-//            self.pattern = decodedPattern
-//            Swift.print("pattern received: \(self.pattern.name)")
-//            self.received = true
-//            self.receivedInitial = true
-//        }
-        
-        
-        
         if !session.isReachable{
             Swift.print("couldn't retrieve data from phone")
             return
         }
         print("dataReceivedFromPhone")
+
         
         Swift.print("Receiving Package...")
         DispatchQueue.main.async {
             let data:Data = info["data"] as! Data
-            var decodedPattern = MadePattern.decoder(data)
+            let decodedPattern = MadePattern.decoder(data)
             print("decoded: ", decodedPattern)
-            if (decodedPattern.name == "ERROR"){
+            if (decodedPattern.name == "ERROR"){ //If the data is for the testing patterns
                 self.patternPackage = Pattern.decoder(data)
                 print("ERROR: ", self.patternPackage)
                 self.patternPackageReceived = true
+            }else{
+                self.pattern = decodedPattern
+                self.receivedInitial = true
             }
             self.received = true
-            //            self.receivedInitial = true
-//
-//            self.patternPackage = decodedPattern
-//            Swift.print("pattern package received")
+            
            
         }
     }
@@ -185,12 +139,6 @@ extension ConnectToWatch: WCSessionDelegate{
     
     func session(_ session: WCSession, didReceiveMessage info: [String : Any]) {
         dataReceivedFromPhone(info)
-//        if(patternPackageSent){
-//           
-//        }
-//        else{
-//            dataReceivedFromPhone(info)
-//        }
     }
     
     
