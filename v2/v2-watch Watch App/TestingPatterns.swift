@@ -22,6 +22,7 @@ struct TestingPatterns : View {
         timer = .scheduledTimer(withTimeInterval: singlePattern.duration, repeats: true) { timer in
             let currentTime = Date()
             let elapsedTime = currentTime.timeIntervalSince(startTime)
+            
             //playing haptic pattern for totalDuration seconds when startTimer is called
             if (elapsedTime >= totalDuration) {
                 timer.invalidate()
@@ -37,23 +38,26 @@ struct TestingPatterns : View {
     }
     
     var body: some View {
-        Button(action:{
-            startTimer(singlePattern: underPatter)
-            print("play above")
-        }){
-            Text("Above Pattern")
-        }
-        Button(action:{
-            startTimer(singlePattern: atPatter)
-            print("play at")
-        }){
-            Text("At Pattern")
-        }
-        Button(action:{
-            startTimer(singlePattern: abovePattern)
-            print("play under")
-        }){
-            Text("Under Pattern")
+        ScrollView{
+            Button(action:{
+                startTimer(singlePattern: underPatter)
+                print("play above")
+            }){
+                Text("Above Pattern")
+            }
+            Button(action:{
+                startTimer(singlePattern: atPatter)
+                print("play at")
+            }){
+                Text("At Pattern")
+            }
+            Button(action:{
+                startTimer(singlePattern: abovePattern)
+                print("play under")
+            }){
+                Text("Under Pattern")
+            }
+            
         }
     }
 }

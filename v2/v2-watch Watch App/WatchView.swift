@@ -72,6 +72,11 @@ struct WatchView: View{
                         NavigationLink(destination: TestingPatterns(underPatter: connector.patternPackage.underPattern, atPatter: connector.patternPackage.atPattern, abovePattern: connector.patternPackage.abovePattern)) {
                             Text("Test Patterns")
                         }
+                        Text("Range: \(connector.patternPackage.range)")
+                        Text("Target: \(connector.patternPackage.target)")
+                        Text("Target: \(connector.patternPackage.underPattern.name)")
+                        Text("Target: \(connector.patternPackage.atPattern.name)")
+                        Text("Target: \(connector.patternPackage.abovePattern.name)")
                     }
                     
                     if connector.receivedInitial{
@@ -83,8 +88,6 @@ struct WatchView: View{
                             }){
                                 Text("Start")
                             }
-                            
-                            
                         }
                         else{
                             Button(action:{

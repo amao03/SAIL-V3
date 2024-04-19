@@ -9,11 +9,6 @@ import SwiftUI
 import CoreData
 import Charts
 
-//enum ProtocolNames: String, CaseIterable, Identifiable {
-//    case V1 = "V1", V2 = "V2", V3 = "V3"
-//    var id: Self { self }
-//}
-
 let timeSort = NSSortDescriptor(key: "timestamp", ascending: true)
 let starttimeSort = NSSortDescriptor(key: "starttime", ascending: true)
 
@@ -77,10 +72,12 @@ struct ContentView: View {
     @State var concept2monitor:PerformanceMonitor?
     @StateObject var fetchData:FetchData = FetchData()
     
-    @State var protocolObj = ProtocolList.protocolList[0]
+    @State var protocolObj:Protocols = Protocols()
     @State var currPattern:MadePattern = MadePattern()
     @State var previousPattern:MadePattern = MadePattern()
     @ObservedObject var connector = ConnectToWatch.connect
+    
+    @State var currProtocol = Protocols()
     
     private var timerInterval: TimeInterval = 1;
 
@@ -99,19 +96,26 @@ struct ContentView: View {
     @State var i = 0
     var dataArr = [150.0, 160.0, 170.0, 150.0]
     var body: some View {
-        NavigationStack {
+       NavigationStack {
             List {
                 BluetoothView(
                     concept2monitor: $concept2monitor,
                     fetchData: fetchData
                 )
                 
-                TestSetupView(
-                    subjectId: $subjectId, 
-                    selectProtocol: $protocolObj,
-                    hasActiveTest: hasActiveTest
-                )
-                Text(protocolObj.name)
+                TestSetupView(selectProtocol: $protocolObj)
+                
+                
+                Section(header: Text("Subject ID"))
+                {
+                    TextField(
+                        "Subject ID*",
+                        text: $subjectId
+                    )
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .disabled(hasActiveTest)
+                }
                 
                 Section(header: Text("Test patterns")) {
                     Button(action:{
@@ -366,7 +370,7 @@ struct ContentView: View {
             print("under")
             currPattern = protocolObj.pattern.underPattern
         }
-        else if activeInterval?.power ?? 0.0 < protocolObj.pattern.target + protocolObj.pattern.range {
+        else if activeInterval?.power ?? 0.0 < (protocolObj.pattern.target + protocolObj.pattern.range) {
             print("at")
             currPattern = protocolObj.pattern.abovePattern
         } else{
