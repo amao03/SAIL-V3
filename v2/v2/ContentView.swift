@@ -326,7 +326,7 @@ struct ContentView: View {
         addNewInterval()
         evaluateInterval()
 //        evaluateIntervalFakeData()
-        if currPattern.id != previousPattern.id {
+        if currPattern.name != previousPattern.name {
             previousPattern = currPattern
             updateWatch()
         }
@@ -366,15 +366,15 @@ struct ContentView: View {
     
     private func evaluateInterval(){
 //        print("evaluate interval")
-        if activeInterval?.power ?? 0.0 < protocolObj.pattern.target - protocolObj.pattern.range {
+        if activeInterval?.power ?? 0.0 < (protocolObj.pattern.target - protocolObj.pattern.range) {
             print("under")
             currPattern = protocolObj.pattern.underPattern
         }
-        else if activeInterval?.power ?? 0.0 < (protocolObj.pattern.target + protocolObj.pattern.range) {
-            print("at")
+        else if activeInterval?.power ?? 0.0 > (protocolObj.pattern.target + protocolObj.pattern.range) {
+            print("above")
             currPattern = protocolObj.pattern.abovePattern
         } else{
-            print("above")
+            print("at")
             currPattern = protocolObj.pattern.atPattern
         }
     }
