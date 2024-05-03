@@ -81,6 +81,8 @@ struct ContentView: View {
     
     @State var currProtocol = Protocols()
     
+    @State var powerData:Disposable?
+    
     private var timerInterval: TimeInterval = 1;
 
     var hasActiveTest: Bool {
@@ -95,8 +97,7 @@ struct ContentView: View {
         return concept2monitor != nil;
     }
     
-    @State var i = 0
-    var dataArr = [150.0, 160.0, 170.0, 150.0]
+    
     var body: some View {
        NavigationStack {
             List {
@@ -130,81 +131,7 @@ struct ContentView: View {
                     }
                 }
                 
-                Section(header: Text("Fake Data")) {
-                    Button(action:{
-                        i = 0
-                        print("val: " , dataArr[i])
-                        if dataArr [i] < protocolObj.pattern.target{
-                            print("send under")
-                            connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
-                        }
-                        else if dataArr [i] > protocolObj.pattern.target{
-                            print("send above")
-                            connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
-                        }
-                        else{
-                            print("send at")
-                            connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
-                        }
-                        i += 1
-                        playingTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
-                                if i >= 4{
-                                    timer.invalidate()
-                                    print("end test")
-                                    return
-                                } else if !timerRunning{
-                                    timer.invalidate()
-                                    return
-                                }
-                            print("val: " , dataArr[i])
-                            if dataArr [i] < protocolObj.pattern.target{
-                                print("send under")
-                                connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
-                            }
-                            else if dataArr [i] > protocolObj.pattern.target{
-                                print("send above")
-                                connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
-                            }
-                            else{
-                                print("send at")
-                                connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
-                            }
-                            i += 1
-                        }
-                    }){
-                        Text("Send fake data to Watch")
-                    }
-                }
-                    
-                Section(header: Text("random data")) {
-                    Button(action:{
-                        var i = 0
-                        evaluateIntervalFakeData()
-                        if currPattern.id != previousPattern.id {
-                            previousPattern = currPattern
-                            updateWatch()
-                        }
-                        i += 1
-                        playingTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
-                            if i >= 12{
-                                timer.invalidate()
-                                print("end test")
-                                return
-                            } else if !timerRunning{
-                                timer.invalidate()
-                                return
-                            }
-                            evaluateIntervalFakeData()
-                            if currPattern.id != previousPattern.id {
-                                previousPattern = currPattern
-                                updateWatch()
-                            }
-                            i += 1
-                        }
-                    }){
-                        Text("Send random data to Watch")
-                    }
-                }
+//                TestingCode(protocolObj: $protocolObj, connector: $connector, currPattern: $currPattern)
                 
                 Section(header: Text("Rower")) {
                     HStack(alignment: .bottom) {
@@ -306,9 +233,23 @@ struct ContentView: View {
                 
                 SavedTestsView()
             }
-        }
+       }.onAppear(perform: attachObservers)
     }
     
+    private func attachObservers(){
+        powerData = concept2monitor!.strokePower.attach(observer: {
+          (strokeRate:C2Power) -> Void in
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    evaluateInterval()
+                    if currPattern.name != previousPattern.name {
+                        previousPattern = currPattern
+                        updateWatch()
+                    }
+            }
+          }
+        })
+    }
     private func toggleTest() {
         debugPrint("Toggle Test");
         if(hasActiveTest) {
@@ -334,12 +275,9 @@ struct ContentView: View {
     private func onTimerTick(timer: Timer) {
 //        debugPrint("Added Interval");
         addNewInterval()
-        evaluateInterval()
+        
 //        evaluateIntervalFakeData()
-        if currPattern.name != previousPattern.name {
-            previousPattern = currPattern
-            updateWatch()
-        }
+
     }
     
     private func addNewInterval() {
@@ -389,19 +327,7 @@ struct ContentView: View {
         }
     }
     
-    private func evaluateIntervalFakeData(){
-        let val = Int.random(in: 0..<3)
-        print(val)
-        if val == 0{
-            currPattern = protocolObj.pattern.underPattern
-        }
-        else if val == 1{
-            currPattern = protocolObj.pattern.abovePattern
-        } else{
-            currPattern = protocolObj.pattern.atPattern
-        }
-    }
-    
+
     private func updateWatch(){
         print("update watch")
         connector.sendDataToWatch(sendObject: currPattern)
