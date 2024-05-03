@@ -11,10 +11,11 @@ import SwiftUI
 
 struct TestingCode:View {
     @Binding var protocolObj:Protocols
-    @Binding var connector:ConnectToWatch
+    @ObservedObject var connector:ConnectToWatch
     @State var i = 0
     var dataArr = [150.0, 160.0, 170.0, 150.0]
     @Binding var currPattern:MadePattern
+    @Binding var previousPattern:MadePattern
     
     
     var body: some View {
@@ -68,10 +69,10 @@ struct TestingCode:View {
                     evaluateIntervalFakeData()
                     if currPattern.id != previousPattern.id {
                         previousPattern = currPattern
-                        updateWatch()
+                        connector.sendDataToWatch(sendObject: currPattern)
                     }
                     i += 1
-                    playingTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                         if i >= 12{
                             timer.invalidate()
                             print("end test")
@@ -80,7 +81,7 @@ struct TestingCode:View {
                         evaluateIntervalFakeData()
                         if currPattern.id != previousPattern.id {
                             previousPattern = currPattern
-                            updateWatch()
+                            connector.sendDataToWatch(sendObject: currPattern)
                         }
                         i += 1
                     }

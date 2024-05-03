@@ -53,7 +53,6 @@ class ConnectToWatch: NSObject, ObservableObject {
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
         Swift.print("send method")
-//        if activateSession(){
             if (session.isReachable){
                 Swift.print("reached")
                 let data:[String:Any] = ["data":sendObject.encoder()]
@@ -64,28 +63,16 @@ class ConnectToWatch: NSObject, ObservableObject {
             else{
                 print("failed to send haptics because it is not reachable")
             }
-//        }
-//        else {
-//            print("not activated")
-//        }
     }
     
     public func sendDataToWatch(sendObject: MadePattern){
-//        Swift.print("send method")
-//        if activateSession(){
             if (session.isReachable){
-//                Swift.print("reached")
                 let data:[String:Any] = ["data":sendObject.encoder()]
-//                Swift.print("sending data: \(data)")
                 session.sendMessage(data, replyHandler: nil)
             }
             else{
                 print("failed to send haptics because it is not reachable")
             }
-//        }
-//        else {
-//            print("not activated")
-//        }
     }
     
     

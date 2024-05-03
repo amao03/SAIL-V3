@@ -131,7 +131,7 @@ struct ContentView: View {
                     }
                 }
                 
-//                TestingCode(protocolObj: $protocolObj, connector: $connector, currPattern: $currPattern)
+                TestingCode(protocolObj: $protocolObj, connector: connector, currPattern: $currPattern, previousPattern: $previousPattern)
                 
                 Section(header: Text("Rower")) {
                     HStack(alignment: .bottom) {
@@ -233,7 +233,7 @@ struct ContentView: View {
                 
                 SavedTestsView()
             }
-       }.onAppear(perform: attachObservers)
+       }
     }
     
     private func attachObservers(){
@@ -268,21 +268,17 @@ struct ContentView: View {
         newRowingTest.protocolName = protocolObj.name
         newRowingTest.subjectId = subjectId
         activeTest = newRowingTest
+        attachObservers()
         activeTestTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: onTimerTick)
         addNewInterval()
     }
     
     private func onTimerTick(timer: Timer) {
-//        debugPrint("Added Interval");
         addNewInterval()
-        
-//        evaluateIntervalFakeData()
-
     }
     
     private func addNewInterval() {
         if(concept2monitor == nil) {
-//            print("No monitor connected")
             return
         }
         let newInterval = Interval(context: viewContext)
@@ -310,10 +306,10 @@ struct ContentView: View {
             activeTestTimer?.invalidate()
             activeTestTimer = nil;
         }
+        powerData?.dispose()
     }
     
     private func evaluateInterval(){
-//        print("evaluate interval")
         if activeInterval?.power ?? 0.0 < (protocolObj.pattern.target - protocolObj.pattern.range) {
             print("under")
             currPattern = protocolObj.pattern.underPattern
