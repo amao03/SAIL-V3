@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+enum AnimationState: Int, Codable {
+    case below, at, above
+}
+
 class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
     static func == (lhs: MadePattern, rhs: MadePattern) -> Bool {
         return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
@@ -18,12 +22,14 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
     var HapticArray: [Haptics] = []
     var duration: Double = 0.5
     var description:String = ""
+    var animationState: AnimationState
     
     init() {
         self.name = ""
         self.HapticArray = []
         self.duration = 0.5
         self.description = ""
+        self.animationState = AnimationState.at
     }
     
     init(name: String, HapticArray: [Haptics], duration: Double, description: String) {
@@ -31,6 +37,7 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
         self.HapticArray = HapticArray
         self.duration = duration
         self.description = description
+        self.animationState = AnimationState.at
     }
     
     

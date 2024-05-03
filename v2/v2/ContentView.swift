@@ -316,13 +316,16 @@ struct ContentView: View {
         if currPower < Int(protocolObj.pattern.target - protocolObj.pattern.range) {
             print("under")
             currPattern = protocolObj.pattern.underPattern
+            currPattern.animationState = AnimationState.below
         }
         else if currPower > Int(protocolObj.pattern.target + protocolObj.pattern.range) {
             print("above")
             currPattern = protocolObj.pattern.abovePattern
+            currPattern.animationState = AnimationState.above
         } else{
             print("at")
             currPattern = protocolObj.pattern.atPattern
+            currPattern.animationState = AnimationState.at
         }
     }
     
