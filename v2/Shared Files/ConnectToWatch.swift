@@ -108,9 +108,11 @@ class ConnectToWatch: NSObject, ObservableObject {
                 self.patternPackage = Pattern.decoder(data)
                 print("ERROR: ", self.patternPackage)
                 self.patternPackageReceived = true
+                self.receivedInitial = false
             }else{
                 self.pattern = decodedPattern
                 self.receivedInitial = true
+                self.patternPackageReceived = false
             }
             self.received = true
             

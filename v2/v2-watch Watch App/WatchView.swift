@@ -79,7 +79,7 @@ struct WatchView: View{
                         Text("Target: \(connector.patternPackage.abovePattern.name)")
                     }
                     
-                    if connector.receivedInitial{
+                    else if connector.receivedInitial{
                         if playing{
                             Button(action:{
                                 startSession()

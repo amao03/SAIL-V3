@@ -71,6 +71,8 @@ struct ContentView: View {
     @State var activeIntervalsArray: [Interval] = []
     @State var concept2monitor:PerformanceMonitor?
     @StateObject var fetchData:FetchData = FetchData()
+    @State var timerRunning = false
+    @State var playingTimer: Timer?
     
     @State var protocolObj:Protocols = Protocols()
     @State var currPattern:MadePattern = MadePattern()
@@ -121,6 +123,8 @@ struct ContentView: View {
                     Button(action:{
                         connector.sendDataToWatch(sendObject: protocolObj.pattern)
                         print(connector.patternPackageSent)
+                        timerRunning = false
+                        playingTimer?.invalidate()
                     }){
                         Text("Test Pattern")
                     }
@@ -143,10 +147,13 @@ struct ContentView: View {
                             connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
                         }
                         i += 1
-                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                        playingTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                                 if i >= 4{
                                     timer.invalidate()
                                     print("end test")
+                                    return
+                                } else if !timerRunning{
+                                    timer.invalidate()
                                     return
                                 }
                             print("val: " , dataArr[i])
@@ -178,10 +185,13 @@ struct ContentView: View {
                             updateWatch()
                         }
                         i += 1
-                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                        playingTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                             if i >= 12{
                                 timer.invalidate()
                                 print("end test")
+                                return
+                            } else if !timerRunning{
+                                timer.invalidate()
                                 return
                             }
                             evaluateIntervalFakeData()
