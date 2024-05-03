@@ -79,6 +79,8 @@ struct ContentView: View {
     @State var previousPattern:MadePattern = MadePattern()
     @ObservedObject var connector = ConnectToWatch.connect
     
+    @State var currPower = 0
+    
     @State var currProtocol = Protocols()
     
     @State var powerData:Disposable?
@@ -238,9 +240,10 @@ struct ContentView: View {
     
     private func attachObservers(){
         powerData = concept2monitor!.strokePower.attach(observer: {
-          (strokeRate:C2Power) -> Void in
+          (currPow:C2Power) -> Void in
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
+                    currPower = currPow
                     evaluateInterval()
                     if currPattern.name != previousPattern.name {
                         previousPattern = currPattern
@@ -310,11 +313,11 @@ struct ContentView: View {
     }
     
     private func evaluateInterval(){
-        if activeInterval?.power ?? 0.0 < (protocolObj.pattern.target - protocolObj.pattern.range) {
+        if currPower < Int(protocolObj.pattern.target - protocolObj.pattern.range) {
             print("under")
             currPattern = protocolObj.pattern.underPattern
         }
-        else if activeInterval?.power ?? 0.0 > (protocolObj.pattern.target + protocolObj.pattern.range) {
+        else if currPower > Int(protocolObj.pattern.target + protocolObj.pattern.range) {
             print("above")
             currPattern = protocolObj.pattern.abovePattern
         } else{
