@@ -79,4 +79,6 @@ class Pattern: Codable, ObservableObject, Hashable{
         
         return pattern
     }
+    
+    
 }

@@ -253,6 +253,7 @@ struct ContentView: View {
           }
         })
     }
+    
     private func toggleTest() {
         debugPrint("Toggle Test");
         if(hasActiveTest) {
@@ -332,6 +333,7 @@ struct ContentView: View {
 
     private func updateWatch(){
         print("update watch")
+        print(currPattern.animationState)
         connector.sendDataToWatch(sendObject: currPattern)
     }
 

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum AnimationState: Int, Codable {
-    case below, at, above
+    case below, at, above, null
 }
 
 class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
@@ -40,6 +40,9 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
         self.animationState = AnimationState.at
     }
     
+    func setAnimationState(animationState: AnimationState){
+        self.animationState = animationState
+    }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)

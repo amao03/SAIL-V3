@@ -13,28 +13,19 @@ struct TestingCode:View {
     @Binding var protocolObj:Protocols
     @ObservedObject var connector:ConnectToWatch
     @State var i = 0
-    var dataArr = [150.0, 160.0, 170.0, 150.0]
+    var dataArr = [0, 120, 200, 0]
     @Binding var currPattern:MadePattern
     @Binding var previousPattern:MadePattern
     
     
     var body: some View {
-        List{
             Section(header: Text("Fake Data")) {
                 Button(action:{
                     i = 0
-                    print("val: " , dataArr[i])
-                    if dataArr [i] < protocolObj.pattern.target{
-                        print("send under")
-                        connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
-                    }
-                    else if dataArr [i] > protocolObj.pattern.target{
-                        print("send above")
-                        connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
-                    }
-                    else{
-                        print("send at")
-                        connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
+                    evaluateIntervalFakeData(val: Int(dataArr[i]))
+                    if currPattern.id != previousPattern.id {
+                        previousPattern = currPattern
+                        connector.sendDataToWatch(sendObject: currPattern)
                     }
                     i += 1
                     Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
@@ -43,30 +34,22 @@ struct TestingCode:View {
                             print("end test")
                             return
                         }
-                        print("val: " , dataArr[i])
-                        if dataArr [i] < protocolObj.pattern.target{
-                            print("send under")
-                            connector.sendDataToWatch(sendObject: protocolObj.pattern.underPattern)
-                        }
-                        else if dataArr [i] > protocolObj.pattern.target{
-                            print("send above")
-                            connector.sendDataToWatch(sendObject: protocolObj.pattern.abovePattern)
-                        }
-                        else{
-                            print("send at")
-                            connector.sendDataToWatch(sendObject: protocolObj.pattern.atPattern)
+                        
+                        evaluateIntervalFakeData(val: Int(dataArr[i]))
+                        if currPattern.id != previousPattern.id {
+                            previousPattern = currPattern
+                            connector.sendDataToWatch(sendObject: currPattern)
                         }
                         i += 1
                     }
                 }){
                     Text("Send fake data to Watch")
                 }
-            }
-            
-            Section(header: Text("random data")) {
+                
                 Button(action:{
                     var i = 0
-                    evaluateIntervalFakeData()
+                    var val = Int.random(in: 90..<150)
+                    evaluateIntervalFakeData(val: val)
                     if currPattern.id != previousPattern.id {
                         previousPattern = currPattern
                         connector.sendDataToWatch(sendObject: currPattern)
@@ -78,7 +61,8 @@ struct TestingCode:View {
                             print("end test")
                             return
                         }
-                        evaluateIntervalFakeData()
+                        val = Int.random(in: 90..<150)
+                        evaluateIntervalFakeData(val: val)
                         if currPattern.id != previousPattern.id {
                             previousPattern = currPattern
                             connector.sendDataToWatch(sendObject: currPattern)
@@ -89,20 +73,20 @@ struct TestingCode:View {
                     Text("Send random data to Watch")
                 }
             }
-        }
     }
     
-    private func evaluateIntervalFakeData(){
-        let val = Int.random(in: 0..<3)
+    private func evaluateIntervalFakeData(val:Int){
         print(val)
-        if val == 0{
+        if val < Int(protocolObj.pattern.target - protocolObj.pattern.range){
             currPattern = protocolObj.pattern.underPattern
+            currPattern.animationState = AnimationState.below
         }
-        else if val == 1{
+        else if val > Int(protocolObj.pattern.target + protocolObj.pattern.range){
             currPattern = protocolObj.pattern.abovePattern
+            currPattern.animationState = AnimationState.above
         } else{
             currPattern = protocolObj.pattern.atPattern
+            currPattern.animationState = AnimationState.at
         }
     }
-    
 }

@@ -13,7 +13,10 @@ struct WatchView: View {
     @ObservedObject var ExtendedSess = ExtendedSession()
     @State var playing = true
     @State var timer: Timer?
-    @State var animationState: AnimationState = AnimationState.above
+    @State var animationState: AnimationState = AnimationState.null
+    
+    @State private var animationAmount = 1.0;
+    @State private var animationDuration = 1.0;
     
     func toggleEnd(){
         print("toggle end \(playing)")
@@ -63,8 +66,6 @@ struct WatchView: View {
         NavigationStack{
             ScrollView{
                 VStack{
-                    IndicatorView(animationState: $animationState)
-                    
                     //Buttons for user to try patterns before test begins
                     if(connector.patternPackageReceived){
                         NavigationLink(destination: TestingPatterns(underPatter: connector.patternPackage.underPattern, atPatter: connector.patternPackage.atPattern, abovePattern: connector.patternPackage.abovePattern)) {
@@ -88,6 +89,7 @@ struct WatchView: View {
                             }
                         }
                         else{
+                            IndicatorView(animationState: $animationState)
                             Button(action:{
                                 print("end")
                                 toggleEnd()
@@ -101,61 +103,14 @@ struct WatchView: View {
                             let _ = self.resetTimer()
                         }
                         
-                        Text("**Pattern:** \n \(connector.pattern.description)")
-                        Text("**Pattern:** \n \(connector.pattern.name)")
+//                        Text("**Pattern:** \n \(connector.pattern.animationState)")
+//                        Text("**Pattern:** \n \(connector.pattern.name)")
                     }
                     else{
                         Text("awaiting info from phone")
                     }
                 }
             }
-        }
-    }
-}
-
-struct IndicatorView: View {
-    @Binding var animationState: AnimationState
-    @State private var animationAmount = 1.0;
-    @State private var animationDuration = 1.0;
-    
-    private func getColor(_: AnimationState) -> Color {
-        switch(animationState) {
-            case .above:
-                return .pink
-            case .at:
-                return .blue
-            case .below:
-                return .green
-        }
-    }
-    
-    var body: some View {
-        VStack {
-            Circle()
-                .foregroundColor(getColor(animationState))
-                .frame(width: 80, height: 80)
-                .scaleEffect(animationAmount)
-                .animation(
-                    .easeInOut(duration: animationDuration)
-                    .repeatForever(autoreverses: true),
-                    value: animationAmount
-                )
-                .onChange(of: animationState) {
-                    switch(animationState) {
-                    case .above:
-                        animationAmount = 0.8
-                        animationDuration = 2.0
-                    case .at:
-                        animationAmount = 1.0
-                        animationDuration = 1.0
-                    case .below:
-                        animationAmount = 1.0
-                        animationDuration = 0.5
-                    }
-                }
-                .onAppear {
-                    animationAmount = 1.2;
-                }
         }
     }
 }

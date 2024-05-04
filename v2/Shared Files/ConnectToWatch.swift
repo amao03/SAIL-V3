@@ -66,6 +66,7 @@ class ConnectToWatch: NSObject, ObservableObject {
     }
     
     public func sendDataToWatch(sendObject: MadePattern){
+        print("sending pattern:", sendObject.animationState)
             if (session.isReachable){
                 let data:[String:Any] = ["data":sendObject.encoder()]
                 session.sendMessage(data, replyHandler: nil)
