@@ -8,8 +8,12 @@
 import Foundation
 import SwiftUI
 
-enum AnimationState: Int, Codable {
-    case below, at, above, null
+enum AnimationState: String, Equatable, Codable, CaseIterable {
+    case under = "under"
+    case at = "at"
+    case above = "above"
+    
+    var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
 }
 
 class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
@@ -38,10 +42,6 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
         self.duration = duration
         self.description = description
         self.animationState = AnimationState.at
-    }
-    
-    func setAnimationState(animationState: AnimationState){
-        self.animationState = animationState
     }
     
     func hash(into hasher: inout Hasher) {

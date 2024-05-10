@@ -71,8 +71,8 @@ struct ContentView: View {
     @State var activeIntervalsArray: [Interval] = []
     @State var concept2monitor:PerformanceMonitor?
     @StateObject var fetchData:FetchData = FetchData()
-    @State var timerRunning = false
-    @State var playingTimer: Timer?
+    
+   
     
     @State var protocolObj:Protocols = Protocols()
     @State var currPattern:MadePattern = MadePattern()
@@ -108,8 +108,7 @@ struct ContentView: View {
                     fetchData: fetchData
                 )
                 
-                TestSetupView(selectProtocol: $protocolObj)
-                
+                TestSetupView(selectProtocol: $protocolObj, connector: connector)
                 
                 Section(header: Text("Subject ID"))
                 {
@@ -123,14 +122,7 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("Test patterns")) {
-                    Button(action:{
-                        connector.sendDataToWatch(sendObject: protocolObj.pattern)
-                        print(connector.patternPackageSent)
-                        timerRunning = false
-                        playingTimer?.invalidate()
-                    }){
-                        Text("Test Pattern")
-                    }
+                    
                 }
                 
                 TestingCode(protocolObj: $protocolObj, connector: connector, currPattern: $currPattern, previousPattern: $previousPattern)
@@ -317,7 +309,7 @@ struct ContentView: View {
         if currPower < Int(protocolObj.pattern.target - protocolObj.pattern.range) {
             print("under")
             currPattern = protocolObj.pattern.underPattern
-            currPattern.animationState = AnimationState.below
+            currPattern.animationState = AnimationState.under
         }
         else if currPower > Int(protocolObj.pattern.target + protocolObj.pattern.range) {
             print("above")

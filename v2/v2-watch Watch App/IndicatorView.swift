@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct IndicatorView: View {
-    @Binding var animationState: AnimationState
+    var animationState: AnimationState
     @State private var animationAmount = 1.0;
     @State private var animationDuration = 1.0;
     
@@ -18,11 +18,9 @@ struct IndicatorView: View {
             case .above:
                 return .pink
             case .at:
-                return .blue
-            case .below:
                 return .green
-        case .null:
-            return .black
+            case .under:
+                return .blue
         }
     }
     
@@ -45,12 +43,9 @@ struct IndicatorView: View {
                     case .at:
                         animationAmount = 1.0
                         animationDuration = 1.0
-                    case .below:
+                    case .under:
                         animationAmount = 1.0
                         animationDuration = 0.5
-                    case .null:
-                        animationAmount = 0
-                        animationDuration = 0
                     }
                 }
                 .onAppear {

@@ -11,7 +11,7 @@ import SwiftUI
 struct v2_watch_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            WatchView()
+            WatchView(animationState: AnimationState.at)
         }
     }
 }

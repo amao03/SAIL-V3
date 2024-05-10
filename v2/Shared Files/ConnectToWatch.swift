@@ -14,8 +14,6 @@ class ConnectToWatch: NSObject, ObservableObject {
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
-//    var watchView = WatchView()
-    
     @Published var pattern:MadePattern = MadePattern()
     @Published var receivedInitial:Bool = false
     @Published var recPat:Bool = false
@@ -25,7 +23,7 @@ class ConnectToWatch: NSObject, ObservableObject {
     @Published var patternPackageSent:Bool = false
     @Published var patternPackageReceived:Bool = false
     
-//    var play = PlayOnWatch()
+    @Published var playing = true
     
     private override init(){
         super.init()
@@ -53,27 +51,25 @@ class ConnectToWatch: NSObject, ObservableObject {
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
         Swift.print("send method")
-            if (session.isReachable){
-                Swift.print("reached")
-                let data:[String:Any] = ["data":sendObject.encoder()]
-                Swift.print("sending data: \(data)")
-                patternPackageSent = true
-                session.sendMessage(data, replyHandler: nil)
-            }
-            else{
-                print("failed to send haptics because it is not reachable")
-            }
+        if (session.isReachable){
+            let data:[String:Any] = ["data":sendObject.encoder()]
+            patternPackageSent = true
+            session.sendMessage(data, replyHandler: nil)
+        }
+        else{
+            print("failed to send haptics because it is not reachable")
+        }
     }
     
     public func sendDataToWatch(sendObject: MadePattern){
         print("sending pattern:", sendObject.animationState)
-            if (session.isReachable){
-                let data:[String:Any] = ["data":sendObject.encoder()]
-                session.sendMessage(data, replyHandler: nil)
-            }
-            else{
-                print("failed to send haptics because it is not reachable")
-            }
+        if (session.isReachable){                    let data:[String:Any] = ["data":sendObject.encoder()]
+            session.sendMessage(data, replyHandler: nil)
+            
+        }
+        else{
+            print("failed to send haptics because it is not reachable")
+        }
     }
     
     
@@ -85,26 +81,26 @@ class ConnectToWatch: NSObject, ObservableObject {
             return
         }
         print("dataReceivedFromPhone")
-
-        
-        Swift.print("Receiving Package...")
-        DispatchQueue.main.async {
-            let data:Data = info["data"] as! Data
-            let decodedPattern = MadePattern.decoder(data)
-            print("decoded: ", decodedPattern)
-            if (decodedPattern.name == "ERROR"){ //If the data is for the testing patterns
-                self.patternPackage = Pattern.decoder(data)
-                print("ERROR: ", self.patternPackage)
-                self.patternPackageReceived = true
-                self.receivedInitial = false
-            }else{
-                self.pattern = decodedPattern
-                self.receivedInitial = true
-                self.patternPackageReceived = false
+        if playing{
+            Swift.print("Receiving Package...")
+            DispatchQueue.main.async {
+                let data:Data = info["data"] as! Data
+                let decodedPattern = MadePattern.decoder(data)
+                print("decoded: ", decodedPattern)
+                if (decodedPattern.name == "ERROR"){ //If the data is for the testing patterns
+                    self.patternPackage = Pattern.decoder(data)
+                    print("ERROR: ", self.patternPackage)
+                    self.patternPackageReceived = true
+                    //                self.receivedInitial = false
+                    self.updating = true
+                }else{
+                    self.playing = true
+                    self.pattern = decodedPattern
+                    self.receivedInitial = true
+                    //                self.patternPackageReceived = false
+                }
+                self.received = true
             }
-            self.received = true
-            
-           
         }
     }
     

@@ -28,6 +28,7 @@ struct TestingCode:View {
                         connector.sendDataToWatch(sendObject: currPattern)
                     }
                     i += 1
+                    
                     Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                         if i >= 4{
                             timer.invalidate()
@@ -61,6 +62,7 @@ struct TestingCode:View {
                             print("end test")
                             return
                         }
+                        
                         val = Int.random(in: 90..<150)
                         evaluateIntervalFakeData(val: val)
                         if currPattern.id != previousPattern.id {
@@ -76,10 +78,9 @@ struct TestingCode:View {
     }
     
     private func evaluateIntervalFakeData(val:Int){
-        print(val)
         if val < Int(protocolObj.pattern.target - protocolObj.pattern.range){
             currPattern = protocolObj.pattern.underPattern
-            currPattern.animationState = AnimationState.below
+            currPattern.animationState = AnimationState.under
         }
         else if val > Int(protocolObj.pattern.target + protocolObj.pattern.range){
             currPattern = protocolObj.pattern.abovePattern
