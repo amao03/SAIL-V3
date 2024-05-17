@@ -71,19 +71,13 @@ struct ContentView: View {
     @State var activeIntervalsArray: [Interval] = []
     @State var concept2monitor:PerformanceMonitor?
     @StateObject var fetchData:FetchData = FetchData()
-    
-   
-    
     @State var protocolObj:Protocols = Protocols()
     @State var currPattern:MadePattern = MadePattern()
     @State var previousPattern:MadePattern = MadePattern()
     @ObservedObject var connector = ConnectToWatch.connect
-    
     @State var currPower = 0
-    
     @State var currProtocol = Protocols()
-    
-    @State var powerData:Disposable?
+    @State var powerDisposable: Disposable?
     
     private var timerInterval: TimeInterval = 1;
 
@@ -231,7 +225,7 @@ struct ContentView: View {
     }
     
     private func attachObservers(){
-        powerData = concept2monitor!.strokePower.attach(observer: {
+        powerDisposable = concept2monitor!.strokePower.attach(observer: {
           (currPow:C2Power) -> Void in
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
@@ -281,6 +275,8 @@ struct ContentView: View {
         
         newInterval.timestamp = Date()
         newInterval.power = Double(concept2monitor?.strokePower.value ?? 0)
+        newInterval.distance = Double(concept2monitor?.distance.value ?? 0)
+        newInterval.strokeRate = Int16(concept2monitor?.strokeRate.value ?? 0)
         
         activeInterval = newInterval
         if(activeTest != nil) {
@@ -302,7 +298,7 @@ struct ContentView: View {
             activeTestTimer?.invalidate()
             activeTestTimer = nil;
         }
-        powerData?.dispose()
+        powerDisposable?.dispose()
     }
     
     private func evaluateInterval(){
