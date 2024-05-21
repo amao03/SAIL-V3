@@ -24,6 +24,10 @@ class Pattern: Codable, ObservableObject, Hashable{
     
     var name = "v1"
     
+    init() {
+ 
+    }
+    
     init(underPattern: MadePattern, atPattern: MadePattern, abovePattern: MadePattern, timeOverall: Double = 5.0, type: String = "rowing", target: Double, range: Double) {
         self.underPattern = underPattern
         self.atPattern = atPattern
@@ -33,11 +37,6 @@ class Pattern: Codable, ObservableObject, Hashable{
         self.target = target
         self.range = range
     }
-    
-    init() {
- 
-    }
-    
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(underPattern)
@@ -79,6 +78,4 @@ class Pattern: Codable, ObservableObject, Hashable{
         
         return pattern
     }
-    
-    
 }

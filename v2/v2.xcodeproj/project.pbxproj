@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		414768D62BFD0F43004E1747 /* RowingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768D52BFD0F43004E1747 /* RowingDataView.swift */; };
-		41D022232B8D921C0000E9D1 /* TestSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D022222B8D921C0000E9D1 /* TestSetupView.swift */; };
-		41D022272B8D93910000E9D1 /* SavedTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D022262B8D93910000E9D1 /* SavedTestsView.swift */; };
+		414768DE2BFD2F55004E1747 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768DD2BFD2F55004E1747 /* ContentView.swift */; };
+		414768E02BFD2F84004E1747 /* TestSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768DF2BFD2F84004E1747 /* TestSetupView.swift */; };
+		414768E22BFD2F8D004E1747 /* SavedTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768E12BFD2F8D004E1747 /* SavedTestsView.swift */; };
+		414768E42BFD2FCA004E1747 /* RowingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768E32BFD2FCA004E1747 /* RowingTestView.swift */; };
+		414768E62BFD3DC6004E1747 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768E52BFD3DC6004E1747 /* Utils.swift */; };
 		681374D52BE54E790095D4E2 /* TestingCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681374D42BE54E790095D4E2 /* TestingCode.swift */; };
 		682C796E2B924CAB00D6CA7C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682C796D2B924CAB00D6CA7C /* Protocols.swift */; };
 		682C79712B9256C700D6CA7C /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682C79702B9256C700D6CA7C /* WatchView.swift */; };
 		6838EEBF2B6BF03D00E94268 /* v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEBE2B6BF03D00E94268 /* v2App.swift */; };
-		6838EEC12B6BF03D00E94268 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEC02B6BF03D00E94268 /* ContentView.swift */; };
 		6838EEC32B6BF04000E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEC22B6BF04000E94268 /* Assets.xcassets */; };
 		6838EEC62B6BF04000E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEC52B6BF04000E94268 /* Preview Assets.xcassets */; };
 		6838EEC82B6BF04000E94268 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEC72B6BF04000E94268 /* Persistence.swift */; };
 		6838EECB2B6BF04000E94268 /* v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEC92B6BF04000E94268 /* v2.xcdatamodeld */; };
 		6838EED22B6BF08C00E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED12B6BF08C00E94268 /* Haptics.swift */; };
-		6838EED42B6BF0A400E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Patterns.swift */; };
-		6838EED62B6BF0BC00E94268 /* MadePatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePatterns.swift */; };
-		6838EEDF2B6BF14D00E94268 /* sail-v2-phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */; };
+		6838EED42B6BF0A400E94268 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Pattern.swift */; };
+		6838EED62B6BF0BC00E94268 /* MadePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePattern.swift */; };
 		6838EEE12B6BF23600E94268 /* ConnectToWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */; };
 		6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEE82B6BF25800E94268 /* v2_watchApp.swift */; };
 		6838EEED2B6BF25B00E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEEC2B6BF25B00E94268 /* Assets.xcassets */; };
 		6838EEF02B6BF25B00E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEEF2B6BF25B00E94268 /* Preview Assets.xcassets */; };
 		6838EEF32B6BF25B00E94268 /* v2-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Patterns.swift */; };
-		6838EEFE2B6BF2E600E94268 /* MadePatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePatterns.swift */; };
+		6838EEFD2B6BF2E300E94268 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED32B6BF0A400E94268 /* Pattern.swift */; };
+		6838EEFE2B6BF2E600E94268 /* MadePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED52B6BF0BC00E94268 /* MadePattern.swift */; };
 		6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EED12B6BF08C00E94268 /* Haptics.swift */; };
 		6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */; };
 		6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF042B6BF33000E94268 /* ExtendedSession.swift */; };
@@ -82,9 +82,9 @@
 		68F28C712BE6E54500572B37 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F28C702BE6E54500572B37 /* IndicatorView.swift */; };
 		68F28C732BE6F1EE00572B37 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F28C722BE6F1EE00572B37 /* Carousel.swift */; };
 		68FA6D452BC907C0000E90FC /* TestingPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D442BC907C0000E90FC /* TestingPatterns.swift */; };
-		68FA6D472BC99376000E90FC /* HapticsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D462BC99376000E90FC /* HapticsForm.swift */; };
-		68FA6D492BC9A525000E90FC /* Select_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D482BC9A525000E90FC /* Select_Patterns.swift */; };
-		68FA6D4B2BC9AE38000E90FC /* CustomHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D4A2BC9AE38000E90FC /* CustomHaptics.swift */; };
+		68FA6D472BC99376000E90FC /* HapticsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D462BC99376000E90FC /* HapticsFormView.swift */; };
+		68FA6D492BC9A525000E90FC /* MadeHapticsSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D482BC9A525000E90FC /* MadeHapticsSelectorView.swift */; };
+		68FA6D4B2BC9AE38000E90FC /* CustomHapticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D4A2BC9AE38000E90FC /* CustomHapticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,23 +112,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		414768D52BFD0F43004E1747 /* RowingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingDataView.swift; sourceTree = "<group>"; };
-		41D022222B8D921C0000E9D1 /* TestSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetupView.swift; sourceTree = "<group>"; };
-		41D022262B8D93910000E9D1 /* SavedTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTestsView.swift; sourceTree = "<group>"; };
+		414768DD2BFD2F55004E1747 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		414768DF2BFD2F84004E1747 /* TestSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetupView.swift; sourceTree = "<group>"; };
+		414768E12BFD2F8D004E1747 /* SavedTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTestsView.swift; sourceTree = "<group>"; };
+		414768E32BFD2FCA004E1747 /* RowingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowingTestView.swift; sourceTree = "<group>"; };
+		414768E52BFD3DC6004E1747 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		681374D42BE54E790095D4E2 /* TestingCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCode.swift; sourceTree = "<group>"; };
 		682C796D2B924CAB00D6CA7C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		682C79702B9256C700D6CA7C /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
 		6838EEBB2B6BF03D00E94268 /* v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6838EEBE2B6BF03D00E94268 /* v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v2App.swift; sourceTree = "<group>"; };
-		6838EEC02B6BF03D00E94268 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6838EEC22B6BF04000E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6838EEC52B6BF04000E94268 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6838EEC72B6BF04000E94268 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		6838EECA2B6BF04000E94268 /* v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.xcdatamodel; sourceTree = "<group>"; };
 		6838EED12B6BF08C00E94268 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
-		6838EED32B6BF0A400E94268 /* Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
-		6838EED52B6BF0BC00E94268 /* MadePatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadePatterns.swift; sourceTree = "<group>"; };
-		6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "sail-v2-phone.swift"; sourceTree = "<group>"; };
+		6838EED32B6BF0A400E94268 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
+		6838EED52B6BF0BC00E94268 /* MadePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadePattern.swift; sourceTree = "<group>"; };
 		6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToWatch.swift; sourceTree = "<group>"; };
 		6838EEE62B6BF25800E94268 /* v2-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "v2-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6838EEE82B6BF25800E94268 /* v2_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v2_watchApp.swift; sourceTree = "<group>"; };
@@ -185,9 +185,9 @@
 		68F28C702BE6E54500572B37 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		68F28C722BE6F1EE00572B37 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		68FA6D442BC907C0000E90FC /* TestingPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPatterns.swift; sourceTree = "<group>"; };
-		68FA6D462BC99376000E90FC /* HapticsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsForm.swift; sourceTree = "<group>"; };
-		68FA6D482BC9A525000E90FC /* Select_Patterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Select_Patterns.swift; path = "../../sail-v1/sail-v1/Select_Patterns.swift"; sourceTree = "<group>"; };
-		68FA6D4A2BC9AE38000E90FC /* CustomHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHaptics.swift; sourceTree = "<group>"; };
+		68FA6D462BC99376000E90FC /* HapticsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsFormView.swift; sourceTree = "<group>"; };
+		68FA6D482BC9A525000E90FC /* MadeHapticsSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MadeHapticsSelectorView.swift; path = "../../sail-v1/sail-v1/MadeHapticsSelectorView.swift"; sourceTree = "<group>"; };
+		68FA6D4A2BC9AE38000E90FC /* CustomHapticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHapticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,18 +232,19 @@
 		6838EEBD2B6BF03D00E94268 /* v2 */ = {
 			isa = PBXGroup;
 			children = (
-				6838EEC02B6BF03D00E94268 /* ContentView.swift */,
-				414768D52BFD0F43004E1747 /* RowingDataView.swift */,
+				414768E52BFD3DC6004E1747 /* Utils.swift */,
+				414768DD2BFD2F55004E1747 /* ContentView.swift */,
 				681374D42BE54E790095D4E2 /* TestingCode.swift */,
-				68FA6D4A2BC9AE38000E90FC /* CustomHaptics.swift */,
+				414768DF2BFD2F84004E1747 /* TestSetupView.swift */,
+				414768E12BFD2F8D004E1747 /* SavedTestsView.swift */,
+				414768E32BFD2FCA004E1747 /* RowingTestView.swift */,
 				682C796D2B924CAB00D6CA7C /* Protocols.swift */,
-				41D022222B8D921C0000E9D1 /* TestSetupView.swift */,
-				41D022262B8D93910000E9D1 /* SavedTestsView.swift */,
+				68FA6D4A2BC9AE38000E90FC /* CustomHapticsView.swift */,
+				68FA6D462BC99376000E90FC /* HapticsFormView.swift */,
+				68FA6D482BC9A525000E90FC /* MadeHapticsSelectorView.swift */,
 				6838EEBE2B6BF03D00E94268 /* v2App.swift */,
 				6838EEC22B6BF04000E94268 /* Assets.xcassets */,
 				6838EEC72B6BF04000E94268 /* Persistence.swift */,
-				68FA6D462BC99376000E90FC /* HapticsForm.swift */,
-				68FA6D482BC9A525000E90FC /* Select_Patterns.swift */,
 				6838EEC92B6BF04000E94268 /* v2.xcdatamodeld */,
 				6838EEC42B6BF04000E94268 /* Preview Content */,
 			);
@@ -262,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				68BEEDC72B7FE85600812B57 /* FetchData.swift */,
-				6838EEDE2B6BF14D00E94268 /* sail-v2-phone.swift */,
 				6838EFAE2B6BF85500E94268 /* BluetoothView.swift */,
 			);
 			path = Phone;
@@ -272,8 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				6838EED12B6BF08C00E94268 /* Haptics.swift */,
-				6838EED32B6BF0A400E94268 /* Patterns.swift */,
-				6838EED52B6BF0BC00E94268 /* MadePatterns.swift */,
+				6838EED32B6BF0A400E94268 /* Pattern.swift */,
+				6838EED52B6BF0BC00E94268 /* MadePattern.swift */,
 				6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */,
 				6838EF042B6BF33000E94268 /* ExtendedSession.swift */,
 			);
@@ -512,7 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68FA6D492BC9A525000E90FC /* Select_Patterns.swift in Sources */,
+				68FA6D492BC9A525000E90FC /* MadeHapticsSelectorView.swift in Sources */,
 				6838EF7C2B6BF48500E94268 /* IntervalType.swift in Sources */,
 				6838EF852B6BF4A100E94268 /* RowingAdditionalStatus1.swift in Sources */,
 				6838EF982B6BF4D700E94268 /* C2Power+Parsing.swift in Sources */,
@@ -520,28 +520,28 @@
 				6838EF9B2B6BF4DF00E94268 /* C2Pace+Parsing.swift in Sources */,
 				6838EFA82B6BF50500E94268 /* Characteristic.swift in Sources */,
 				6838EF902B6BF4BE00E94268 /* RowingAdditionalWorkoutSummaryData.swift in Sources */,
-				41D022272B8D93910000E9D1 /* SavedTestsView.swift in Sources */,
 				6838EF882B6BF4A900E94268 /* RowingStatusSampleRate.swift in Sources */,
-				6838EEDF2B6BF14D00E94268 /* sail-v2-phone.swift in Sources */,
 				6838EF952B6BF4CE00E94268 /* C2DriveLength+Parsing.swift in Sources */,
 				6838EF7F2B6BF48D00E94268 /* StrokeState.swift in Sources */,
-				6838EED62B6BF0BC00E94268 /* MadePatterns.swift in Sources */,
+				414768DE2BFD2F55004E1747 /* ContentView.swift in Sources */,
+				6838EED62B6BF0BC00E94268 /* MadePattern.swift in Sources */,
 				6838EEC82B6BF04000E94268 /* Persistence.swift in Sources */,
-				6838EEC12B6BF03D00E94268 /* ContentView.swift in Sources */,
 				6838EFB02B6BF85800E94268 /* BluetoothView.swift in Sources */,
 				6838EF992B6BF4DA00E94268 /* C2DriveForce+Parsing.swift in Sources */,
-				6838EED42B6BF0A400E94268 /* Patterns.swift in Sources */,
+				6838EED42B6BF0A400E94268 /* Pattern.swift in Sources */,
 				6838EF942B6BF4CA00E94268 /* C2CalorieCount+Parsing.swift in Sources */,
 				681374D52BE54E790095D4E2 /* TestingCode.swift in Sources */,
 				6838EF972B6BF4D400E94268 /* C2Speed+Parsing.swift in Sources */,
 				6838EFA22B6BF4F300E94268 /* PeripheralDelegate.swift in Sources */,
 				6838EF922B6BF4C500E94268 /* C2IntervalSize+Parsing.swift in Sources */,
+				414768E02BFD2F84004E1747 /* TestSetupView.swift in Sources */,
 				6838EF8A2B6BF4AF00E94268 /* RowingWorkoutSummaryData.swift in Sources */,
-				68FA6D472BC99376000E90FC /* HapticsForm.swift in Sources */,
+				68FA6D472BC99376000E90FC /* HapticsFormView.swift in Sources */,
 				6838EF8C2B6BF4B400E94268 /* RowingAdditionalIntervalData.swift in Sources */,
 				6838EF7D2B6BF48800E94268 /* WorkoutDurationType.swift in Sources */,
 				6838EF832B6BF49900E94268 /* BluetoothManager.swift in Sources */,
 				6838EED22B6BF08C00E94268 /* Haptics.swift in Sources */,
+				414768E22BFD2F8D004E1747 /* SavedTestsView.swift in Sources */,
 				6838EF8B2B6BF4B100E94268 /* CSAFECommand.swift in Sources */,
 				6838EF8F2B6BF4BB00E94268 /* CharacteristicModelProtocol.swift in Sources */,
 				6838EF962B6BF4D100E94268 /* C2HeartRateBeltID+Parsing.swift in Sources */,
@@ -550,8 +550,10 @@
 				682C796E2B924CAB00D6CA7C /* Protocols.swift in Sources */,
 				6838EF9F2B6BF4EA00E94268 /* PerformanceMonitor.swift in Sources */,
 				6838EF9D2B6BF4E400E94268 /* C2TimeInterval+Parsing.swift in Sources */,
+				414768E62BFD3DC6004E1747 /* Utils.swift in Sources */,
 				6838EEBF2B6BF03D00E94268 /* v2App.swift in Sources */,
 				6838EF8D2B6BF4B600E94268 /* RowingIntervalData.swift in Sources */,
+				414768E42BFD2FCA004E1747 /* RowingTestView.swift in Sources */,
 				6838EEE12B6BF23600E94268 /* ConnectToWatch.swift in Sources */,
 				6838EF912B6BF4C000E94268 /* RowingStrokeData.swift in Sources */,
 				68BEEDC82B7FE85600812B57 /* FetchData.swift in Sources */,
@@ -565,11 +567,9 @@
 				6838EFA42B6BF4F900E94268 /* RowingCharacteristic.swift in Sources */,
 				6838EF9E2B6BF4E700E94268 /* C2Distance+Parsing.swift in Sources */,
 				6838EF802B6BF49000E94268 /* WorkoutState.swift in Sources */,
-				68FA6D4B2BC9AE38000E90FC /* CustomHaptics.swift in Sources */,
+				68FA6D4B2BC9AE38000E90FC /* CustomHapticsView.swift in Sources */,
 				6838EFA32B6BF4F600E94268 /* Types.swift in Sources */,
 				6838EF872B6BF4A600E94268 /* RowingHeartRateBeltInformation.swift in Sources */,
-				41D022232B8D921C0000E9D1 /* TestSetupView.swift in Sources */,
-				414768D62BFD0F43004E1747 /* RowingDataView.swift in Sources */,
 				6838EF822B6BF49600E94268 /* RowingState.swift in Sources */,
 				6838EF9A2B6BF4DD00E94268 /* C2StrokeCount+Parsing.swift in Sources */,
 				6838EFA62B6BF50000E94268 /* Service.swift in Sources */,
@@ -582,11 +582,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6838EEFE2B6BF2E600E94268 /* MadePatterns.swift in Sources */,
+				6838EEFE2B6BF2E600E94268 /* MadePattern.swift in Sources */,
 				682C79712B9256C700D6CA7C /* WatchView.swift in Sources */,
 				6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */,
 				68F28C732BE6F1EE00572B37 /* Carousel.swift in Sources */,
-				6838EEFD2B6BF2E300E94268 /* Patterns.swift in Sources */,
+				6838EEFD2B6BF2E300E94268 /* Pattern.swift in Sources */,
 				68F28C712BE6E54500572B37 /* IndicatorView.swift in Sources */,
 				6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */,
 				6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */,

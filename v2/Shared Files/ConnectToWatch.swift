@@ -10,7 +10,6 @@ import UIKit
 import WatchConnectivity
 
 class ConnectToWatch: NSObject, ObservableObject {
-    
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
@@ -63,16 +62,14 @@ class ConnectToWatch: NSObject, ObservableObject {
     
     public func sendDataToWatch(sendObject: MadePattern){
         print("sending pattern:", sendObject.animationState)
-        if (session.isReachable){                    let data:[String:Any] = ["data":sendObject.encoder()]
+        if (session.isReachable){                    
+            let data:[String:Any] = ["data":sendObject.encoder()]
             session.sendMessage(data, replyHandler: nil)
-            
         }
         else{
             print("failed to send haptics because it is not reachable")
         }
     }
-    
-    
     
     // Convert Data from phone to a Pattern object to be set in TimerControls
     public func dataReceivedFromPhone(_ info:[String:Any]) {
@@ -103,9 +100,7 @@ class ConnectToWatch: NSObject, ObservableObject {
             }
         }
     }
-    
 }
-
 
 //  Other functions needed for WCSession
 extension ConnectToWatch: WCSessionDelegate{
@@ -126,8 +121,6 @@ extension ConnectToWatch: WCSessionDelegate{
     func session(_ session: WCSession, didReceiveMessage info: [String : Any]) {
         dataReceivedFromPhone(info)
     }
-    
-    
     
 #if os(iOS)
     public func sessionDidBecomeInactive(_ session: WCSession) {

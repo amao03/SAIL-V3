@@ -40,13 +40,17 @@ class Protocols: Identifiable, Codable, Hashable, ObservableObject{
 }
 
 class ProtocolList {
-    static var protocolList:[Protocols] = [
-        Protocols (pattern: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 120, range: 10), name: "V1"),
-        Protocols( pattern: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 160, range: 10), name: "V2"),
-        Protocols(pattern: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!, target: 160, range: 10), name: "V3"),
-    ]
+    static var v1 = Protocols(pattern: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 120, range: 10), name: "V1")
+    
+    static var v2 = Protocols(pattern: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 160, range: 10), name: "V2")
+    
+    static var v3 = Protocols(pattern: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!, target: 160, range: 10), name: "V3")
+    
+    static var protocolList:[Protocols] = [v1, v2, v3]
         
     static func getProtocolByName(_ name: String) -> Protocols? {
         return protocolList.first(where: {$0.name == name});
     }
+    
+    
 }

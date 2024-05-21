@@ -91,3 +91,7 @@ struct SavedTestDetailView: View {
         }
     }
 }
+
+#Preview {
+    SavedTestsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+}

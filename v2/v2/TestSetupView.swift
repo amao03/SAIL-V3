@@ -6,7 +6,6 @@
 //
 import SwiftUI
 
-
 struct TestSetupView: View {
     @Binding var selectProtocol: Protocols
     @State var playingTimer: Timer?

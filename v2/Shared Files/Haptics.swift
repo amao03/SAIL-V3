@@ -15,8 +15,6 @@ struct Haptics: Hashable, Identifiable, Codable{
     var name: String
     var type: String
     
-    
-    
     static func play(currHaptic: Haptics){
 #if os(watchOS)
         if currHaptic.name == "notification" { WKInterfaceDevice.current().play(.notification) }

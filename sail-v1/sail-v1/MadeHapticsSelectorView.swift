@@ -8,9 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct MadeHapticsSelector:View{
+struct MadeHapticsSelectorView:View{
     @Binding var selectedItems: MadePattern
-    
     @State var hapticString: String = ""
     
     var body: some View{
@@ -44,3 +43,9 @@ struct MadeHapticsSelector:View{
         }
     }
 }
+
+//#Preview {
+//    @State var currProtocol = ProtocolList.v1
+//    @State var currPattern = Pattern()
+//    MadeHapticsSelectorView(currProtocol: $currProtocol, currPattern: $currPattern)
+//}
