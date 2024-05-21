@@ -12,7 +12,7 @@ struct MadeHapticsSelectorView:View{
     @Binding var selectedItems: MadePattern
     @State var hapticString: String = ""
     
-    var body: some View{
+    var body: some View {
         VStack{
             Form{
                 List{
@@ -44,8 +44,7 @@ struct MadeHapticsSelectorView:View{
     }
 }
 
-//#Preview {
-//    @State var currProtocol = ProtocolList.v1
-//    @State var currPattern = Pattern()
-//    MadeHapticsSelectorView(currProtocol: $currProtocol, currPattern: $currPattern)
-//}
+#Preview {
+    ContentView()
+//    MadeHapticsSelectorView(selectedItems: .constant(MadePattern()))
+}

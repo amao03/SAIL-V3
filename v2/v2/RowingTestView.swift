@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct RowingTestView: View {
     var hasConnectedRower: Bool = false
@@ -18,7 +19,8 @@ struct RowingTestView: View {
     var strokeRate: C2StrokeRate?
     var distance: C2Distance?
     var strokeCount: C2StrokeCount?
-    
+    @State var activeIntervalsArray: [Interval] = []
+
     var hasActiveTest: Bool {
         return activeTest != nil
     }
@@ -80,7 +82,7 @@ struct RowingTestView: View {
                     }
                     .font(.system(size: 24))
                     .buttonStyle(.bordered)
-                    .disabled(!hasConnectedRower || !testFormFieldsAreValid)
+                    .disabled(!hasConnectedRower)
                     
                     PulsingCircle(isActive: hasActiveTest)
                         .frame(width: 40, height: 40, alignment: .trailing)
@@ -110,16 +112,10 @@ struct RowingTestView: View {
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 
             }
-            .opacity((hasConnectedRower && testFormFieldsAreValid) ? 1 : 0.3)
+            .opacity((hasConnectedRower) ? 1 : 0.3)
             .overlay(content: {
-                if(!testFormFieldsAreValid) {
-                    Text("Subject ID required to start test")
-                        .foregroundColor(.blue)
-                }
-                else if(!hasConnectedRower) {
-                    Text("Connect to Rower")
-                        .foregroundColor(.blue)
-                }
+                Text("Connect to Rower")
+                    .foregroundColor(.blue)
             })
         }
     }
@@ -135,53 +131,44 @@ struct RowingTestView: View {
     
     private func startTest() {
         debugPrint("Started Test");
-        activeIntervalsArray = []
-        let newRowingTest = RowingTest(context: viewContext)
-        newRowingTest.starttime = Date()
-        newRowingTest.protocolName = protocolObj.name
-        newRowingTest.subjectId = subjectId
-        activeTest = newRowingTest
-        attachObservers()
-        activeTestTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: onTimerTick)
-        addNewInterval()
     }
     
     private func onTimerTick(timer: Timer) {
-        addNewInterval()
+//        addNewInterval()
     }
     
     private func addNewInterval() {
-        if(concept2monitor == nil) {
-            return
-        }
-        let newInterval = Interval(context: viewContext)
-        
-        newInterval.timestamp = Date()
-        newInterval.power = Double(concept2monitor?.strokePower.value ?? 0)
-        newInterval.distance = Double(concept2monitor?.distance.value ?? 0)
-        newInterval.strokeRate = Int16(concept2monitor?.strokeRate.value ?? 0)
-        
-        activeInterval = newInterval
-        if(activeTest != nil) {
-            newInterval.parentTest = activeTest
-            activeIntervalsArray.append(newInterval)
-            previousInterval = activeInterval;
-        }
+//        if(concept2monitor == nil) {
+//            return
+//        }
+//        let newInterval = Interval(context: viewContext)
+//        
+//        newInterval.timestamp = Date()
+//        newInterval.power = Double(concept2monitor?.strokePower.value ?? 0)
+//        newInterval.distance = Double(concept2monitor?.distance.value ?? 0)
+//        newInterval.strokeRate = Int16(concept2monitor?.strokeRate.value ?? 0)
+//        
+//        activeInterval = newInterval
+//        if(activeTest != nil) {
+//            newInterval.parentTest = activeTest
+//            activeIntervalsArray.append(newInterval)
+//            previousInterval = activeInterval;
+//        }
     }
     
     private func stopTest() {
         debugPrint("Stopped Test");
-        activeTest?.endtime = Date()
-        saveData()
-        previousTest = activeTest;
-        activeTest = nil;
-        
-        activeInterval = nil;
-        if(activeTestTimer != nil) {
-            activeTestTimer?.invalidate()
-            activeTestTimer = nil;
-        }
-        powerDisposable?.dispose()
+//        activeTest?.endtime = Date()
+//        saveData()
+//        previousTest = activeTest;
+//        activeTest = nil;
+//        
+//        activeInterval = nil;
+//        if(activeTestTimer != nil) {
+//            activeTestTimer?.invalidate()
+//            activeTestTimer = nil;
+//        }
+//        powerDisposable?.dispose()
     }
 }
 

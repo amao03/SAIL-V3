@@ -75,8 +75,6 @@ struct HapticsFormView:View {
     }
 }
 
-//#Preview {
-//    @State var currProtocol = ProtocolList.v1
-//    @State var currPattern = Pattern()
-//    HapticsFormView(currProtocol: $currProtocol, currPattern: $currPattern)
-//}
+#Preview {
+    HapticsFormView(currProtocol: .constant(ProtocolList.v1), currPattern: .constant(Pattern()))
+}

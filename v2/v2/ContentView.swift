@@ -81,16 +81,16 @@ struct ContentView: View {
                 
                 TestSetupView(selectProtocol: $protocolObj, connector: connector)
                 
-                Section(header: Text("Subject ID"))
-                {
-                    TextField(
-                        "Subject ID*",
-                        text: $subjectId
-                    )
-                    .textInputAutocapitalization(.never)
-                    .disableAutocorrection(true)
-                    .disabled(hasActiveTest)
-                }
+//                Section(header: Text("Subject ID"))
+//                {
+//                    TextField(
+//                        "Subject ID*",
+//                        text: $subjectId
+//                    )
+//                    .textInputAutocapitalization(.never)
+//                    .disableAutocorrection(true)
+//                    .disabled(hasActiveTest)
+//                }
                 
                 Section(header: Text("Test patterns")) {
                     
@@ -119,67 +119,6 @@ struct ContentView: View {
             }
           }
         })
-    }
-    
-    private func toggleTest() {
-        debugPrint("Toggle Test");
-        if(hasActiveTest) {
-            stopTest()
-        }
-        else {
-            startTest()
-        }
-    }
-    
-    private func startTest() {
-        debugPrint("Started Test");
-        activeIntervalsArray = []
-        let newRowingTest = RowingTest(context: viewContext)
-        newRowingTest.starttime = Date()
-        newRowingTest.protocolName = protocolObj.name
-        newRowingTest.subjectId = subjectId
-        activeTest = newRowingTest
-        attachObservers()
-        activeTestTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: onTimerTick)
-        addNewInterval()
-    }
-    
-    private func onTimerTick(timer: Timer) {
-        addNewInterval()
-    }
-    
-    private func addNewInterval() {
-        if(concept2monitor == nil) {
-            return
-        }
-        let newInterval = Interval(context: viewContext)
-        
-        newInterval.timestamp = Date()
-        newInterval.power = Double(concept2monitor?.strokePower.value ?? 0)
-        newInterval.distance = Double(concept2monitor?.distance.value ?? 0)
-        newInterval.strokeRate = Int16(concept2monitor?.strokeRate.value ?? 0)
-        
-        activeInterval = newInterval
-        if(activeTest != nil) {
-            newInterval.parentTest = activeTest
-            activeIntervalsArray.append(newInterval)
-            previousInterval = activeInterval;
-        }
-    }
-    
-    private func stopTest() {
-        debugPrint("Stopped Test");
-        activeTest?.endtime = Date()
-        saveData()
-        previousTest = activeTest;
-        activeTest = nil;
-        
-        activeInterval = nil;
-        if(activeTestTimer != nil) {
-            activeTestTimer?.invalidate()
-            activeTestTimer = nil;
-        }
-        powerDisposable?.dispose()
     }
     
     private func evaluateInterval(){

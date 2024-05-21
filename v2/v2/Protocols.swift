@@ -51,6 +51,4 @@ class ProtocolList {
     static func getProtocolByName(_ name: String) -> Protocols? {
         return protocolList.first(where: {$0.name == name});
     }
-    
-    
 }

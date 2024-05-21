@@ -20,7 +20,6 @@ struct CustomHapticsView:View {
     }
 }
 
-//#Preview {
-//    @State var selectedProtocol = Pattern()
-//    CustomHapticsView(selectedProtocol: $selectedProtocol)
-//}
+#Preview {
+    CustomHapticsView(selectedProtocol: .constant(Pattern()))
+}
