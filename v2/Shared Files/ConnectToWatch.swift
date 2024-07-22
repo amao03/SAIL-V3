@@ -64,23 +64,23 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
-    public func sendDataToWatch(sendObject: MadePattern) throws{
+    public func sendDataToWatch(sendObject: MadePattern) {
         print("sending pattern:", sendObject.animationState)
         
-//        if (session.isReachable){
-//            
-//        }
-//        else{
-//            print("failed to send haptics because it is not reachable")
-//        }
-//        
-        guard session.isReachable else{
-            print("failed to send haptics because it is not reachable")
-            throw Errors.SessionNotReachable
-        }
-        
-        let data:[String:Any] = ["data":sendObject.encoder()]
+        if (session.isReachable){
+            let data:[String:Any] = ["data":sendObject.encoder()]
         session.sendMessage(data, replyHandler: nil)
+        }
+        else{
+            print("failed to send haptics because it is not reachable")
+        }
+//        
+//        guard session.isReachable else{
+//            print("failed to send haptics because it is not reachable")
+//            throw Errors.SessionNotReachable
+//        }
+        
+        
     }
     
     // Convert Data from phone to a Pattern object to be set in TimerControls

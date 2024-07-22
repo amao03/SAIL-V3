@@ -16,71 +16,27 @@ struct TestingCode:View {
     var dataArr = [0, 1, 2, 0]
     @Binding var currPattern:MadePattern
     @Binding var previousPattern:MadePattern
-    @State private var throwAlert = false
+    
     
     var body: some View {
-        Button(action: {
-            
-//            do{
-                let timer = try Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-                    print("Timer fired!")
-                    do{
-                        try sendFakeData()
-                    } catch{
-                        print("Asdf")
-                    }
-                }
-
-//            } catch{
-//                print("in catch")
-//                throwAlert = true
-//            }
-//            do {
-//                try sendFakeData()
-//                Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
-//                    if i >= 4{
-//                        timer.invalidate()
-//                        runProgram = false
-//                        currPattern = MadePatternsList.getPatternByName("END")!
-//                        do{
-//                            try sendFakeData()
-//                        }
-////                        let sendData = try connector.sendDataToWatch(sendObject: currPattern)
-//                        showAwait = true
-//                        print("end test")
-//                        return
-//                    }
-//                }
-//
-//            } catch{
-//                print("in catch")
-//                throwAlert = true
-//            }
-        }){
-            Text("Send random data to Watch")
-        } .alert("unable to send haptic", isPresented: $throwAlert){
-            Button("ok", role: .cancel){}
-        }
-        /*
             Section(header: Text("Fake Data")) {
                 Button(action:{
-                    do{
                     i = 0
                     runProgram = true
                     evaluateIntervalFakeData(val: Int(dataArr[i]))
-                    
+                    do{
                         if currPattern.id != previousPattern.id {
                             previousPattern = currPattern
-                            let sendData = try connector.sendDataToWatch(sendObject: currPattern)
+                            connector.sendDataToWatch(sendObject: currPattern)
                         }
                         i += 1
                         
-                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) throws{ timer in
+                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
                             if i >= 4{
                                 timer.invalidate()
                                 runProgram = false
                                 currPattern = MadePatternsList.getPatternByName("END")!
-                                let sendData = try connector.sendDataToWatch(sendObject: currPattern)
+                                connector.sendDataToWatch(sendObject: currPattern)
                                 showAwait = true
                                 print("end test")
                                 return
@@ -89,7 +45,7 @@ struct TestingCode:View {
                             evaluateIntervalFakeData(val: Int(dataArr[i]))
                             if currPattern.id != previousPattern.id {
                                 previousPattern = currPattern
-                                let sendData = try connector.sendDataToWatch(sendObject: currPattern)
+                                connector.sendDataToWatch(sendObject: currPattern)
                             }
                             i += 1
                         }
@@ -135,7 +91,7 @@ struct TestingCode:View {
                 }){
                     Text("Send random data to Watch")
                 }
-            }*/
+            }
     }
     
     private func evaluateIntervalFakeData(val:Int){
@@ -150,21 +106,5 @@ struct TestingCode:View {
             currPattern = protocolObj.pattern.atPattern
             currPattern.animationState = AnimationState.at
         }
-        
-        if currPattern.id != previousPattern.id {
-            previousPattern = currPattern
-        }
     }
-    
-     func sendFakeData() throws{
-//        evaluateIntervalFakeData(val: Int(dataArr[i]))
-//        if currPattern.id != previousPattern.id {
-//            previousPattern = currPattern
-//            do{
-                try connector.sendDataToWatch(sendObject: currPattern)
-//            }
-//        }
-    }
-    
-
 }
