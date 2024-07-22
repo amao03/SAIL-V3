@@ -14,7 +14,6 @@
 		414768E62BFD3DC6004E1747 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414768E52BFD3DC6004E1747 /* Utils.swift */; };
 		681374D52BE54E790095D4E2 /* TestingCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681374D42BE54E790095D4E2 /* TestingCode.swift */; };
 		682C796E2B924CAB00D6CA7C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682C796D2B924CAB00D6CA7C /* Protocols.swift */; };
-		682C79712B9256C700D6CA7C /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682C79702B9256C700D6CA7C /* WatchView.swift */; };
 		6838EEBF2B6BF03D00E94268 /* v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EEBE2B6BF03D00E94268 /* v2App.swift */; };
 		6838EEC32B6BF04000E94268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEC22B6BF04000E94268 /* Assets.xcassets */; };
 		6838EEC62B6BF04000E94268 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6838EEC52B6BF04000E94268 /* Preview Assets.xcassets */; };
@@ -78,7 +77,10 @@
 		6838EFA72B6BF50200E94268 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */; };
 		6838EFA82B6BF50500E94268 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3D2B6BF43600E94268 /* Characteristic.swift */; };
 		6838EFB02B6BF85800E94268 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EFAE2B6BF85500E94268 /* BluetoothView.swift */; };
+		68BDF06D2C4EE11600B8FE03 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BDF06C2C4EE11600B8FE03 /* Errors.swift */; };
+		68BDF06E2C4EE11600B8FE03 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BDF06C2C4EE11600B8FE03 /* Errors.swift */; };
 		68BEEDC82B7FE85600812B57 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDC72B7FE85600812B57 /* FetchData.swift */; };
+		68E1AF272C4AF65500225E33 /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E1AF262C4AF65500225E33 /* WatchView.swift */; };
 		68F28C712BE6E54500572B37 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F28C702BE6E54500572B37 /* IndicatorView.swift */; };
 		68F28C732BE6F1EE00572B37 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F28C722BE6F1EE00572B37 /* Carousel.swift */; };
 		68FA6D452BC907C0000E90FC /* TestingPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA6D442BC907C0000E90FC /* TestingPatterns.swift */; };
@@ -119,7 +121,6 @@
 		414768E52BFD3DC6004E1747 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		681374D42BE54E790095D4E2 /* TestingCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCode.swift; sourceTree = "<group>"; };
 		682C796D2B924CAB00D6CA7C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		682C79702B9256C700D6CA7C /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
 		6838EEBB2B6BF03D00E94268 /* v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6838EEBE2B6BF03D00E94268 /* v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v2App.swift; sourceTree = "<group>"; };
 		6838EEC22B6BF04000E94268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,7 +182,9 @@
 		6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
 		6838EF3D2B6BF43600E94268 /* Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
 		6838EFAE2B6BF85500E94268 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		68BDF06C2C4EE11600B8FE03 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		68BEEDC72B7FE85600812B57 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		68E1AF262C4AF65500225E33 /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
 		68F28C702BE6E54500572B37 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		68F28C722BE6F1EE00572B37 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		68FA6D442BC907C0000E90FC /* TestingPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPatterns.swift; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 				6838EED32B6BF0A400E94268 /* Pattern.swift */,
 				6838EED52B6BF0BC00E94268 /* MadePattern.swift */,
 				6838EEE02B6BF23600E94268 /* ConnectToWatch.swift */,
+				68BDF06C2C4EE11600B8FE03 /* Errors.swift */,
 				6838EF042B6BF33000E94268 /* ExtendedSession.swift */,
 			);
 			path = "Shared Files";
@@ -285,7 +289,7 @@
 			children = (
 				6838EF062B6BF35000E94268 /* v2-watch-Watch-App-Info.plist */,
 				6838EEE82B6BF25800E94268 /* v2_watchApp.swift */,
-				682C79702B9256C700D6CA7C /* WatchView.swift */,
+				68E1AF262C4AF65500225E33 /* WatchView.swift */,
 				68F28C702BE6E54500572B37 /* IndicatorView.swift */,
 				68FA6D442BC907C0000E90FC /* TestingPatterns.swift */,
 				68F28C722BE6F1EE00572B37 /* Carousel.swift */,
@@ -548,6 +552,7 @@
 				6838EF7E2B6BF48B00E94268 /* RowingStatusSampleRateType.swift in Sources */,
 				6838EF892B6BF4AC00E94268 /* RowingAdditionalStatus2.swift in Sources */,
 				682C796E2B924CAB00D6CA7C /* Protocols.swift in Sources */,
+				68BDF06D2C4EE11600B8FE03 /* Errors.swift in Sources */,
 				6838EF9F2B6BF4EA00E94268 /* PerformanceMonitor.swift in Sources */,
 				6838EF9D2B6BF4E400E94268 /* C2TimeInterval+Parsing.swift in Sources */,
 				414768E62BFD3DC6004E1747 /* Utils.swift in Sources */,
@@ -583,12 +588,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6838EEFE2B6BF2E600E94268 /* MadePattern.swift in Sources */,
-				682C79712B9256C700D6CA7C /* WatchView.swift in Sources */,
 				6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */,
+				68E1AF272C4AF65500225E33 /* WatchView.swift in Sources */,
 				68F28C732BE6F1EE00572B37 /* Carousel.swift in Sources */,
 				6838EEFD2B6BF2E300E94268 /* Pattern.swift in Sources */,
 				68F28C712BE6E54500572B37 /* IndicatorView.swift in Sources */,
 				6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */,
+				68BDF06E2C4EE11600B8FE03 /* Errors.swift in Sources */,
 				6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */,
 				6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */,
 				68FA6D452BC907C0000E90FC /* TestingPatterns.swift in Sources */,
@@ -749,7 +755,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2e;
+				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2g;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -803,13 +809,14 @@
 				INFOPLIST_FILE = "v2-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "v2-watch";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2e;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2g;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2e.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2g.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -834,7 +841,8 @@
 				INFOPLIST_FILE = "v2-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "v2-watch";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2e;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2g;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

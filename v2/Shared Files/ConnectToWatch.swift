@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 import WatchConnectivity
 
+var runProgram = false
+var showAwait = true
+
 class ConnectToWatch: NSObject, ObservableObject {
     static let connect = ConnectToWatch()
     public let session = WCSession.default
@@ -50,6 +53,7 @@ class ConnectToWatch: NSObject, ObservableObject {
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
         Swift.print("send method")
+        
         if (session.isReachable){
             let data:[String:Any] = ["data":sendObject.encoder()]
             patternPackageSent = true
@@ -60,15 +64,23 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
-    public func sendDataToWatch(sendObject: MadePattern){
+    public func sendDataToWatch(sendObject: MadePattern) throws{
         print("sending pattern:", sendObject.animationState)
-        if (session.isReachable){                    
-            let data:[String:Any] = ["data":sendObject.encoder()]
-            session.sendMessage(data, replyHandler: nil)
-        }
-        else{
+        
+//        if (session.isReachable){
+//            
+//        }
+//        else{
+//            print("failed to send haptics because it is not reachable")
+//        }
+//        
+        guard session.isReachable else{
             print("failed to send haptics because it is not reachable")
+            throw Errors.SessionNotReachable
         }
+        
+        let data:[String:Any] = ["data":sendObject.encoder()]
+        session.sendMessage(data, replyHandler: nil)
     }
     
     // Convert Data from phone to a Pattern object to be set in TimerControls
@@ -78,7 +90,8 @@ class ConnectToWatch: NSObject, ObservableObject {
             return
         }
         print("dataReceivedFromPhone")
-        if playing{
+//        print(runProgram)
+//        if runProgram{
             Swift.print("Receiving Package...")
             DispatchQueue.main.async {
                 let data:Data = info["data"] as! Data
@@ -90,14 +103,22 @@ class ConnectToWatch: NSObject, ObservableObject {
                     self.patternPackageReceived = true
                     //                self.receivedInitial = false
                     self.updating = true
+//                    self.playing = false
+                }else if(decodedPattern.name == "END"){
+                    print("end received")
+                    self.playing = false
+                    runProgram = false
+                    showAwait = true
                 }else{
                     self.playing = true
                     self.pattern = decodedPattern
                     self.receivedInitial = true
+                    runProgram = true
+                    showAwait = true
                     //                self.patternPackageReceived = false
                 }
                 self.received = true
-            }
+//            }
         }
     }
 }

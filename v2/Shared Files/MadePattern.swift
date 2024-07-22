@@ -89,7 +89,8 @@ class MadePatternsList: Identifiable, Codable, ObservableObject{
                     description: "-    -    -    -    -    -    -    - "),
         MadePattern(name:"super pulse", HapticArray: [Haptics(name: "directionUp", type: "watch")], duration: 0.01,
                     description: "-----------------------"),
-        MadePattern(name:"ERROR", HapticArray: [], duration:0, description: "ERROR")
+        MadePattern(name:"ERROR", HapticArray: [], duration:0, description: "ERROR"),
+        MadePattern(name:"END", HapticArray: [], duration:0, description: "END")
     ]
     
     static func getPatternByName(_ name: String) -> MadePattern? {

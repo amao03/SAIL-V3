@@ -21,6 +21,7 @@ struct WatchView: View {
     func toggleEnd(){
         print("toggle end \(connector.playing)")
         connector.playing = !connector.playing
+        
     }
     
     private func startSession(){
@@ -28,7 +29,6 @@ struct WatchView: View {
             print("start session")
             ExtendedSess.startExtendedSession()
         }
-        
     }
     
     private func endSession(){
@@ -51,21 +51,28 @@ struct WatchView: View {
             }
             
             let currHaptic = connector.pattern.HapticArray[index % connector.pattern.HapticArray.count]
-            print("currHaptic: \(connector.pattern.name)")
-            print("duration: \(connector.pattern.duration)")
+//            print("currHaptic: \(connector.pattern.name)")
+//            print("duration: \(connector.pattern.duration)")
             Haptics.play(currHaptic: currHaptic)
             index += 1
         }
     }
     
-    func resetTimer() {
+    func updateTimer() {
         DispatchQueue.main.async {
-            print("off receive")
+            print("updating")
             connector.received = false
             timer?.invalidate()
             connector.playing = true
             startSession()
             startTimer()
+        }
+    }
+    
+    func resetTimer(){
+            DispatchQueue.main.async {
+            print("resetTimer receive")
+            timer?.invalidate()
         }
     }
     
@@ -81,10 +88,24 @@ struct WatchView: View {
         NavigationStack{
             ScrollView{
                 VStack (alignment: .leading, spacing: 20){
-                    if !connector.patternPackageReceived && !connector.receivedInitial{
+                    if !runProgram{
                         Text("awaiting info from phone")
+                        let _ = self.resetTimer()
+                    } 
+                    else{
+                        IndicatorView(animationState: animationState)
+                        let _ = self.startSession()
+                        Button(action:{
+                            print("end")
+                            let _ = self.resetTimer()
+                            toggleEnd()
+                            endSession()
+                            runProgram = false
+                        }){
+                            Text("End")
+                        }
                     }
-                    
+                 
                     //Buttons for user to try patterns before test begins
                     if(connector.patternPackageReceived){
                         if connector.updating{
@@ -94,43 +115,21 @@ struct WatchView: View {
                         
                         NavigationLink(destination: CarouselView(underPattern: connector.patternPackage.underPattern, atPattern: connector.patternPackage.atPattern, abovePattern: connector.patternPackage.abovePattern)) {
                             Text("Test Patterns")
-                        }                    }
+                        }
+                    }
                     
-                    if connector.receivedInitial{
-                        if connector.playing{
-                            IndicatorView(animationState: animationState)
-                            let _ = self.startSession()
-                            Button(action:{
-                                print("end")
-                                toggleEnd()
-                                endSession()
-                            }){
-                                Text("End")
-                            }
-                        }
-                        else{
-                            Button(action:{
-                                print("start")
-                                toggleEnd()
-                                startSession()
-                                endSession()
-                            }){
-                                Text("start")
-                            }
-//                            Text("test ended")
-                        }
-                        
-                        if connector.received && connector.playing{
-                            let _ = self.resetTimer()
-                        }
-                        
+                    if connector.received && runProgram{
+                        let _ = self.updateTimer()
                     }
                 }
             }
-        }.onAppear(perform: ExtendedSess.startExtendedSession)
+        }
+        .onAppear(perform: ExtendedSess.startExtendedSession)
+//        .onAppear(perform: startSession)
     }
 }
 
 #Preview {
     WatchView( animationState: AnimationState.at)
 }
+

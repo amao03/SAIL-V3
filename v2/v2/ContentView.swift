@@ -142,7 +142,7 @@ struct ContentView: View {
     private func updateWatch(){
         print("update watch")
         print(currPattern.animationState)
-        connector.sendDataToWatch(sendObject: currPattern)
+//        connector.sendDataToWatch(sendObject: currPattern)
     }
 
     private func saveData() {
