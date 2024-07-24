@@ -26,6 +26,28 @@ struct Watch_Landing_View : View {
         }
     }
     
+    private func authorizeHealthKit(){
+        print("authorizing....")
+
+        HealthKitData.authorizeHealthKit(){ (authorized, error) in
+
+            guard authorized else {
+
+                let baseMessage = "HealthKit Authorization Failed - Watch"
+
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                return
+            }
+
+            authorize = true
+            print("HealthKit Successfully Authorized - Watch")
+        }
+    }
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -78,6 +100,6 @@ struct Watch_Landing_View : View {
                 }
             }
         }
-      
+        .onAppear(perform: authorizeHealthKit)
     }
 }

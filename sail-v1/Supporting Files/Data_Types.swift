@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 
 struct DataTypes{
-    var typesArr = ["distance", "heartrate", "cycling power"]
+    var typesArr = ["heartrate", "distance", "cycling power"]
     
     
     // Returns respective HKQUantityTypeIdentifier given a respective type

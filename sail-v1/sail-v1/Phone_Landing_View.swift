@@ -19,7 +19,7 @@ struct Phone_Landing_View : View{
     var body: some View {
         NavigationView{
             Form{
-                Toggle("Phone Haptics", isOn: $hapticsListBool)
+//                Toggle("Phone Haptics", isOn: $hapticsListBool)
                 
                 Picker("select type", selection: $patternObject.type) {
                     ForEach(typesArr, id: \.self) { currCase in

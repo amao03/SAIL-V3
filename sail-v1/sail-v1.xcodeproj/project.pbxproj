@@ -27,11 +27,11 @@
 		68A43C082B22E8D2007F7AA9 /* Extended_Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C062B22E8D2007F7AA9 /* Extended_Session.swift */; };
 		68A43C0C2B22E990007F7AA9 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C0A2B22E990007F7AA9 /* Calculations.swift */; };
 		68A43C0D2B22EAB0007F7AA9 /* Data_Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BFD2B22E519007F7AA9 /* Data_Types.swift */; };
-		68A43C0F2B22EAF1007F7AA9 /* Select_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */; };
 		68A43C122B22EB99007F7AA9 /* Watch_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */; };
 		68A43C142B22EC1A007F7AA9 /* Display_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C132B22EC1A007F7AA9 /* Display_Info.swift */; };
 		68A43C152B22EDDD007F7AA9 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BF12B22E32F007F7AA9 /* Haptics.swift */; };
 		68A43C172B22F4DC007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BDF2B22E108007F7AA9 /* Assets.xcassets */; };
+		68C4B0172C50488D00BE105B /* Select_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C4B0162C50488D00BE105B /* Select_Patterns.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +80,9 @@
 		68A43C032B22E89D007F7AA9 /* Timer_Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer_Controls.swift; sourceTree = "<group>"; };
 		68A43C062B22E8D2007F7AA9 /* Extended_Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extended_Session.swift; sourceTree = "<group>"; };
 		68A43C0A2B22E990007F7AA9 /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
-		68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select_Patterns.swift; sourceTree = "<group>"; };
 		68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Landing_View.swift; sourceTree = "<group>"; };
 		68A43C132B22EC1A007F7AA9 /* Display_Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display_Info.swift; sourceTree = "<group>"; };
+		68C4B0162C50488D00BE105B /* Select_Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select_Patterns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				68A43BEB2B22E1B4007F7AA9 /* sail-v1.entitlements */,
 				68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */,
 				68A43BEE2B22E276007F7AA9 /* Phone_Landing_View.swift */,
-				68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */,
+				68C4B0162C50488D00BE105B /* Select_Patterns.swift */,
 				689B25422B5B0A7B00034462 /* TransferService.swift */,
 				68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */,
 				68A43BCD2B22E08F007F7AA9 /* Preview Content */,
@@ -280,7 +280,7 @@
 				68A43BC82B22E08C007F7AA9 /* sail_v1App.swift in Sources */,
 				68A43BEF2B22E276007F7AA9 /* Phone_Landing_View.swift in Sources */,
 				68A43BF52B22E44D007F7AA9 /* Patterns.swift in Sources */,
-				68A43C0F2B22EAF1007F7AA9 /* Select_Patterns.swift in Sources */,
+				68C4B0172C50488D00BE105B /* Select_Patterns.swift in Sources */,
 				68A43C012B22E846007F7AA9 /* Connect_To_Watch.swift in Sources */,
 				68A43BF82B22E47E007F7AA9 /* Made_Patterns.swift in Sources */,
 			);

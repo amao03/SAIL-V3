@@ -47,6 +47,7 @@ struct HealthKitData{
         }
 
         HealthKitData.executeQuery(sampleType: sampleType) { (sample, error) in
+            print("query data")
             guard let sample = sample else {
                 if let error = error {
                     print(error)
@@ -101,6 +102,6 @@ struct HealthKitData{
             
         }
         
-//        HKHealthStore().execute(sampleQuery)
+        HKHealthStore().execute(sampleQuery)
     }
 }

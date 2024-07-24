@@ -51,6 +51,7 @@ class TimerControls: NSObject, ObservableObject{
         }
         
         if realData{
+            print("real data")
             HealthKitData.getSample(type: patternObject.type) { (sample, error) in
                 
                 guard let sample = sample else {
@@ -62,7 +63,7 @@ class TimerControls: NSObject, ObservableObject{
                 
                 let unit = DataTypes.getUnits(type: self.patternObject.type)
                 let rawValue = sample.quantity.doubleValue(for: unit)
-         
+                print(rawValue)
                 self.currentData = round(rawValue * 100) / 100.0
             }
         } else{
