@@ -13,10 +13,9 @@ class TimerControls: NSObject, ObservableObject{
     static let time = TimerControls()
     var connector = ConnectToWatch.connect
     let fakeDataArr = [150.0, 160.0, 170.0, 150.0]
+    var fakeDataIndex = 0
     
     @Published var end:Bool = true
-    
-//    @Published var patternObject:Pattern = Pattern()
     @Published var currentData = 160.0
     @Published var currPattern:[Haptics] = []
     @Published var timeBetween = 1.0

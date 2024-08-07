@@ -8,19 +8,21 @@
 import Foundation
 import UIKit
 import WatchConnectivity
+import Combine
 
-class ConnectToWatch: NSObject, ObservableObject {
+final class ConnectToWatch: NSObject, ObservableObject {
     
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
     @Published var pattern:Pattern = Pattern()
-    @Published var rawValue:Double = 0.0
     @Published var receivedInitial:Bool = false
+    @Published var rawValue:Double = 0.0
     @Published var updating:Bool = false
     
     private override init(){
         super.init()
+        
         if WCSession.isSupported() {
             session.delegate = self
             session.activate()
@@ -52,7 +54,6 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
-    
     // Convert Data from phone to a Pattern object to be set in TimerControls
     public func dataReceivedFromPhone(_ info:[String:Any]) {
         if !session.isReachable{
@@ -60,32 +61,21 @@ class ConnectToWatch: NSObject, ObservableObject {
             return
         }
         
-        if !receivedInitial{
-            self.receivedInitial = true
-        } else{
-            self.updating = true
+        DispatchQueue.main.async {
+            if let data = info["data"] as? Data {
+                let decodedPattern = Pattern.decoder(data)
+                self.pattern = decodedPattern
+                self.receivedInitial = true
+                self.updating = true
+                print("received pattern: \(self.pattern)")
+            }
+            
+            if let receivedRawVaue = info["value"] as? Double {
+                self.rawValue = receivedRawVaue
+                print("received value: \(self.rawValue)")
+            }
+            
         }
-        
-        print("Receiving... \(receivedInitial)")
-        
-        if let data = info["data"] as? Data {
-            let decodedPattern = Pattern.decoder(data)
-            self.pattern = decodedPattern
-            print("received pattern: \(pattern)")
-        }
-        
-        if let receivedRawVaue = info["value"] as? Double {
-            self.rawValue = receivedRawVaue
-            print("received value: \(rawValue)")
-        }
-        
-        
-      
-//        DispatchQueue.main.async {
-//            Swift.print("pattern received: \(decodedPattern)")
-//            
-//            
-//        }
     }
 }
 
@@ -107,6 +97,7 @@ extension ConnectToWatch: WCSessionDelegate{
     }
     
     func session(_ session: WCSession, didReceiveMessage info: [String : Any]) {
+        print("did receive")
         dataReceivedFromPhone(info)
         //        #if os(iOS)
         //        iOSDelegate?.messageReceived(message: (session, info))

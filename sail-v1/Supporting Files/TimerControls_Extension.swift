@@ -7,8 +7,6 @@
 
 import Foundation
 
-var fakeDataIndex = 0
-
 extension TimerControls{
     func setCurrentValue(){
         let type = connector.pattern.type
@@ -42,9 +40,6 @@ extension TimerControls{
             currentData = Double(Int.random(in: 0..<3))
         
         case DataType.altitude, DataType.direction:
-            currentData = connector.rawValue
-            
-        default:
             currentData = connector.rawValue
         }
         

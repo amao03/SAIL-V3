@@ -11,7 +11,7 @@ import HealthKit
 import WatchKit
 
 struct Watch_Landing_View : View {
-    var connector = ConnectToWatch.connect
+    @ObservedObject var connector = ConnectToWatch.connect
     var timerObj = TimerControls.time
     @State private var authorize: Bool = false
 
@@ -39,6 +39,10 @@ struct Watch_Landing_View : View {
             authorize = true
             print("HealthKit Successfully Authorized - Watch")
         }
+    }
+    
+    private func printVal(){
+        print("reciev: \(connector.receivedInitial)")
     }
     
     var body: some View {
@@ -83,7 +87,7 @@ struct Watch_Landing_View : View {
                     }
                 }
                 else {
-                    Text("need to authorize")
+                    Text("need to authorize healthkit")
                 }
             }
         }

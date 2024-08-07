@@ -37,7 +37,7 @@
 		68EFE3DB2C62941100B4B5A9 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DA2C62941100B4B5A9 /* Direction.swift */; };
 		68EFE3DD2C62953A00B4B5A9 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DC2C62953A00B4B5A9 /* Compass.swift */; };
 		68EFE3DF2C62978F00B4B5A9 /* Altitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DE2C62978F00B4B5A9 /* Altitude.swift */; };
-		68EFE3E22C62A73F00B4B5A9 /* ProcessCompassValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3E02C62A73900B4B5A9 /* ProcessCompassValues.swift */; };
+		68EFE3E22C62A73F00B4B5A9 /* TimerControls_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */; };
 		68EFE3E52C62A76E00B4B5A9 /* ProcessHealthValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3E32C62A76B00B4B5A9 /* ProcessHealthValues.swift */; };
 		68EFE3E62C62B05200B4B5A9 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DC2C62953A00B4B5A9 /* Compass.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +96,7 @@
 		68EFE3DA2C62941100B4B5A9 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		68EFE3DC2C62953A00B4B5A9 /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 		68EFE3DE2C62978F00B4B5A9 /* Altitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Altitude.swift; sourceTree = "<group>"; };
-		68EFE3E02C62A73900B4B5A9 /* ProcessCompassValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessCompassValues.swift; sourceTree = "<group>"; };
+		68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControls_Extension.swift; sourceTree = "<group>"; };
 		68EFE3E32C62A76B00B4B5A9 /* ProcessHealthValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHealthValues.swift; sourceTree = "<group>"; };
 		68EFE3E72C62EED600B4B5A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +189,7 @@
 				68556DEC2C51A6D400936996 /* Location.swift */,
 				68A43BFD2B22E519007F7AA9 /* Data_Types.swift */,
 				68A43C002B22E846007F7AA9 /* Connect_To_Watch.swift */,
-				68EFE3E02C62A73900B4B5A9 /* ProcessCompassValues.swift */,
+				68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */,
 				68EFE3E32C62A76B00B4B5A9 /* ProcessHealthValues.swift */,
 				68A43C032B22E89D007F7AA9 /* Timer_Controls.swift */,
 				68A43C062B22E8D2007F7AA9 /* Extended_Session.swift */,
@@ -320,7 +320,7 @@
 			files = (
 				68A43BFC2B22E4D0007F7AA9 /* HealthKit.swift in Sources */,
 				68A43C082B22E8D2007F7AA9 /* Extended_Session.swift in Sources */,
-				68EFE3E22C62A73F00B4B5A9 /* ProcessCompassValues.swift in Sources */,
+				68EFE3E22C62A73F00B4B5A9 /* TimerControls_Extension.swift in Sources */,
 				68A43C122B22EB99007F7AA9 /* Watch_Landing_View.swift in Sources */,
 				68A43BFF2B22E519007F7AA9 /* Data_Types.swift in Sources */,
 				68A43BF92B22E47E007F7AA9 /* Made_Patterns.swift in Sources */,
