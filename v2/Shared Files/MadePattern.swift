@@ -27,6 +27,7 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
     var duration: Double = 0.5
     var description:String = ""
     var animationState: AnimationState
+    var val:Int
     
     init() {
         self.name = ""
@@ -34,6 +35,7 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
         self.duration = 0.5
         self.description = ""
         self.animationState = AnimationState.at
+        self.val = 100
     }
     
     init(name: String, HapticArray: [Haptics], duration: Double, description: String) {
@@ -42,6 +44,7 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
         self.duration = duration
         self.description = description
         self.animationState = AnimationState.at
+        self.val = 100
     }
     
     func hash(into hasher: inout Hasher) {

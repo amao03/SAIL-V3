@@ -98,6 +98,7 @@ struct ContentView: View {
                 
                 TestingCode(protocolObj: $protocolObj, connector: connector, currPattern: $currPattern, previousPattern: $previousPattern)
                 
+                RandomDataView(protocolObj: $protocolObj, connector: connector, currPattern: $currPattern, previousPattern: $previousPattern)
                 RowingTestView()
                 
                 SavedTestsView()

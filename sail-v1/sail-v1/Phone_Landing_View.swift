@@ -9,21 +9,23 @@ import Foundation
 import SwiftUI
 
 struct Phone_Landing_View : View{
-    @ObservedObject var connector = ConnectToWatch.connect
+    var connector = ConnectToWatch.connect
     @State var patternObject = Pattern()
     
     @State private var hapticsListBool:Bool = false
     
-    private var typesArr = ["distance", "heartrate", "cycling power"]
-
+    @ObservedObject var compass = Compass()
+    
+    private var typesArr = ["distance", "heartrate", "cycling power", "altitude"]
+    
     var body: some View {
         NavigationView{
             Form{
 //                Toggle("Phone Haptics", isOn: $hapticsListBool)
                 
                 Picker("select type", selection: $patternObject.type) {
-                    ForEach(typesArr, id: \.self) { currCase in
-                        Text(currCase)
+                    ForEach(DataType.allCases, id: \.self) { currCase in
+                        Text(String(describing: currCase))
                     }
                 }
                 
@@ -75,20 +77,24 @@ struct Phone_Landing_View : View{
                 })
                 
                 Button(action:{
-                    connector.sendDataToWatch(sendObject: patternObject)
+                    connector.session.sendMessage(["data":patternObject.encoder()], replyHandler: nil) { (error) in
+                        print("Error sending message: \(error)")}
+//                    connector.sendDataToWatch(sendObject: patternObject)
+                    
                 }){
                     Text("Send data to Watch")
                 }
                 
-                Button(action:{
-                    connector.sendDataToWatch(sendObject: patternObject)
-                }){
-                    Text("Play phone haptics")
-                }
+                Text("Your altitude is \(self.compass.altitude) meters")
+                    .font(.headline)
+                    .padding()
                 
+                Text("Your direction is \(self.compass.direction)")
+                    .font(.headline)
+                    .padding()
             }
             .navigationTitle("Custom Haptics")
-        }
+        }.onAppear(perform: connector.activateSession)
     }
 }
 

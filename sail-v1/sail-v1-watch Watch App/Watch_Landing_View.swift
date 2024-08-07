@@ -8,20 +8,17 @@
 import Foundation
 import SwiftUI
 import HealthKit
+import WatchKit
 
 struct Watch_Landing_View : View {
-    @ObservedObject var connector = ConnectToWatch.connect
-    @ObservedObject var timerObj = TimerControls.time
+    var connector = ConnectToWatch.connect
+    var timerObj = TimerControls.time
     @State private var authorize: Bool = false
-    @State private var realData:Bool = false
-    @State private var randomData:Bool = false
-    
-   private var backgroundColor = Color.black
 
     private func update(){
         print("updating timer")
         Timer.scheduledTimer(withTimeInterval: 3, repeats: false){ timer in
-                ConnectToWatch.connect.updating = false
+                connector.updating = false
                 timer.invalidate()
         }
     }
@@ -30,11 +27,8 @@ struct Watch_Landing_View : View {
         print("authorizing....")
 
         HealthKitData.authorizeHealthKit(){ (authorized, error) in
-
             guard authorized else {
-
                 let baseMessage = "HealthKit Authorization Failed - Watch"
-
                 if let error = error {
                     print("\(baseMessage). Reason: \(error.localizedDescription)")
                 } else {
@@ -42,7 +36,6 @@ struct Watch_Landing_View : View {
                 }
                 return
             }
-
             authorize = true
             print("HealthKit Successfully Authorized - Watch")
         }
@@ -52,21 +45,18 @@ struct Watch_Landing_View : View {
         NavigationView{
             VStack{
                 if authorize{
-                    if ConnectToWatch.connect.receivedInitial{
+                    if connector.receivedInitial{
                         ScrollView{
                             VStack{
-                                if ConnectToWatch.connect.updating{
+                                if connector.updating{
                                     let _ = self.update()
                                     Text("updating...")
                                 }
-                                Toggle("Real data", isOn: $realData)
-                                Toggle("Random data", isOn: $randomData)
                                 if timerObj.end{
                                     Button(action:{
                                         print("starting....")
                                         timerObj.toggleEnd()
-                                        timerObj.setPattern(pattern: connector.pattern)
-                                        timerObj.overallTimer(realData: realData, randomData: randomData)
+                                        timerObj.startOverallTimer()
                                     }){
                                         Text("Start")
                                     }
@@ -76,20 +66,17 @@ struct Watch_Landing_View : View {
                                         timerObj.toggleEnd()
                                         print("stopping")
                                     }){
-                                        Text(timerObj.patternObject.type)
                                         Text("stop")
                                     }
                                 }
                                 
-                                NavigationLink(destination: DisplayInfo(currPattern: $connector.pattern)){
+                                NavigationLink(destination: DisplayInfo(currPattern: connector.pattern)){
                                     Text("View Patterns")
                                 }
                                 
                                 Text("currData: \(timerObj.currentData, specifier: "%.2f")")
-//                                let _ = updateColor()
                             }
                         }
-                        .background(backgroundColor)
                     }
                     else{
                         Text("awaiting info from phone")

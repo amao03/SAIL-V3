@@ -11,14 +11,22 @@ import SwiftUI
 
 class TimerControls: NSObject, ObservableObject{
     static let time = TimerControls()
+    var connector = ConnectToWatch.connect
+    let fakeDataArr = [150.0, 160.0, 170.0, 150.0]
     
     @Published var end:Bool = true
     
-    @Published var patternObject:Pattern = Pattern()
+//    @Published var patternObject:Pattern = Pattern()
     @Published var currentData = 160.0
+    @Published var currPattern:[Haptics] = []
+    @Published var timeBetween = 1.0
+    var currPatternIndex = 0
     
     @ObservedObject var ExtendedSess = ExtendedSession()
     
+    var overallTimer: Timer?
+    var currentTimer: Timer?
+    var startTime = Double(DispatchTime.now().uptimeNanoseconds)
     
     // Deals with stopping timer early and displaying start/stop button
     public func toggleEnd(){
@@ -26,147 +34,64 @@ class TimerControls: NSObject, ObservableObject{
         self.end = !end
     }
 
-    
-    // Sets patternObject to a given Pattern
-    public func setPattern(pattern: Pattern){
-        self.patternObject = pattern
-        print("set pattern: \(pattern)")
-    }
-    
-    
     // Controls the overall timing of playing haptics
-    public func overallTimer(realData:Bool, randomData:Bool){
-        
+    public func startOverallTimer(){
         ExtendedSess.startExtendedSession()
         print("start overall timer")
         
-        var index = 0
-        var dataArr = [150.0, 160.0, 170.0, 150.0]
-        self.currentData = dataArr[index]
+        setCurrentValue()
+        setCurrentPattern()
         
-        if randomData{
-            dataArr = randomDataArray()
-            self.currentData = dataArr[index]
-            print(dataArr)
-        }
-        
-        if realData{
-            print("real data")
-            HealthKitData.getSample(type: patternObject.type) { (sample, error) in
-                
-                guard let sample = sample else {
-                    if let error = error {
-                        print(error)
-                    }
-                    return
-                }
-                
-                let unit = DataTypes.getUnits(type: self.patternObject.type)
-                let rawValue = sample.quantity.doubleValue(for: unit)
-                print(rawValue)
-                self.currentData = round(rawValue * 100) / 100.0
-            }
-        } else{
-            playHaptic(val: self.currentData)
-        }
-
-        index += 1
-        
-        Timer.scheduledTimer(withTimeInterval: patternObject.timeOverall, repeats: true){ timer in
-            if(index >= dataArr.count && !realData) || index >= 1000 {
-                print("done with overall")
-            
-                timer.invalidate()
-                self.ExtendedSess.stopExtendedSession()
-                self.end = true
-                return
-            } else if self.end{
-                print("done with overall")
-                self.ExtendedSess.stopExtendedSession()
-                self.end = true
-                timer.invalidate()
-                return
-            }
-            
-            if realData{
-                HealthKitData.getSample(type: self.patternObject.type) { (sample, error) in
-                    
-                    guard let sample = sample else {
-                        if let error = error {
-                            print(error)
-                        }
-                        return
-                    }
-                    
-                    let unit = DataTypes.getUnits(type: self.patternObject.type)
-                    let rawValue = sample.quantity.doubleValue(for: unit)
-             
-                    self.currentData = round(rawValue * 100) / 100.0
-                    self.playHaptic(val: self.currentData)
-                }
-            } else{
-                self.currentData = dataArr[index]
-                self.playHaptic(val: self.currentData)
-            }
-            
-            index += 1
-        }
-    }
-    
-    // Determine which haptic pattern to play and for how li=ong given a value
-    public func playHaptic(val: Double){
-        var currPattern: [Haptics]
-        var timeBetween: [Double]
-        
-        let target = patternObject.target
-        
-        if val < (target - patternObject.range){
-            currPattern = patternObject.underPattern.HapticArray
-            timeBetween = patternObject.underPattern.duration
-            print("under: \(val)")
-        }
-        else if val > (target + patternObject.range){
-            currPattern = patternObject.abovePattern.HapticArray
-            timeBetween = patternObject.abovePattern.duration
-            print("above: \(val)")
-        }
-        else {
-            currPattern = patternObject.atPattern.HapticArray
-            timeBetween = patternObject.atPattern.duration
-            print("at: \(val)")
-        }
-        
-        startTime(currPattern: currPattern, timeBetweenArr: timeBetween)
+        overallTimer = Timer.scheduledTimer(timeInterval: connector.pattern.timeOverall, target: self, selector: #selector(fireOverallTimer), userInfo: nil, repeats: true)
     }
     
     // Plays a specific haptic pattern for a given amount of time
-    public func startTime(currPattern: [Haptics], timeBetweenArr: [Double]){
+    func startCurrentTimer(){
         if currPattern.count == 0{
-            Timer.scheduledTimer(withTimeInterval: patternObject.timeOverall, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: connector.pattern.timeOverall, repeats: false) { timer in
             }
             return
         }
         
-        var index = 0
-        var timeIndex = 0
-        var timeBetween = timeBetweenArr[timeIndex]
-        Timer.scheduledTimer(withTimeInterval: timeBetween, repeats: true) { timer in
-            
-            // Contitions to end timer
-            if (Double(index) * timeBetween) >= self.patternObject.timeOverall {
-                timer.invalidate()
-                return
-            } else if self.end{
-                timer.invalidate()
-                self.end = true
-                return
-            }
-      
-                let currHaptic = currPattern[index % currPattern.count]
-                Haptics.play(currHaptic: currHaptic)
-                index += 1
-                timeIndex += 1
-                timeBetween = timeBetweenArr[timeIndex % timeBetweenArr.count]
+        currentTimer = Timer.scheduledTimer(timeInterval: timeBetween, target: self, selector: #selector(fireCurrentTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func fireOverallTimer(){
+        setCurrentValue()
+        setCurrentPattern()
+        startCurrentTimer()
+        
+        if (self.connector.pattern.type == DataType.fake && fakeDataIndex >= 4){
+            print("done with overall")
+            overallTimer?.invalidate()
+            self.ExtendedSess.stopExtendedSession()
+            self.end = true
+            return
+        } else if self.end{
+            print("done with overall")
+            self.ExtendedSess.stopExtendedSession()
+            self.end = true
+            overallTimer?.invalidate()
+            return
         }
+    }
+    
+    @objc func fireCurrentTimer(){
+        let elapsedTime = Double(DispatchTime.now().uptimeNanoseconds) - startTime
+        
+        if elapsedTime >= self.connector.pattern.timeOverall {
+            currentTimer?.invalidate()
+            currPatternIndex = 0
+            return
+        } else if self.end{
+            currentTimer?.invalidate()
+            self.end = true
+            currPatternIndex = 0
+            return
+        }
+        
+        let currHaptic = currPattern[currPatternIndex % currPattern.count]
+        Haptics.play(currHaptic: currHaptic)
+        currPatternIndex += 1
     }
 }

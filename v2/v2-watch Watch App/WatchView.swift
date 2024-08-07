@@ -21,7 +21,6 @@ struct WatchView: View {
     func toggleEnd(){
         print("toggle end \(connector.playing)")
         connector.playing = !connector.playing
-        
     }
     
     private func startSession(){
@@ -91,7 +90,10 @@ struct WatchView: View {
                     if !runProgram{
                         Text("awaiting info from phone")
                         let _ = self.resetTimer()
-                    } 
+                    } else if connector.pattern.name == "END"{
+                        Text("awaiting info from phone")
+                        let _ = self.resetTimer()
+                    }
                     else{
                         IndicatorView(animationState: animationState)
                         let _ = self.startSession()

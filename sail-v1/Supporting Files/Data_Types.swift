@@ -8,18 +8,22 @@
 import Foundation
 import HealthKit
 
+
+enum DataType:CaseIterable, Codable, Hashable {
+    case random, fake, heartrate, distance, cycling, direction, altitude
+}
+
+
 struct DataTypes{
-    var typesArr = ["heartrate", "distance", "cycling power"]
-    
     
     // Returns respective HKQUantityTypeIdentifier given a respective type
-    static func getDataType(type: String) -> HKQuantityTypeIdentifier{
+    static func getDataType(type: DataType) -> HKQuantityTypeIdentifier{
         switch type{
-        case "distance":
+        case .distance:
             return .distanceWalkingRunning
-        case "heartrate":
+        case .heartrate:
             return .heartRate
-        case "cycling power":
+        case .cycling:
             return .cyclingPower
         default:
             return .distanceWalkingRunning
@@ -27,13 +31,13 @@ struct DataTypes{
     }
     
     // Returns respective HKQUantityTypeIdentifier given a respective type
-    static func getUnits(type: String) -> HKUnit{
+    static func getUnits(type: DataType) -> HKUnit{
         switch type{
-        case "distance":
+        case .distance:
             return .meter()
-        case "heartrate":
+        case .heartrate:
             return HKUnit(from: "count/min")
-        case "cycling power":
+        case .cycling:
             return .watt()
         default:
             return .meter()
