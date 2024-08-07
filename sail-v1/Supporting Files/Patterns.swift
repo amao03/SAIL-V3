@@ -17,7 +17,7 @@ struct Pattern: Hashable, Codable{
     var aboveTime: Double = 0.5
     var timeOverall: Double = 5.0
     
-    var type = DataType.heartrate
+    var type = DataType.random
     var target: Double = 80.0
     var range: Double = 5.0
     

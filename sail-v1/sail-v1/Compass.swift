@@ -13,22 +13,21 @@ class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
     var objectWillChange = PassthroughSubject<Void, Never>()
     var connector = ConnectToWatch.connect
     
-    var altitude: Double = .zero {
+    var altitude: Int = .zero {
         didSet {
             objectWillChange.send()
             
-            let data:[String:Any] = ["value":altitude]
-//            connector.session.sendMessage(data, replyHandler: nil)
+            let data:[String:Any] = ["altitude":altitude]
+            connector.session.sendMessage(data, replyHandler: nil)
         }
     }
     
-    
-    var direction: Double = .zero {
+    var direction: Int = .zero {
         didSet {
             objectWillChange.send()
             
-            let data:[String:Any] = ["value":direction]
-//            connector.session.sendMessage(data, replyHandler: nil)
+            let data:[String:Any] = ["direction":direction]
+            connector.session.sendMessage(data, replyHandler: nil)
         }
     }
     
@@ -56,13 +55,13 @@ class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        self.direction = -1 * newHeading.magneticHeading
+        self.direction = Int(newHeading.magneticHeading)
 //        print("direction \(direction)")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         if let lastLocation = locations.last {
-            self.altitude = lastLocation.altitude
+            self.altitude = Int(lastLocation.altitude)
         }
 //        print("altitude \(altitude)")
     }

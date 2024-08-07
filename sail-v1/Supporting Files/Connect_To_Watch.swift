@@ -17,7 +17,8 @@ final class ConnectToWatch: NSObject, ObservableObject {
     
     @Published var pattern:Pattern = Pattern()
     @Published var receivedInitial:Bool = false
-    @Published var rawValue:Double = 0.0
+    @Published var altitude:Int = 0
+    @Published var direction:Int = 0
     @Published var updating:Bool = false
     
     private override init(){
@@ -70,11 +71,15 @@ final class ConnectToWatch: NSObject, ObservableObject {
                 print("received pattern: \(self.pattern)")
             }
             
-            if let receivedRawVaue = info["value"] as? Double {
-                self.rawValue = receivedRawVaue
-                print("received value: \(self.rawValue)")
+            if let alt = info["altitude"] as? Int {
+                self.altitude = alt
+                print("received value: \(self.altitude)")
             }
             
+            if let receivedDirection = info["direction"] as? Int {
+                self.direction = receivedDirection
+                print("received value: \(self.direction)")
+            }
         }
     }
 }

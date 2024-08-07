@@ -8,13 +8,21 @@
 import Foundation
 import SwiftUI
 
+enum AnimationState: String, Equatable, Codable, CaseIterable {
+    case under = "under"
+    case at = "at"
+    case above = "above"
+    
+    var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
+}
+
 struct MadePattern: Hashable, Identifiable, Codable{
     var name: String = ""
     var id: String { name }
     var HapticArray: [Haptics] = []
     var duration: Double = 1.0
     var description:String = ""
-
+    
     // Converts a Pattern to a Data object to be sent to watch
     func encoder() -> Data{
         let data = try! PropertyListEncoder.init().encode(self)
