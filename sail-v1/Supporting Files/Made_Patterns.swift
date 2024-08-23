@@ -26,7 +26,7 @@ struct MadePattern: Hashable, Identifiable, Codable{
     // Converts a Pattern to a Data object to be sent to watch
     func encoder() -> Data{
         let data = try! PropertyListEncoder.init().encode(self)
-        print("encoding...")
+        print("encoding pattern...")
         return data
     }
     

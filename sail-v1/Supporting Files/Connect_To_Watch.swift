@@ -45,14 +45,33 @@ final class ConnectToWatch: NSObject, ObservableObject {
     
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
-        Swift.print("send method")
-        if (session.isReachable){
-            let data:[String:Any] = ["data":sendObject.encoder()]
-            session.sendMessage(data, replyHandler: nil)
-        }
-        else{
+        do {
+            let data:[String:Any] = ["direction":sendObject]
+            let _ = try session.updateApplicationContext(data)
+            print("sent pattern")
+        } catch {
             print("failed to send haptics because it is not reachable")
         }
+    }
+    
+    public func sendDirection(sendObject: Int){
+            do {
+                let data:[String:Any] = ["direction":sendObject]
+                let _ = try session.updateApplicationContext(data)
+                print("sent alt")
+            } catch {
+                print("Not Reachable")
+            }
+    }
+    
+    public func sendAltitude(sendObject: Int){
+            do {
+                let data:[String:Any] = ["altitude":sendObject]
+                let _ = try session.updateApplicationContext(data)
+                print("sent direciton")
+            } catch {
+                print("Not Reachable")
+            }
     }
     
     // Convert Data from phone to a Pattern object to be set in TimerControls
@@ -73,12 +92,12 @@ final class ConnectToWatch: NSObject, ObservableObject {
             
             if let alt = info["altitude"] as? Int {
                 self.altitude = alt
-                print("received value: \(self.altitude)")
+                print("received alt: \(self.altitude)")
             }
             
             if let receivedDirection = info["direction"] as? Int {
                 self.direction = receivedDirection
-                print("received value: \(self.direction)")
+                print("received direction: \(self.direction)")
             }
         }
     }
@@ -102,13 +121,30 @@ extension ConnectToWatch: WCSessionDelegate{
     }
     
     func session(_ session: WCSession, didReceiveMessage info: [String : Any]) {
-        print("did receive")
+//        print("did receive") 
         dataReceivedFromPhone(info)
-        //        #if os(iOS)
-        //        iOSDelegate?.messageReceived(message: (session, info))
-        //        #elseif os(watchOS)
-        //        watchOSDelegate?.messageReceived(message: (session, info))
-        //        #endif
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
+        print("didReceiveApplicationContext")
+        
+        if let data = applicationContext["data"] as? Data {
+            let decodedPattern = Pattern.decoder(data)
+            self.pattern = decodedPattern
+            self.receivedInitial = true
+            self.updating = true
+            print("received pattern: \(self.pattern)")
+        }
+        
+        if let alt = applicationContext["altitude"] as? Int {
+            self.altitude = alt
+            print("received alt: \(self.altitude)")
+        }
+        
+        if let receivedDirection = applicationContext["direction"] as? Int {
+            self.direction = receivedDirection
+            print("received direction: \(self.direction)")
+        }
     }
     
     

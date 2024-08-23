@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 import CoreLocation
+import UIKit
+
 
 class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
     var objectWillChange = PassthroughSubject<Void, Never>()
@@ -16,18 +18,12 @@ class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
     var altitude: Int = .zero {
         didSet {
             objectWillChange.send()
-            
-            let data:[String:Any] = ["altitude":altitude]
-            connector.session.sendMessage(data, replyHandler: nil)
         }
     }
     
     var direction: Int = .zero {
         didSet {
             objectWillChange.send()
-            
-            let data:[String:Any] = ["direction":direction]
-            connector.session.sendMessage(data, replyHandler: nil)
         }
     }
     
@@ -56,7 +52,7 @@ class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         self.direction = Int(newHeading.magneticHeading)
-//        print("direction \(direction)")
+        print("direction \(direction)")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
@@ -66,4 +62,3 @@ class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
 //        print("altitude \(altitude)")
     }
 }
-
