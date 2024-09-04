@@ -183,6 +183,7 @@
 		6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
 		6838EF3D2B6BF43600E94268 /* Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
 		6838EFAE2B6BF85500E94268 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		68AF67252C88D91C0063CC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		68BDF06C2C4EE11600B8FE03 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		68BEEDC72B7FE85600812B57 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		68E1AF262C4AF65500225E33 /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 		6838EEBD2B6BF03D00E94268 /* v2 */ = {
 			isa = PBXGroup;
 			children = (
+				68AF67252C88D91C0063CC22 /* Info.plist */,
 				414768E52BFD3DC6004E1747 /* Utils.swift */,
 				414768DD2BFD2F55004E1747 /* ContentView.swift */,
 				681374D42BE54E790095D4E2 /* TestingCode.swift */,
@@ -748,6 +750,7 @@
 				DEVELOPMENT_TEAM = KT6L52LDDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = v2/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -780,6 +783,7 @@
 				DEVELOPMENT_TEAM = KT6L52LDDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = v2/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

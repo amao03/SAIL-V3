@@ -99,7 +99,7 @@ struct Phone_Landing_View : View{
                     .padding()
                 
                 if self.patternObject.type == DataType.direction{
-                    let data:[String:Any] = ["direction":self.compass.direction]
+                    let _:[String:Any] = ["direction":self.compass.direction]
                     let _ = connector.sendDirection(sendObject: self.compass.direction)
                 }
             }

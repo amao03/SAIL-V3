@@ -52,13 +52,11 @@ class Compass: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         self.direction = Int(newHeading.magneticHeading)
-        print("direction \(direction)")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         if let lastLocation = locations.last {
             self.altitude = Int(lastLocation.altitude)
         }
-//        print("altitude \(altitude)")
     }
 }
