@@ -77,6 +77,9 @@
 		6838EFA72B6BF50200E94268 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3C2B6BF43600E94268 /* ControlCharacteristic.swift */; };
 		6838EFA82B6BF50500E94268 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EF3D2B6BF43600E94268 /* Characteristic.swift */; };
 		6838EFB02B6BF85800E94268 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838EFAE2B6BF85500E94268 /* BluetoothView.swift */; };
+		68AF67272C8F80D70063CC22 /* DisplayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF67262C8F80D70063CC22 /* DisplayInfo.swift */; };
+		68AF672A2C8F81380063CC22 /* TimerControls_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF67282C8F81380063CC22 /* TimerControls_Extension.swift */; };
+		68AF672B2C8F81380063CC22 /* Timer_Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF67292C8F81380063CC22 /* Timer_Controls.swift */; };
 		68BDF06D2C4EE11600B8FE03 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BDF06C2C4EE11600B8FE03 /* Errors.swift */; };
 		68BDF06E2C4EE11600B8FE03 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BDF06C2C4EE11600B8FE03 /* Errors.swift */; };
 		68BEEDC82B7FE85600812B57 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BEEDC72B7FE85600812B57 /* FetchData.swift */; };
@@ -184,6 +187,9 @@
 		6838EF3D2B6BF43600E94268 /* Characteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
 		6838EFAE2B6BF85500E94268 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		68AF67252C88D91C0063CC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		68AF67262C8F80D70063CC22 /* DisplayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayInfo.swift; sourceTree = "<group>"; };
+		68AF67282C8F81380063CC22 /* TimerControls_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerControls_Extension.swift; path = "../../sail-v1/Supporting Files/TimerControls_Extension.swift"; sourceTree = "<group>"; };
+		68AF67292C8F81380063CC22 /* Timer_Controls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timer_Controls.swift; path = "../../sail-v1/Supporting Files/Timer_Controls.swift"; sourceTree = "<group>"; };
 		68BDF06C2C4EE11600B8FE03 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		68BEEDC72B7FE85600812B57 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		68E1AF262C4AF65500225E33 /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
@@ -279,6 +285,8 @@
 		6838EEDA2B6BF10400E94268 /* Shared Files */ = {
 			isa = PBXGroup;
 			children = (
+				68AF67292C8F81380063CC22 /* Timer_Controls.swift */,
+				68AF67282C8F81380063CC22 /* TimerControls_Extension.swift */,
 				6838EED12B6BF08C00E94268 /* Haptics.swift */,
 				6838EED32B6BF0A400E94268 /* Pattern.swift */,
 				6838EED52B6BF0BC00E94268 /* MadePattern.swift */,
@@ -295,6 +303,7 @@
 				6838EF062B6BF35000E94268 /* v2-watch-Watch-App-Info.plist */,
 				6838EEE82B6BF25800E94268 /* v2_watchApp.swift */,
 				68E1AF262C4AF65500225E33 /* WatchView.swift */,
+				68AF67262C8F80D70063CC22 /* DisplayInfo.swift */,
 				68F28C702BE6E54500572B37 /* IndicatorView.swift */,
 				68FA6D442BC907C0000E90FC /* TestingPatterns.swift */,
 				68F28C722BE6F1EE00572B37 /* Carousel.swift */,
@@ -595,15 +604,18 @@
 			files = (
 				6838EEFE2B6BF2E600E94268 /* MadePattern.swift in Sources */,
 				6838EF052B6BF33000E94268 /* ExtendedSession.swift in Sources */,
+				68AF67272C8F80D70063CC22 /* DisplayInfo.swift in Sources */,
 				68E1AF272C4AF65500225E33 /* WatchView.swift in Sources */,
 				68F28C732BE6F1EE00572B37 /* Carousel.swift in Sources */,
 				6838EEFD2B6BF2E300E94268 /* Pattern.swift in Sources */,
 				68F28C712BE6E54500572B37 /* IndicatorView.swift in Sources */,
 				6838EEFF2B6BF2E900E94268 /* Haptics.swift in Sources */,
 				68BDF06E2C4EE11600B8FE03 /* Errors.swift in Sources */,
+				68AF672B2C8F81380063CC22 /* Timer_Controls.swift in Sources */,
 				6838EEE92B6BF25800E94268 /* v2_watchApp.swift in Sources */,
 				6838EF002B6BF2ED00E94268 /* ConnectToWatch.swift in Sources */,
 				68FA6D452BC907C0000E90FC /* TestingPatterns.swift in Sources */,
+				68AF672A2C8F81380063CC22 /* TimerControls_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,7 +774,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2g;
+				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2i;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -817,14 +829,14 @@
 				INFOPLIST_FILE = "v2-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "v2-watch";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2g;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2i;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2g.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = SAIL.v2i.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -849,7 +861,7 @@
 				INFOPLIST_FILE = "v2-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "v2-watch";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2g;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = SAIL.v2i;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
