@@ -38,7 +38,7 @@ struct HealthKitData{
     }
     
     // Returns the most recent sample from query
-    static func getSample(type:String, completion: @escaping (HKQuantitySample?, Error?) -> Swift.Void) {
+    static func getSample(type:DataType, completion: @escaping (HKQuantitySample?, Error?) -> Swift.Void) {
         
         guard let sampleType = HKSampleType.quantityType(forIdentifier: DataTypes.getDataType(type: type)) else{
             print ("error with heart rate type")
@@ -47,6 +47,7 @@ struct HealthKitData{
         }
 
         HealthKitData.executeQuery(sampleType: sampleType) { (sample, error) in
+            print("query data")
             guard let sample = sample else {
                 if let error = error {
                     print(error)
@@ -101,6 +102,6 @@ struct HealthKitData{
             
         }
         
-//        HKHealthStore().execute(sampleQuery)
+        HKHealthStore().execute(sampleQuery)
     }
 }

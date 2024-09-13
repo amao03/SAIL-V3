@@ -8,18 +8,18 @@
 import Foundation
 
 struct Pattern: Hashable, Codable{
-    var underPattern: MadePattern = MadePattern()
-    var atPattern: MadePattern = MadePattern()
-    var abovePattern: MadePattern = MadePattern()
+    var underPattern: MadePattern = MadePatternsList.getPatternByName("super pulse")!
+    var atPattern: MadePattern = MadePatternsList.getPatternByName("heartbeat")!
+    var abovePattern: MadePattern = MadePatternsList.getPatternByName("short-long")!
     
     var underTime: Double = 0.5
     var atTime: Double = 0.5
     var aboveTime: Double = 0.5
     var timeOverall: Double = 5.0
     
-    var type = "rowing"
-    var target: Double = 160.0
-    var range: Double = 30.0
+    var type = DataType.random
+    var target: Double = 80.0
+    var range: Double = 5.0
     
     
     // Form a string of haptic names to be displayed

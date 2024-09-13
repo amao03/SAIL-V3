@@ -26,13 +26,10 @@ class ExtendedSession : NSObject, ObservableObject{
 
 
 extension ExtendedSession: WKExtendedRuntimeSessionDelegate{
-
-
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         // Track when your session starts.
         print("Extened session started")
     }
-
 
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         // Finish and clean up any tasks before the session ends.

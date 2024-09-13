@@ -54,7 +54,7 @@ class MadePattern: Identifiable, Codable, ObservableObject, Hashable{
     // Converts a Pattern to a Data object to be sent to watch
     func encoder() -> Data{
         let data = try! PropertyListEncoder.init().encode(self)
-        print("encoding...")
+        print("encoding pattern...")
         return data
     }
     

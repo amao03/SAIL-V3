@@ -20,6 +20,7 @@ struct AppView: View {
 
 @main
 struct sail_v1App: App {
+    
     var body: some Scene {
         WindowGroup {
             Phone_Landing_View()

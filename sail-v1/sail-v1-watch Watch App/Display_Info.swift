@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct DisplayInfo:View{
-    @Binding var currPattern:Pattern
+     var currPattern:Pattern!
     
     var body: some View{
         ScrollView{

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct HapticsForm:View {
+struct HapticsFormView:View {
     @Binding var currProtocol: Protocols
     @Binding var currPattern:Pattern
     
@@ -27,7 +27,7 @@ struct HapticsForm:View {
                 
                 Section("Under Pattern", content: {
                     NavigationLink(destination: {
-                        MadeHapticsSelector(selectedItems: $currProtocol.pattern.underPattern)
+                        MadeHapticsSelectorView(selectedItems: $currProtocol.pattern.underPattern)
                     }, label: {
                         Text("Select haptics")
                     })
@@ -73,4 +73,8 @@ struct HapticsForm:View {
             }
         }
     }
+}
+
+#Preview {
+    HapticsFormView(currProtocol: .constant(ProtocolList.v1), currPattern: .constant(Pattern()))
 }

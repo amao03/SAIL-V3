@@ -13,10 +13,10 @@ struct BluetoothView : View{
     @State private var bluetoothReady = false
     @State private var connectedToDevice = false
     @State private var isChoosingDevice = false
-    @State private var deviceArr:Array<PerformanceMonitor> = []
-    @State private var isReadyDisposable:Disposable? = nil
+    @State private var availablePerformanceMonitors:Array<PerformanceMonitor> = []
+    @State private var bluetoothReadyDisposable:Disposable? = nil
     @Binding var concept2monitor:PerformanceMonitor?
-    @ObservedObject var fetchData:FetchData
+    @ObservedObject private var fetchData = FetchData.sharedInstance
 
     private func scanForDevices(){
         debugPrint("Scanning")
@@ -27,7 +27,7 @@ struct BluetoothView : View{
             queue: nil) { (notification) -> Void in
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
-                        self.deviceArr = Array(PerformanceMonitorStore.sharedInstance.performanceMonitors)
+                        self.availablePerformanceMonitors = Array(PerformanceMonitorStore.sharedInstance.performanceMonitors)
                     }
                 }
         }
@@ -52,7 +52,7 @@ struct BluetoothView : View{
             }
             .onAppear {
                 debugPrint("Waiting for Bluetooth")
-                isReadyDisposable = BluetoothManager.isReady.attach{
+                bluetoothReadyDisposable = BluetoothManager.isReady.attach{
                     [self] (isReady:Bool) -> Void in
                         print(isReady)
                         self.bluetoothReady = isReady
@@ -60,8 +60,8 @@ struct BluetoothView : View{
             }
             .onDisappear {
                 debugPrint("Found Bluetooth: Remove")
-                isReadyDisposable?.dispose()
-                isReadyDisposable = nil
+                bluetoothReadyDisposable?.dispose()
+                bluetoothReadyDisposable = nil
                 scanForDevices()
             }
         }
@@ -73,12 +73,12 @@ struct BluetoothView : View{
                 "Connect to Concept2 Rower",
                 isPresented: $isChoosingDevice
             ) {
-                ForEach(deviceArr, id: \.self) { device in
+                ForEach(availablePerformanceMonitors, id: \.self) { device in
                     if (device.peripheralName != "Unknown"){
                         Button(action:{ [self] in
                             connectToDevice(pm: device)
                             concept2monitor = device
-                            fetchData.setPerformanceMonitor(device)
+                            FetchData.setPerformanceMonitor(device)
                         }){
                             Text(device.peripheralName)
                         }

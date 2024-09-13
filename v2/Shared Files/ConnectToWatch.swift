@@ -8,25 +8,21 @@
 import Foundation
 import UIKit
 import WatchConnectivity
+import Combine
 
-class ConnectToWatch: NSObject, ObservableObject {
+final class ConnectToWatch: NSObject, ObservableObject {
     
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
-    @Published var pattern:MadePattern = MadePattern()
+    @Published var pattern:Pattern = Pattern()
     @Published var receivedInitial:Bool = false
-    @Published var recPat:Bool = false
-    @Published var received:Bool = false
+    @Published var power:Int = 0
     @Published var updating:Bool = false
-    @Published var patternPackage:Pattern = Pattern()
-    @Published var patternPackageSent:Bool = false
-    @Published var patternPackageReceived:Bool = false
-    
-    @Published var playing = true
     
     private override init(){
         super.init()
+        
         if WCSession.isSupported() {
             session.delegate = self
             session.activate()
@@ -36,43 +32,36 @@ class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
-    func activateSession() -> Bool{
+    func activateSession(){
         if WCSession.isSupported() {
             session.delegate = self
             session.activate()
             print("Supported and activated watch session")
-            return true
         } else{
-            Swift.print("watch not supported")
-            return false
+            print("watch not supported")
         }
     }
     
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
-        Swift.print("send method")
-        if (session.isReachable){
-            let data:[String:Any] = ["data":sendObject.encoder()]
-            patternPackageSent = true
-            session.sendMessage(data, replyHandler: nil)
-        }
-        else{
+        do {
+            let data:[String:Any] = ["pattern":sendObject]
+            let _ = try session.updateApplicationContext(data)
+            print("sent pattern")
+        } catch {
             print("failed to send haptics because it is not reachable")
         }
     }
     
-    public func sendDataToWatch(sendObject: MadePattern){
-        print("sending pattern:", sendObject.animationState)
-        if (session.isReachable){                    let data:[String:Any] = ["data":sendObject.encoder()]
-            session.sendMessage(data, replyHandler: nil)
-            
-        }
-        else{
-            print("failed to send haptics because it is not reachable")
-        }
+    public func sendPower(sendObject: Int){
+            do {
+                let data:[String:Any] = ["power":sendObject]
+                let _ = try session.updateApplicationContext(data)
+                print("sent alt")
+            } catch {
+                print("Not Reachable")
+            }
     }
-    
-    
     
     // Convert Data from phone to a Pattern object to be set in TimerControls
     public func dataReceivedFromPhone(_ info:[String:Any]) {
@@ -80,30 +69,22 @@ class ConnectToWatch: NSObject, ObservableObject {
             Swift.print("couldn't retrieve data from phone")
             return
         }
-        print("dataReceivedFromPhone")
-        if playing{
-            Swift.print("Receiving Package...")
-            DispatchQueue.main.async {
-                let data:Data = info["data"] as! Data
-                let decodedPattern = MadePattern.decoder(data)
-                print("decoded: ", decodedPattern)
-                if (decodedPattern.name == "ERROR"){ //If the data is for the testing patterns
-                    self.patternPackage = Pattern.decoder(data)
-                    print("ERROR: ", self.patternPackage)
-                    self.patternPackageReceived = true
-                    //                self.receivedInitial = false
-                    self.updating = true
-                }else{
-                    self.playing = true
-                    self.pattern = decodedPattern
-                    self.receivedInitial = true
-                    //                self.patternPackageReceived = false
-                }
-                self.received = true
+        
+        DispatchQueue.main.async {
+            if let data = info["pattern"] as? Data {
+                let decodedPattern = Pattern.decoder(data)
+                self.pattern = decodedPattern
+                self.receivedInitial = true
+                self.updating = true
+                print("received pattern: \(self.pattern)")
+            }
+            
+            if let power = info["power"] as? Int {
+                self.power = power
+                print("received power: \(self.power)")
             }
         }
     }
-    
 }
 
 
@@ -124,7 +105,25 @@ extension ConnectToWatch: WCSessionDelegate{
     }
     
     func session(_ session: WCSession, didReceiveMessage info: [String : Any]) {
+//        print("did receive")
         dataReceivedFromPhone(info)
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
+        print("didReceiveApplicationContext")
+        
+        if let data = applicationContext["pattern"] as? Data {
+            let decodedPattern = Pattern.decoder(data)
+            self.pattern = decodedPattern
+            self.receivedInitial = true
+            self.updating = true
+            print("received pattern: \(self.pattern)")
+        }
+        
+        if let power = applicationContext["power"] as? Int {
+            self.power = power
+            print("received alt: \(self.power)")
+        }
     }
     
     
@@ -139,5 +138,4 @@ extension ConnectToWatch: WCSessionDelegate{
     }
 #endif
 }
-
 

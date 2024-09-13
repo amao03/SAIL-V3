@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68556DED2C51A6D400936996 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68556DEC2C51A6D400936996 /* Location.swift */; };
 		689B25432B5B0A7B00034462 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B25422B5B0A7B00034462 /* TransferService.swift */; };
 		68A43BC82B22E08C007F7AA9 /* sail_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */; };
 		68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */; };
@@ -27,11 +28,19 @@
 		68A43C082B22E8D2007F7AA9 /* Extended_Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C062B22E8D2007F7AA9 /* Extended_Session.swift */; };
 		68A43C0C2B22E990007F7AA9 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C0A2B22E990007F7AA9 /* Calculations.swift */; };
 		68A43C0D2B22EAB0007F7AA9 /* Data_Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BFD2B22E519007F7AA9 /* Data_Types.swift */; };
-		68A43C0F2B22EAF1007F7AA9 /* Select_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */; };
 		68A43C122B22EB99007F7AA9 /* Watch_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */; };
 		68A43C142B22EC1A007F7AA9 /* Display_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C132B22EC1A007F7AA9 /* Display_Info.swift */; };
 		68A43C152B22EDDD007F7AA9 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BF12B22E32F007F7AA9 /* Haptics.swift */; };
 		68A43C172B22F4DC007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BDF2B22E108007F7AA9 /* Assets.xcassets */; };
+		68B5DB192C642860007EBB22 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B5DB182C642860007EBB22 /* IndicatorView.swift */; };
+		68C4B0172C50488D00BE105B /* Select_Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C4B0162C50488D00BE105B /* Select_Patterns.swift */; };
+		68EFE3B72C5D94AE00B4B5A9 /* watchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3B62C5D94AE00B4B5A9 /* watchConnectivity.swift */; };
+		68EFE3DB2C62941100B4B5A9 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DA2C62941100B4B5A9 /* Direction.swift */; };
+		68EFE3DD2C62953A00B4B5A9 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DC2C62953A00B4B5A9 /* Compass.swift */; };
+		68EFE3DF2C62978F00B4B5A9 /* Altitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DE2C62978F00B4B5A9 /* Altitude.swift */; };
+		68EFE3E22C62A73F00B4B5A9 /* TimerControls_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */; };
+		68EFE3E52C62A76E00B4B5A9 /* ProcessHealthValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3E32C62A76B00B4B5A9 /* ProcessHealthValues.swift */; };
+		68EFE3E62C62B05200B4B5A9 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EFE3DC2C62953A00B4B5A9 /* Compass.swift */; };
 		68AF68872C93F2120063CC22 /* Rowing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF68862C93F2120063CC22 /* Rowing View.swift */; };
 		68AF68892C93F25F0063CC22 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF68882C93F25F0063CC22 /* BluetoothView.swift */; };
 		68AF688B2C93F2750063CC22 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF688A2C93F2750063CC22 /* FetchData.swift */; };
@@ -112,6 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68556DEC2C51A6D400936996 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		689B25422B5B0A7B00034462 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		68A43BC42B22E08C007F7AA9 /* sail-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sail-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sail_v1App.swift; sourceTree = "<group>"; };
@@ -133,9 +143,17 @@
 		68A43C032B22E89D007F7AA9 /* Timer_Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer_Controls.swift; sourceTree = "<group>"; };
 		68A43C062B22E8D2007F7AA9 /* Extended_Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extended_Session.swift; sourceTree = "<group>"; };
 		68A43C0A2B22E990007F7AA9 /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
-		68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select_Patterns.swift; sourceTree = "<group>"; };
 		68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Landing_View.swift; sourceTree = "<group>"; };
 		68A43C132B22EC1A007F7AA9 /* Display_Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display_Info.swift; sourceTree = "<group>"; };
+		68B5DB182C642860007EBB22 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		68C4B0162C50488D00BE105B /* Select_Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select_Patterns.swift; sourceTree = "<group>"; };
+		68EFE3B62C5D94AE00B4B5A9 /* watchConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchConnectivity.swift; sourceTree = "<group>"; };
+		68EFE3DA2C62941100B4B5A9 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		68EFE3DC2C62953A00B4B5A9 /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
+		68EFE3DE2C62978F00B4B5A9 /* Altitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Altitude.swift; sourceTree = "<group>"; };
+		68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControls_Extension.swift; sourceTree = "<group>"; };
+		68EFE3E32C62A76B00B4B5A9 /* ProcessHealthValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHealthValues.swift; sourceTree = "<group>"; };
+		68EFE3E72C62EED600B4B5A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		68AF68862C93F2120063CC22 /* Rowing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rowing View.swift"; sourceTree = "<group>"; };
 		68AF68882C93F25F0063CC22 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		68AF688A2C93F2750063CC22 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
@@ -250,8 +268,12 @@
 				68A43BEB2B22E1B4007F7AA9 /* sail-v1.entitlements */,
 				68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */,
 				68A43BEE2B22E276007F7AA9 /* Phone_Landing_View.swift */,
-				68A43C0E2B22EAF1007F7AA9 /* Select_Patterns.swift */,
+				68EFE3DA2C62941100B4B5A9 /* Direction.swift */,
+				68EFE3DC2C62953A00B4B5A9 /* Compass.swift */,
+				68EFE3DE2C62978F00B4B5A9 /* Altitude.swift */,
+				68C4B0162C50488D00BE105B /* Select_Patterns.swift */,
 				689B25422B5B0A7B00034462 /* TransferService.swift */,
+				68EFE3B62C5D94AE00B4B5A9 /* watchConnectivity.swift */,
 				68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */,
 				68A43BCD2B22E08F007F7AA9 /* Preview Content */,
 			);
@@ -275,6 +297,7 @@
 				68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */,
 				68A43C132B22EC1A007F7AA9 /* Display_Info.swift */,
 				68A43BDF2B22E108007F7AA9 /* Assets.xcassets */,
+				68B5DB182C642860007EBB22 /* IndicatorView.swift */,
 			);
 			path = "sail-v1-watch Watch App";
 			sourceTree = "<group>";
@@ -287,8 +310,11 @@
 				68A43BF42B22E44D007F7AA9 /* Patterns.swift */,
 				68A43BF72B22E47E007F7AA9 /* Made_Patterns.swift */,
 				68A43BFA2B22E4D0007F7AA9 /* HealthKit.swift */,
+				68556DEC2C51A6D400936996 /* Location.swift */,
 				68A43BFD2B22E519007F7AA9 /* Data_Types.swift */,
 				68A43C002B22E846007F7AA9 /* Connect_To_Watch.swift */,
+				68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */,
+				68EFE3E32C62A76B00B4B5A9 /* ProcessHealthValues.swift */,
 				68A43C032B22E89D007F7AA9 /* Timer_Controls.swift */,
 				68A43C062B22E8D2007F7AA9 /* Extended_Session.swift */,
 			);
@@ -502,6 +528,8 @@
 				68AF68D32C93F2A70063CC22 /* RowingAdditionalStatus1.swift in Sources */,
 				68AF68DB2C93F2A70063CC22 /* RowingStrokeData.swift in Sources */,
 				68A43C152B22EDDD007F7AA9 /* Haptics.swift in Sources */,
+				68EFE3DD2C62953A00B4B5A9 /* Compass.swift in Sources */,
+				68EFE3B72C5D94AE00B4B5A9 /* watchConnectivity.swift in Sources */,
 				68AF68BC2C93F2A70063CC22 /* PeripheralDelegate.swift in Sources */,
 				68AF68DF2C93F2A70063CC22 /* DeviceInformationCharacteristic.swift in Sources */,
 				68AF68E12C93F2A70063CC22 /* Service.swift in Sources */,
@@ -513,6 +541,11 @@
 				68AF68892C93F25F0063CC22 /* BluetoothView.swift in Sources */,
 				68AF68F12C93F4EC0063CC22 /* TestSetupView.swift in Sources */,
 				68A43BC82B22E08C007F7AA9 /* sail_v1App.swift in Sources */,
+				68EFE3DF2C62978F00B4B5A9 /* Altitude.swift in Sources */,
+				68A43BEF2B22E276007F7AA9 /* Phone_Landing_View.swift in Sources */,
+				68EFE3DB2C62941100B4B5A9 /* Direction.swift in Sources */,
+				68A43BF52B22E44D007F7AA9 /* Patterns.swift in Sources */,
+				68C4B0172C50488D00BE105B /* Select_Patterns.swift in Sources */,
 				68AF68BB2C93F2A70063CC22 /* CentralManagerDelegate.swift in Sources */,
 				68AF68C52C93F2A70063CC22 /* C2Distance+Parsing.swift in Sources */,
 				68AF68E02C93F2A70063CC22 /* RowingCharacteristic.swift in Sources */,
@@ -563,15 +596,20 @@
 			files = (
 				68A43BFC2B22E4D0007F7AA9 /* HealthKit.swift in Sources */,
 				68A43C082B22E8D2007F7AA9 /* Extended_Session.swift in Sources */,
+				68EFE3E22C62A73F00B4B5A9 /* TimerControls_Extension.swift in Sources */,
 				68A43C122B22EB99007F7AA9 /* Watch_Landing_View.swift in Sources */,
 				68A43BFF2B22E519007F7AA9 /* Data_Types.swift in Sources */,
 				68A43BF92B22E47E007F7AA9 /* Made_Patterns.swift in Sources */,
 				68A43BF32B22E32F007F7AA9 /* Haptics.swift in Sources */,
+				68556DED2C51A6D400936996 /* Location.swift in Sources */,
+				68EFE3E52C62A76E00B4B5A9 /* ProcessHealthValues.swift in Sources */,
 				68A43C0C2B22E990007F7AA9 /* Calculations.swift in Sources */,
 				68A43C022B22E846007F7AA9 /* Connect_To_Watch.swift in Sources */,
+				68B5DB192C642860007EBB22 /* IndicatorView.swift in Sources */,
 				68A43BF62B22E44D007F7AA9 /* Patterns.swift in Sources */,
 				68A43C142B22EC1A007F7AA9 /* Display_Info.swift in Sources */,
 				68A43C052B22E89D007F7AA9 /* Timer_Controls.swift in Sources */,
+				68EFE3E62C62B05200B4B5A9 /* Compass.swift in Sources */,
 				68A43BDC2B22E100007F7AA9 /* sail_v1_watchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +763,9 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow to share health info";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow to update health info";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow access to your location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow access to your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -760,6 +801,9 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow to share health info";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow to update health info";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow access to your location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow access to your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
