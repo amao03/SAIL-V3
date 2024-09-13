@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct AppView: View {
+    let persistenceController = PersistenceController.shared
+
+    var body: some View {
+//        BluetoothView()
+        
+        ContentView()
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+    }
+}
+
 @main
 struct sail_v1App: App {
     
