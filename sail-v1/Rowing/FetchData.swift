@@ -8,6 +8,8 @@
 import Foundation
 
 class FetchData: ObservableObject {
+    public static let sharedInstance = FetchData()
+    
     private var concept2monitor:PerformanceMonitor? = nil
     private var strokeRateDisposable:Disposable? = nil
     private var distanceDisposable:Disposable? = nil

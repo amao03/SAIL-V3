@@ -111,7 +111,6 @@ final class TimerControls: NSObject, ObservableObject{
         
         let currHaptic = currPattern[currPatternIndex % currPattern.count]
         Haptics.play(currHaptic: currHaptic)
-//        print("playing: \(currHaptic.name)")
         currPatternIndex += 1
     }
 }

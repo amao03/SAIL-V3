@@ -39,6 +39,8 @@ extension TimerControls{
             
         case DataType.direction:
             currentData = Double(connector.direction)
+        case DataType.rower:
+            currentData = Double(connector.rower)
         }
         
         print("Val: \(currentData)")

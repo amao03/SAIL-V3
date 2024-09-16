@@ -20,6 +20,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
     @Published var altitude:Int = 0
     @Published var direction:Int = 0
     @Published var updating:Bool = false
+    @Published var rower:Int = 0
     
     private override init(){
         super.init()
@@ -54,6 +55,16 @@ final class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
+    public func sendDataToWatch(sendObject: MadePattern){
+        do {
+            let data:[String:Any] = ["madePattern":sendObject]
+            let _ = try session.updateApplicationContext(data)
+            print("sent madePattern")
+        } catch {
+            print("failed to send haptics because it is not reachable")
+        }
+    }
+    
     public func sendDirection(sendObject: Int){
             do {
                 let data:[String:Any] = ["direction":sendObject]
@@ -69,6 +80,16 @@ final class ConnectToWatch: NSObject, ObservableObject {
                 let data:[String:Any] = ["altitude":sendObject]
                 let _ = try session.updateApplicationContext(data)
                 print("sent direciton")
+            } catch {
+                print("Not Reachable")
+            }
+    }
+    
+    public func sendRower(sendObject: Int){
+            do {
+                let data:[String:Any] = ["rower":sendObject]
+                let _ = try session.updateApplicationContext(data)
+                print("sent rower")
             } catch {
                 print("Not Reachable")
             }
@@ -98,6 +119,11 @@ final class ConnectToWatch: NSObject, ObservableObject {
             if let receivedDirection = info["direction"] as? Int {
                 self.direction = receivedDirection
                 print("received direction: \(self.direction)")
+            }
+            
+            if let receivedDirection = info["rower"] as? Int {
+                self.rower = receivedDirection
+                print("received direction: \(self.rower)")
             }
         }
     }
@@ -144,6 +170,11 @@ extension ConnectToWatch: WCSessionDelegate{
         if let receivedDirection = applicationContext["direction"] as? Int {
             self.direction = receivedDirection
             print("received direction: \(self.direction)")
+        }
+        
+        if let receivedRower = applicationContext["rower"] as? Int {
+            self.rower = receivedRower
+            print("received rower: \(self.rower)")
         }
     }
     

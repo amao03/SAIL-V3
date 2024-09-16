@@ -16,7 +16,7 @@ struct BluetoothView : View{
     @State private var deviceArr:Array<PerformanceMonitor> = []
     @State private var isReadyDisposable:Disposable? = nil
     @Binding var concept2monitor:PerformanceMonitor?
-    @ObservedObject var fetchData:FetchData
+    @ObservedObject private var fetchData = FetchData.sharedInstance
 
     private func scanForDevices(){
         debugPrint("Scanning")
