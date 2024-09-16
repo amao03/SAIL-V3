@@ -10,7 +10,7 @@ import HealthKit
 
 
 enum DataType:CaseIterable, Codable, Hashable {
-    case random, fake, heartrate, distance, cycling, direction, altitude
+    case random, fake, heartrate, distance, cycling, direction, altitude, rower
 }
 
 

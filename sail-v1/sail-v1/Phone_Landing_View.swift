@@ -15,19 +15,34 @@ struct Phone_Landing_View : View{
     @State private var hapticsListBool:Bool = false
     
     @ObservedObject var compass = Compass()
+    @State var currPower = 0
     
-    private var typesArr = ["distance", "heartrate", "cycling power", "altitude"]
+    @State var concept2monitor:PerformanceMonitor?
+    @StateObject var fetchData:FetchData = FetchData()
+    @State var powerDisposable: Disposable?
+    
+    private func attachObservers(){
+        powerDisposable = concept2monitor!.strokePower.attach(observer: {
+          (currPow:C2Power) -> Void in
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    currPower = currPow
+                    connector.sendDirection(sendObject: currPow)
+            }
+          }
+        })
+    }
     
     var body: some View {
         NavigationView{
             Form{
-//                Toggle("Phone Haptics", isOn: $hapticsListBool)
-                
                 Picker("select type", selection: $patternObject.type) {
                     ForEach(DataType.allCases, id: \.self) { currCase in
                         Text(String(describing: currCase))
                     }
                 }
+                
+                BluetoothView(concept2monitor: $concept2monitor)
                 
                 HStack{
                     Text("Target")
@@ -77,34 +92,43 @@ struct Phone_Landing_View : View{
                 })
                 
                 Button(action:{
-                    connector.session.sendMessage(["data":patternObject.encoder()], replyHandler: nil) { (error) in
-                        print("Error sending message: \(error)")}
-//                    connector.sendDataToWatch(sendObject: patternObject)
+                    connector.sendDataToWatch(sendObject: patternObject)
                     
                 }){
                     Text("Send data to Watch")
                 }
-                
-                Text("Your altitude is \(self.compass.altitude) meters")
-                    .font(.headline)
-                    .padding()
-                
-                if self.patternObject.type == DataType.altitude{
+                if patternObject.type == DataType.altitude{
+                    Text("Your altitude is \(self.compass.altitude) meters")
+                        .font(.headline)
+                        .padding()
+                    
                     let data:[String:Any] = ["altitude":self.compass.altitude]
                     let _ = connector.session.sendMessage(data, replyHandler: nil)
                 }
                 
-                Text("Your direction is \(self.compass.direction)")
-                    .font(.headline)
-                    .padding()
-                
-                if self.patternObject.type == DataType.direction{
+                if patternObject.type == DataType.direction{
+                    Text("Your direction is \(self.compass.direction)")
+                        .font(.headline)
+                        .padding()
+                    
                     let _:[String:Any] = ["direction":self.compass.direction]
                     let _ = connector.sendDirection(sendObject: self.compass.direction)
                 }
+                
+                if patternObject.type == DataType.rower{
+                    Text("Your power is \(currPower)")
+                        .font(.headline)
+                        .padding()
+                }
+                
+                
+                
             }
             .navigationTitle("Custom Haptics")
         }.onAppear(perform: connector.activateSession)
     }
+    
+
 }
+
 
