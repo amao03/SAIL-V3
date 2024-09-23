@@ -103,10 +103,7 @@ struct ContentView: View {
     var body: some View {
        NavigationStack {
             List {
-                BluetoothView(
-                    concept2monitor: $concept2monitor,
-                    fetchData: fetchData
-                )
+                BluetoothView(concept2monitor: $concept2monitor)
                 
                 TestSetupView(selectProtocol: $protocolObj, connector: connector)
                 
@@ -225,7 +222,7 @@ struct ContentView: View {
                     })
                 }
                 
-                SavedTestsView()
+//                SavedTestsView()
             }
        }
     }

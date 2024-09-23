@@ -63,7 +63,7 @@ struct TestSetupView: View {
                 
                 Button(action:{
                     connector.sendDataToWatch(sendObject: selectProtocol.pattern)
-                    print(connector.patternPackageSent)
+//                    print(connector.patternPackageSent)
                     timerRunning = false
                     playingTimer?.invalidate()
                 }){
