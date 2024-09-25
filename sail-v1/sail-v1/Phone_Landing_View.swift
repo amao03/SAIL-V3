@@ -42,8 +42,6 @@ struct Phone_Landing_View : View{
                     }
                 }
                 
-                BluetoothView(concept2monitor: $concept2monitor)
-                
                 HStack{
                     Text("Target")
                     TextField("",value: $patternObject.target, format: .number).multilineTextAlignment(.trailing)
@@ -93,10 +91,10 @@ struct Phone_Landing_View : View{
                 
                 Button(action:{
                     connector.sendDataToWatch(sendObject: patternObject)
-                    
                 }){
                     Text("Send data to Watch")
                 }
+                
                 if patternObject.type == DataType.altitude{
                     Text("Your altitude is \(self.compass.altitude) meters")
                         .font(.headline)
@@ -111,18 +109,16 @@ struct Phone_Landing_View : View{
                         .font(.headline)
                         .padding()
                     
-                    let _:[String:Any] = ["direction":self.compass.direction]
                     let _ = connector.sendDirection(sendObject: self.compass.direction)
                 }
                 
                 if patternObject.type == DataType.rower{
+                    BluetoothView(concept2monitor: $concept2monitor)
+                    
                     Text("Your power is \(currPower)")
                         .font(.headline)
                         .padding()
                 }
-                
-                
-                
             }
             .navigationTitle("Custom Haptics")
         }.onAppear(perform: connector.activateSession)

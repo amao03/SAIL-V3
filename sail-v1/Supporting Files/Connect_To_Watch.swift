@@ -47,7 +47,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
         do {
-            let data:[String:Any] = ["direction":sendObject]
+            let data:[String:Any] = ["data":sendObject]
             let _ = try session.updateApplicationContext(data)
             print("sent pattern")
         } catch {
@@ -101,7 +101,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
             Swift.print("couldn't retrieve data from phone")
             return
         }
-        
+        print("received")
         DispatchQueue.main.async {
             if let data = info["data"] as? Data {
                 let decodedPattern = Pattern.decoder(data)
@@ -123,7 +123,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
             
             if let receivedDirection = info["rower"] as? Int {
                 self.rower = receivedDirection
-                print("received direction: \(self.rower)")
+                print("received rower: \(self.rower)")
             }
         }
     }
@@ -153,7 +153,7 @@ extension ConnectToWatch: WCSessionDelegate{
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
         print("didReceiveApplicationContext")
-        
+        print("received")
         if let data = applicationContext["data"] as? Data {
             let decodedPattern = Pattern.decoder(data)
             self.pattern = decodedPattern
