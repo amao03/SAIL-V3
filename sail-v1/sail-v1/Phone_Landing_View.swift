@@ -27,7 +27,8 @@ struct Phone_Landing_View : View{
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
                     currPower = currPow
-                    connector.sendDirection(sendObject: currPow)
+                    print("power: \(currPower)")
+                    connector.sendRower(sendObject: currPow)
             }
           }
         })
@@ -40,6 +41,10 @@ struct Phone_Landing_View : View{
                     ForEach(DataType.allCases, id: \.self) { currCase in
                         Text(String(describing: currCase))
                     }
+                }
+               
+                if patternObject.type == DataType.rower{
+                    BluetoothView(concept2monitor: $concept2monitor)
                 }
                 
                 HStack{
@@ -113,8 +118,6 @@ struct Phone_Landing_View : View{
                 }
                 
                 if patternObject.type == DataType.rower{
-                    BluetoothView(concept2monitor: $concept2monitor)
-                    
                     Text("Your power is \(currPower)")
                         .font(.headline)
                         .padding()

@@ -47,7 +47,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
     // Convert Pattern to Data to send to watch
     public func sendDataToWatch(sendObject: Pattern){
         do {
-            let data:[String:Any] = ["data":sendObject]
+            let data:[String:Any] = ["data":sendObject.encoder()]
             let _ = try session.updateApplicationContext(data)
             print("sent pattern")
         } catch {
