@@ -18,22 +18,35 @@ struct Phone_Landing_View : View{
     @State var currPower = 0
     
     @State var concept2monitor:PerformanceMonitor?
-    @StateObject var fetchData:FetchData = FetchData()
-    @State var powerDisposable: Disposable?
+    @ObservedObject var fetchData = FetchData()
+    var fetching = FetchData.sharedInstance
+    @State var powerDisposable: Disposable? = nil
     
-    private func attachObservers(){
-        powerDisposable = concept2monitor!.strokePower.attach(observer: {
-          (currPow:C2Power) -> Void in
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.async {
-                    currPower = currPow
-                    print("power: \(currPower)")
-                    connector.sendRower(sendObject: currPow)
-            }
-          }
-        })
+    var hasConnectedRower: Bool {
+        return concept2monitor != nil;
     }
     
+    private func attachObservers(){
+
+        if(hasConnectedRower) {
+            
+//            self.concept2monitor = concept2monitor
+            print("not nill")
+            powerDisposable = concept2monitor!.strokePower.attach(observer: {
+              (currPow:C2Power) -> Void in
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        currPower = currPow
+                }
+              }
+            })
+        }
+        print("no rower")
+        
+
+    }
+
+
     var body: some View {
         NavigationView{
             Form{
@@ -94,14 +107,19 @@ struct Phone_Landing_View : View{
                     }
                 })
                 
-                Button(action:{
-                    connector.sendDataToWatch(sendObject: patternObject)
-                }){
-                    Text("Send data to Watch")
+                
+                if (!hasConnectedRower && patternObject.type == DataType.rower){
+                    Text("Connect to Rower")
+                }else{
+                    Button(action:{
+                        connector.sendDataToWatch(sendObject: patternObject)
+                    }){
+                        Text("Send data to Watch")
+                    }
                 }
                 
                 if patternObject.type == DataType.altitude{
-                    Text("Your altitude is \(self.compass.altitude) meters")
+                    Text("Your altitude is \(self.compass.altitude)")
                         .font(.headline)
                         .padding()
                     
@@ -117,8 +135,8 @@ struct Phone_Landing_View : View{
                     let _ = connector.sendDirection(sendObject: self.compass.direction)
                 }
                 
-                if patternObject.type == DataType.rower{
-                    Text("Your power is \(currPower)")
+                if (patternObject.type == DataType.rower){
+                    Text("Your power is \(fetching.strokePower)")
                         .font(.headline)
                         .padding()
                 }

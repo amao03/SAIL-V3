@@ -69,7 +69,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
             do {
                 let data:[String:Any] = ["direction":sendObject]
                 let _ = try session.updateApplicationContext(data)
-                print("sent alt")
+                print("sent direction \(sendObject)")
             } catch {
                 print("Not Reachable")
             }
@@ -79,7 +79,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
             do {
                 let data:[String:Any] = ["altitude":sendObject]
                 let _ = try session.updateApplicationContext(data)
-                print("sent direciton")
+                print("sent altitude \(sendObject)")
             } catch {
                 print("Not Reachable")
             }
@@ -89,7 +89,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
             do {
                 let data:[String:Any] = ["rower":sendObject]
                 let _ = try session.updateApplicationContext(data)
-                print("sent rower")
+                print("sent rower \(sendObject)")
             } catch {
                 print("Not Reachable")
             }

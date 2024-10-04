@@ -6,24 +6,33 @@
 //
 
 import Foundation
+import Combine
 
-class FetchData: ObservableObject {
+class FetchData: NSObject, ObservableObject {
     public static let sharedInstance = FetchData()
+    var objectWillChange = PassthroughSubject<Void, Never>()
+    
+    var strokePower: Int = .zero {
+        didSet {
+            objectWillChange.send()
+        }
+    }
     
     private var concept2monitor:PerformanceMonitor? = nil
     private var strokeRateDisposable:Disposable? = nil
     private var distanceDisposable:Disposable? = nil
     private var strokePowerDisposable:Disposable? = nil
-    @Published var strokePower: C2Power? = nil
+//    @Published var strokePower: C2Power? = nil
     @Published var distance: C2Distance? = nil
     @Published var strokeRate: C2StrokeRate? = nil
 
-    init(concept2monitor: PerformanceMonitor? = nil) {
-        if(concept2monitor != nil) {
-            self.concept2monitor = concept2monitor
-            attachObservers()
-        }
+    var connector = ConnectToWatch.connect
+   
+    override init(){
+        super.init()
+        self.attachObservers()
     }
+    
     
     public func setPerformanceMonitor(_ pm: PerformanceMonitor) {
         concept2monitor = pm
@@ -58,22 +67,24 @@ class FetchData: ObservableObject {
         })
         
         strokePowerDisposable = concept2monitor?.strokePower.attach(observer: {
-            [weak self] (strokePower:C2Power) -> Void in
-            if let weakSelf = self {
+            (strokePower:C2Power) -> Void in
+//            if let weakSelf = self {
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
                         print("Power: \(strokePower)")
-                        weakSelf.strokePower = strokePower
-                    }
+                        self.connector.sendRower(sendObject: strokePower)
+                        self.strokePower = strokePower
+
+//                    }
                 }
             }
         })
     }
-    
+
     private func detachObservers() {
         strokeRateDisposable?.dispose()
         distanceDisposable?.dispose()
         strokePowerDisposable?.dispose()
     }
 }
-
+                                                                

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68556DED2C51A6D400936996 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68556DEC2C51A6D400936996 /* Location.swift */; };
 		689B25432B5B0A7B00034462 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B25422B5B0A7B00034462 /* TransferService.swift */; };
 		68A43BC82B22E08C007F7AA9 /* sail_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */; };
 		68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */; };
@@ -122,7 +121,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		68556DEC2C51A6D400936996 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		689B25422B5B0A7B00034462 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		68A43BC42B22E08C007F7AA9 /* sail-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sail-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A43BC72B22E08C007F7AA9 /* sail_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sail_v1App.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				68A43BF42B22E44D007F7AA9 /* Patterns.swift */,
 				68A43BF72B22E47E007F7AA9 /* Made_Patterns.swift */,
 				68A43BFA2B22E4D0007F7AA9 /* HealthKit.swift */,
-				68556DEC2C51A6D400936996 /* Location.swift */,
 				68A43BFD2B22E519007F7AA9 /* Data_Types.swift */,
 				68A43C002B22E846007F7AA9 /* Connect_To_Watch.swift */,
 				68EFE3E02C62A73900B4B5A9 /* TimerControls_Extension.swift */,
@@ -620,7 +617,6 @@
 				68A43BFF2B22E519007F7AA9 /* Data_Types.swift in Sources */,
 				68A43BF92B22E47E007F7AA9 /* Made_Patterns.swift in Sources */,
 				68A43BF32B22E32F007F7AA9 /* Haptics.swift in Sources */,
-				68556DED2C51A6D400936996 /* Location.swift in Sources */,
 				68EFE3E52C62A76E00B4B5A9 /* ProcessHealthValues.swift in Sources */,
 				68A43C0C2B22E990007F7AA9 /* Calculations.swift in Sources */,
 				68A43C022B22E846007F7AA9 /* Connect_To_Watch.swift in Sources */,
