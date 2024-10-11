@@ -70,14 +70,14 @@ struct Phone_Landing_View : View{
                     TextField("",value: $patternObject.range, format: .number).multilineTextAlignment(.trailing)
                 }
                 
-                Section("Under Pattern", content: {
+                Section("Above Pattern", content: {
                     NavigationLink(destination: {
-                        MadeHapticsSelector(selectedItems: $patternObject.underPattern)
+                        MadeHapticsSelector(selectedItems: $patternObject.abovePattern)
                     }, label: {
                         Text("Select haptics")
                     })
-                    Text("**Selected:** \(patternObject.underPattern.name)")
-                    Text("**Description:** \(patternObject.underPattern.description)")
+                    Text("**Selected:** \(patternObject.abovePattern.name)")
+                    Text("**Description:** \(patternObject.abovePattern.description)")
                 })
                 
                 Section("At Pattern", content: {
@@ -90,14 +90,14 @@ struct Phone_Landing_View : View{
                     Text("**Description:** \(patternObject.atPattern.description)")
                 })
                 
-                Section("Above Pattern", content: {
+                Section("Under Pattern", content: {
                     NavigationLink(destination: {
-                        MadeHapticsSelector(selectedItems: $patternObject.abovePattern)
+                        MadeHapticsSelector(selectedItems: $patternObject.underPattern)
                     }, label: {
                         Text("Select haptics")
                     })
-                    Text("**Selected:** \(patternObject.abovePattern.name)")
-                    Text("**Description:** \(patternObject.abovePattern.description)")
+                    Text("**Selected:** \(patternObject.underPattern.name)")
+                    Text("**Description:** \(patternObject.underPattern.description)")
                 })
                 
                 Section("Overall Time", content: {

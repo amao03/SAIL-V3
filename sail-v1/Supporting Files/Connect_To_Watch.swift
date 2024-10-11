@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import WatchConnectivity
 import Combine
-      s
+      
 final class ConnectToWatch: NSObject, ObservableObject {
     
     static let connect = ConnectToWatch()
