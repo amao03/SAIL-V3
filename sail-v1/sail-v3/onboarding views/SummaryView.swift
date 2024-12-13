@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SummaryView : View{
     @EnvironmentObject private var currTest : Test
+    @EnvironmentObject var connector: ConnectToWatch
     
     var body: some View {
         VStack(alignment: .leading){
@@ -27,6 +28,12 @@ struct SummaryView : View{
             Text("**Duration:** \(String(format: "%.2f", currTest.duration))")
             Text("**Under:** \(String(format: "%.2f", currTest.underRange))")
             Text("**Above:** \(String(format: "%.2f", currTest.aboveRange))")
+            
+            Button(action:{
+                connector.sendDataToWatch(sendObject: currTest)
+            }){
+                Text("Send data to Watch")
+            }
         }
     }
 }

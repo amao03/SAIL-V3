@@ -19,7 +19,7 @@ struct OnboardView : View {
             SetAbovePattern().environmentObject(currTest)
             SetAtPattern().environmentObject(currTest)
             SetUnderPattern().environmentObject(currTest)
-            SummaryView().environmentObject(currTest)
+            SummaryView().environmentObject(currTest).environmentObject(connector)
             StartTestView().environmentObject(currTest).environmentObject(connector)
         }
         .tabViewStyle(.page)
