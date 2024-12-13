@@ -9,8 +9,15 @@ import Foundation
 import HealthKit
 
 
-enum DataType:CaseIterable, Codable, Hashable {
-    case random, fake, heartrate, distance, cycling, direction, altitude, rower
+enum DataType:String, CaseIterable, Codable, Hashable {
+    case random = "random"
+    case fake = "fake"
+    case heartrate = "heartrate"
+    case distance = "distance"
+    case cycling = "cycling"
+    case direction = "direction"
+    case altitude = "altitude"
+    case rower = "rower"
 }
 
 

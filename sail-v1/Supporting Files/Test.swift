@@ -12,18 +12,57 @@ class Test: Identifiable, Codable, Hashable, ObservableObject{
         return lhs.name == rhs.name
     }
     
-    var  name = "Step"
-    var  patternObject = Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern:  MadePatternsList.getPatternByName("short-long")!,target: 20)
-    var duration = 3.0
-    var step = 20.0
-    var startVal = 20.0
-    var endVal = 60.0
-    var underRange = 10.0
-    var aboveRange = 10.0
-    var target = 20.0
+    @Published var name = "Step"
+    @Published var duration = 3.0
+    @Published var step = 20.0
+    @Published var startVal = 20.0
+    @Published var endVal = 60.0
+    @Published var underRange = 10.0
+    @Published var aboveRange = 10.0
+    @Published var target = 20.0
+    @Published var abovePattern = MadePatternsList.getPatternByName("super pulse")!
+    @Published var atPattern = MadePatternsList.getPatternByName("heartbeat")!
+    @Published var underPattern = MadePatternsList.getPatternByName("short-long")!
+    @Published var type = DataType.rower
+    
+    enum CodingKeys: CodingKey {
+        case name, duration, step, startVal, endVal, underRange, aboveRange, target, abovePattern, atPattern, underPattern, type
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        duration = try container.decode(Double.self, forKey: .duration)
+        step = try container.decode(Double.self, forKey: .step)
+        startVal = try container.decode(Double.self, forKey: .startVal)
+        endVal = try container.decode(Double.self, forKey: .endVal)
+        underRange = try container.decode(Double.self, forKey: .underRange)
+        aboveRange = try container.decode(Double.self, forKey: .aboveRange)
+        target = try container.decode(Double.self, forKey: .target)
+        abovePattern = try container.decode(MadePattern.self, forKey: .abovePattern)
+        atPattern = try container.decode(MadePattern.self, forKey: .atPattern)
+        underPattern = try container.decode(MadePattern.self, forKey: .underPattern)
+        type = try container.decode(DataType.self, forKey: .type)
+        
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(duration, forKey: .duration)
+        try container.encode(step, forKey: .step)
+        try container.encode(startVal, forKey: .startVal)
+        try container.encode(endVal, forKey: .endVal)
+        try container.encode(underRange, forKey: .underRange)
+        try container.encode(aboveRange, forKey: .aboveRange)
+        try container.encode(target, forKey: .target)
+        try container.encode(abovePattern, forKey: .abovePattern)
+        try container.encode(atPattern, forKey: .atPattern)
+        try container.encode(underPattern, forKey: .underPattern)
+        try container.encode(type, forKey: .type)
+    }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(patternObject)
         hasher.combine(name)
         hasher.combine(duration)
         hasher.combine(step)
@@ -31,11 +70,15 @@ class Test: Identifiable, Codable, Hashable, ObservableObject{
         hasher.combine(endVal)
         hasher.combine(underRange)
         hasher.combine(aboveRange)
+        hasher.combine(target)
+        hasher.combine(abovePattern)
+        hasher.combine(atPattern)
+        hasher.combine(underPattern)
+        hasher.combine(type)
     }
     
     init(){
         self.name = "Step"
-        self.patternObject = Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern:  MadePatternsList.getPatternByName("short-long")!,target: 20)
         self.duration = 3.0
         self.step = 20.0
         self.startVal = 20.0
@@ -43,18 +86,10 @@ class Test: Identifiable, Codable, Hashable, ObservableObject{
         self.underRange = 10.0
         self.aboveRange = 10.0
         self.target = 20.0
-    }
-    
-    init(name: String, patternObject: Pattern, duration: Double, step: Double, startVal: Double, endVal: Double, underRange: Double, aboveRange: Double, target: Double){
-        self.name = name
-        self.patternObject = patternObject
-        self.duration = duration
-        self.step = step
-        self.startVal = startVal
-        self.endVal = endVal
-        self.underRange = underRange
-        self.aboveRange = aboveRange
-        self.target = target
+        self.abovePattern = MadePatternsList.getPatternByName("super pulse")!
+        self.atPattern = MadePatternsList.getPatternByName("heartbeat")!
+        self.underPattern = MadePatternsList.getPatternByName("short-long")!
+        self.type = DataType.rower
     }
     
     func encoder() -> Data{
@@ -70,23 +105,12 @@ class Test: Identifiable, Codable, Hashable, ObservableObject{
         do{
             test = try PropertyListDecoder.init().decode(Test.self, from: data)
         }catch{
-            test = TestList.getTestByName("ERROR")
+            test = Test()
         }
         return test!
     }
 }
 
 class TestList : Identifiable, Codable, ObservableObject{
-    static var tests:[Test] = [
-        Test(name: "Step", patternObject: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 120), duration: 3,
-             step: 20, startVal: 20, endVal: 60, underRange: 10, aboveRange: 10, target: 20),
-        Test(name: "Endurance", patternObject: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 120), duration: 10,
-             step: 0, startVal: 60, endVal: 60, underRange: 10, aboveRange: 10, target: 20),
-        Test(name: "Pyramid", patternObject: Pattern(underPattern: MadePatternsList.getPatternByName("super pulse")!, atPattern: MadePatternsList.getPatternByName("heartbeat")!, abovePattern: MadePatternsList.getPatternByName("short-long")!,target: 120), duration: 3,
-             step: 10, startVal: 20, endVal: 60, underRange: 10, aboveRange: 10, target: 20),
-    ]
-    
-    static func getTestByName(_ name: String) -> Test? {
-        return tests.first(where: {$0.name == name});
-    }
+    static var tests:[String] = ["Step", "Endurance", "Pyramid", "Just Row"]
 }

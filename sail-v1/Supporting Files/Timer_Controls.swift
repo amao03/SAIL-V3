@@ -71,7 +71,7 @@ final class TimerControls: NSObject, ObservableObject{
             print()
         }
         
-        if (self.connector.test.patternObject.type == DataType.fake && fakeDataIndex >= 4){
+        if (self.connector.test.type == DataType.fake && fakeDataIndex >= 4){
             print("done with overall")
             overallTimer?.invalidate()
             currentTimer?.invalidate()
