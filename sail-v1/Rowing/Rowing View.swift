@@ -73,16 +73,12 @@ struct ContentView: View {
     @StateObject var fetchData:FetchData = FetchData()
     
    
-    
-    @State var protocolObj:Protocols = Protocols()
     @State var currPattern:MadePattern = MadePattern()
     @State var previousPattern:MadePattern = MadePattern()
     @ObservedObject var connector = ConnectToWatch.connect
     
     @State var currPower = 0
-    
-    @State var currProtocol = Protocols()
-    
+        
     @State var powerData:Disposable?
     
     private var timerInterval: TimeInterval = 1;
@@ -104,9 +100,7 @@ struct ContentView: View {
        NavigationStack {
             List {
                 BluetoothView(concept2monitor: $concept2monitor)
-                
-                TestSetupView(selectProtocol: $protocolObj, connector: connector)
-                
+      
                 Section(header: Text("Subject ID"))
                 {
                     TextField(
@@ -122,12 +116,10 @@ struct ContentView: View {
                     
                 }
                 
-                TestingCode(protocolObj: $protocolObj, connector: connector, currPattern: $currPattern, previousPattern: $previousPattern)
-                
                 Section(header: Text("Rower")) {
                     HStack(alignment: .bottom) {
                         // Live Update Rower Data
-                        let formattedPower: String = String(fetchData.strokePower ?? 0)
+                        let formattedPower: String = String(fetchData.strokePower)
                         let formattedStrokeRate: String = String(fetchData.strokeRate ?? 0)
                         let formattedDistance: String = String(format: "%.1f", fetchData.distance ?? 0.0)
                         
@@ -233,10 +225,8 @@ struct ContentView: View {
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
                     currPower = currPow
-                    evaluateInterval()
                     if currPattern.name != previousPattern.name {
                         previousPattern = currPattern
-                        updateWatch()
                     }
             }
           }
@@ -258,7 +248,7 @@ struct ContentView: View {
         activeIntervalsArray = []
         let newRowingTest = RowingTest(context: viewContext)
         newRowingTest.starttime = Date()
-        newRowingTest.protocolName = protocolObj.name
+//        newRowingTest.protocolName = protocolObj.name
         newRowingTest.subjectId = subjectId
         activeTest = newRowingTest
         attachObservers()
@@ -302,30 +292,6 @@ struct ContentView: View {
         powerData?.dispose()
     }
     
-    private func evaluateInterval(){
-        if currPower < Int(protocolObj.pattern.target - protocolObj.pattern.range) {
-            print("under")
-            currPattern = protocolObj.pattern.underPattern
-            currPattern.animationState = AnimationState.under
-        }
-        else if currPower > Int(protocolObj.pattern.target + protocolObj.pattern.range) {
-            print("above")
-            currPattern = protocolObj.pattern.abovePattern
-            currPattern.animationState = AnimationState.above
-        } else{
-            print("at")
-            currPattern = protocolObj.pattern.atPattern
-            currPattern.animationState = AnimationState.at
-        }
-    }
-    
-
-    private func updateWatch(){
-        print("update watch")
-        print(currPattern.animationState)
-        connector.sendDataToWatch(sendObject: currPattern)
-    }
-
     private func saveData() {
         do {
             try viewContext.save()

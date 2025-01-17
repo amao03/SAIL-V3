@@ -26,7 +26,6 @@ class FetchData: NSObject, ObservableObject {
     @Published var distance: C2Distance? = nil
     @Published var strokeRate: C2StrokeRate? = nil
 
-    var connector = ConnectToWatch.connect
    
     override init(){
         super.init()
@@ -72,7 +71,7 @@ class FetchData: NSObject, ObservableObject {
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
                         print("Power: \(strokePower)")
-                        self.connector.sendRower(sendObject: strokePower)
+//                        self.connector.sendRower(sendObject: strokePower)
                         self.strokePower = strokePower
 
 //                    }

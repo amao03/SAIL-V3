@@ -25,7 +25,7 @@ struct TestingCode:View {
                     evaluateIntervalFakeData(val: Int(dataArr[i]))
                     if currPattern.id != previousPattern.id {
                         previousPattern = currPattern
-                        connector.sendDataToWatch(sendObject: currPattern)
+//                        connector.sendDataToWatch(sendObject: currPattern)
                     }
                     i += 1
                     
@@ -39,7 +39,7 @@ struct TestingCode:View {
                         evaluateIntervalFakeData(val: Int(dataArr[i]))
                         if currPattern.id != previousPattern.id {
                             previousPattern = currPattern
-                            connector.sendDataToWatch(sendObject: currPattern)
+//                            connector.sendDataToWatch(sendObject: currPattern)
                         }
                         i += 1
                     }
@@ -53,7 +53,7 @@ struct TestingCode:View {
                     evaluateIntervalFakeData(val: val)
                     if currPattern.id != previousPattern.id {
                         previousPattern = currPattern
-                        connector.sendDataToWatch(sendObject: currPattern)
+//                        connector.sendDataToWatch(sendObject: currPattern)
                     }
                     i += 1
                     Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
@@ -65,10 +65,10 @@ struct TestingCode:View {
                         
                         val = Int.random(in: 90..<150)
                         evaluateIntervalFakeData(val: val)
-                        if currPattern.id != previousPattern.id {
-                            previousPattern = currPattern
-                            connector.sendDataToWatch(sendObject: currPattern)
-                        }
+//                        if currPattern.id != previousPattern.id {
+//                            previousPattern = currPattern
+//                            connector.sendDataToWatch(sendObject: currPattern)
+//                        }
                         i += 1
                     }
                 }){

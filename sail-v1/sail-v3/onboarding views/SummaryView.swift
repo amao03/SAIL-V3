@@ -22,18 +22,18 @@ struct SummaryView : View{
             Text("**At Pattern:** \(currTest.atPattern.name)\n \(currTest.atPattern.description)")
             Text("**Under Pattern:** \(currTest.underPattern.name)\n \(currTest.underPattern.description)")
             Text("**Type:** \(currTest.type.rawValue)")
-            Text("**Start Val:** \(String(format: "%.2f", currTest.startVal))")
-            Text("**End Val:** \(String(format: "%.2f", currTest.endVal))")
-            Text("**Step:** \(String(format: "%.2f", currTest.step))")
-            Text("**Duration:** \(String(format: "%.2f", currTest.duration))")
+//            Text("**Start Val:** \(String(format: "%.2f", currTest.startVal))")
+//            Text("**End Val:** \(String(format: "%.2f", currTest.endVal))")
+//            Text("**Step:** \(String(format: "%.2f", currTest.step))")
+//            Text("**Duration:** \(String(format: "%.2f", currTest.updateSecs))")
             Text("**Under:** \(String(format: "%.2f", currTest.underRange))")
             Text("**Above:** \(String(format: "%.2f", currTest.aboveRange))")
             
-            Button(action:{
-                connector.sendDataToWatch(sendObject: currTest)
-            }){
-                Text("Send data to Watch")
-            }
+//            Button(action:{
+//                connector.sendDataToWatch(sendObject: currTest)
+//            }){
+//                Text("Send data to Watch")
+//            }
         }
     }
 }

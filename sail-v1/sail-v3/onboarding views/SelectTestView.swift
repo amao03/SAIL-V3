@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 struct SelectTestView : View{
-    @EnvironmentObject private var currTest : Test
-
+    @EnvironmentObject var currTest : Test
+    
     var body: some View {
         VStack{
             Text("**Select a Test**")
@@ -23,6 +23,7 @@ struct SelectTestView : View{
             }
             .pickerStyle(.wheel)
             .frame(height: 120)
+            
         }.padding(30)
         
     }

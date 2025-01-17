@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct SelectDataTypeView : View{
-//    @Binding var currTest:Test
     @EnvironmentObject var currTest : Test
 
     var body: some View {

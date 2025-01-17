@@ -34,8 +34,10 @@ import SwiftUI
 import Charts
 
 struct StartTestView: View {
-    @EnvironmentObject private var currTest : Test
+    @EnvironmentObject var currTest : Test
     @EnvironmentObject var connector: ConnectToWatch
+    @ObservedObject var timerObj = StartTestTimers.time
+
     var hasConnectedRower: Bool = true
     var activeTest: RowingTest?
     var previousTest: RowingTest?
@@ -57,6 +59,13 @@ struct StartTestView: View {
     }
     
     var body: some View {
+                    Button(action:{
+                        timerObj.startOverallTimer()
+                    }){
+                        Text("Start test")
+                    }
+        
+        /*
         VStack{
             HStack(alignment: .bottom) {
                 let formattedPower: String = String(strokePower ?? 0)
@@ -142,7 +151,8 @@ struct StartTestView: View {
             })
             
         }.padding(30)
-//            .rotationEffect(<#T##Angle#>)
+//            .rotationEffect(<#T##Angle#>)*/
+        
     }
     
     private func toggleTest() {

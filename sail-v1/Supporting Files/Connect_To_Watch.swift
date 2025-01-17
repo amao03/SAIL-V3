@@ -15,13 +15,10 @@ final class ConnectToWatch: NSObject, ObservableObject {
     static let connect = ConnectToWatch()
     public let session = WCSession.default
     
-//    @Published var pattern:Pattern = Pattern()
-    @Published var test:Test = Test()
+    @Published var pattern:MadePattern = MadePattern()
     @Published var receivedInitial:Bool = false
-    @Published var altitude:Int = 0
-    @Published var direction:Int = 0
     @Published var updating:Bool = false
-    @Published var rower:Int = 0
+    @Published var stopTest:Bool = false
     
     private override init(){
         super.init()
@@ -46,7 +43,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
     }
     
     // Convert Pattern to Data to send to watch
-    public func sendDataToWatch(sendObject: Pattern){
+    public func sendDataToWatch(sendObject: MadePattern){
         do {
             let data:[String:Any] = ["data":sendObject.encoder()]
             let _ = try session.updateApplicationContext(data)
@@ -56,54 +53,16 @@ final class ConnectToWatch: NSObject, ObservableObject {
         }
     }
     
-    public func sendDataToWatch(sendObject: Test){
+    
+    // Tell the watch to stop playing
+    public func sendDataToWatch(sendObject: Bool){
         do {
-            let data:[String:Any] = ["test":sendObject.encoder()]
+            let data:[String:Any] = ["endResponse":sendObject]
             let _ = try session.updateApplicationContext(data)
-            print("sent test")
+            print("sent end response")
         } catch {
             print("failed to send haptics because it is not reachable")
         }
-    }
-    
-    public func sendDataToWatch(sendObject: MadePattern){
-        do {
-            let data:[String:Any] = ["madePattern":sendObject]
-            let _ = try session.updateApplicationContext(data)
-            print("sent madePattern")
-        } catch {
-            print("failed to send haptics because it is not reachable")
-        }
-    }
-    
-    public func sendDirection(sendObject: Int){
-            do {
-                let data:[String:Any] = ["direction":sendObject]
-                let _ = try session.updateApplicationContext(data)
-                print("sent direction \(sendObject)")
-            } catch {
-                print("Not Reachable")
-            }
-    }
-    
-    public func sendAltitude(sendObject: Int){
-            do {
-                let data:[String:Any] = ["altitude":sendObject]
-                let _ = try session.updateApplicationContext(data)
-                print("sent altitude \(sendObject)")
-            } catch {
-                print("Not Reachable")
-            }
-    }
-    
-    public func sendRower(sendObject: Int){
-            do {
-                let data:[String:Any] = ["rower":sendObject]
-                let _ = try session.updateApplicationContext(data)
-                print("sent rower \(sendObject)")
-            } catch {
-                print("Not Reachable")
-            }
     }
 }
 
@@ -124,43 +83,21 @@ extension ConnectToWatch: WCSessionDelegate{
         }
     }
     
-    func session(_ session: WCSession, didReceiveMessage info: [String : Any]) {
-//        print("did receive") 
-//        dataReceivedFromPhone(info)
-    }
-    
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
 
-//        if let data = applicationContext["data"] as? Data {
-//            let decodedPattern = Pattern.decoder(data)
-//            self.pattern = decodedPattern
-//            self.receivedInitial = true
-//            self.updating = true
-//            print("received pattern: \(self.pattern)")
-//        }
-        
-        if let data = applicationContext["test"] as? Data {
-            let decodedTest = Test.decoder(data)
-            self.test = decodedTest
+        if let data = applicationContext["data"] as? Data {
+            let decodedPattern = MadePattern.decoder(data)
+            self.pattern = decodedPattern
             self.receivedInitial = true
             self.updating = true
-            print("received test: \(self.test)")
+            print("received pattern: \(self.pattern)")
         }
         
-        if let alt = applicationContext["altitude"] as? Int {
-            self.altitude = alt
-            print("received alt: \(self.altitude)")
+        if let endResponse = applicationContext["endResponse"] as? Bool {
+            self.stopTest = endResponse
+            print("stop test received")
         }
         
-        if let receivedDirection = applicationContext["direction"] as? Int {
-            self.direction = receivedDirection
-            print("received direction: \(self.direction)")
-        }
-        
-        if let receivedRower = applicationContext["rower"] as? Int {
-            self.rower = receivedRower
-            print("received rower: \(self.rower)")
-        }
     }
     
     

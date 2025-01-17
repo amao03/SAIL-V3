@@ -11,8 +11,6 @@ struct AppView: View {
     let persistenceController = PersistenceController.shared
 
     var body: some View {
-//        BluetoothView()
-        
         ContentView()
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
@@ -20,11 +18,12 @@ struct AppView: View {
 
 @main
 struct sail_v3App: App {
-    @StateObject var currTest = Test()
-    
+    @StateObject var currTest = Test.test
+
     var body: some Scene {
         WindowGroup {
-            OnboardView().environmentObject(currTest)
+            OnboardView()
+                .environmentObject(currTest)
         }
     }
 }

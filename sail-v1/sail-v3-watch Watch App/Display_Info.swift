@@ -28,7 +28,7 @@ struct DisplayInfo:View{
                 Text("**Start Val:** \(String(format: "%.2f", currTest.startVal))")
                 Text("**End Val:** \(String(format: "%.2f", currTest.endVal))")
                 Text("**Step:** \(String(format: "%.2f", currTest.step))")
-                Text("**Duration:** \(String(format: "%.2f", currTest.duration))")
+                Text("**Duration:** \(String(format: "%.2f", currTest.updateData))")
                 Text("**Under:** \(String(format: "%.2f", currTest.underRange))")
                 Text("**Above:** \(String(format: "%.2f", currTest.aboveRange))")
             }

@@ -15,37 +15,38 @@ struct SetConfigs : View {
             Text("**Set Test Configs**")
                 .font(.system(size: 20))
                 .padding(.bottom)
+            
             HStack{
-                Text("Starting threshold")
-                TextField("starting value",value: $currTest.startVal, format: .number)
+                Text("How often data updates")
+                TextField("duration",value: $currTest.updateData, format: .number)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.decimalPad)
             }
             
             HStack{
-                Text("End threshold")
-                TextField("End value",value: $currTest.endVal, format: .number)
+                Text("Above range buffer")
+                TextField("duration",value: $currTest.aboveRange, format: .number)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.decimalPad)
             }
+            
             HStack{
-                Text("Step")
-                TextField("step",value: $currTest.step, format: .number)
+                Text("Below range buffer")
+                TextField("duration",value: $currTest.underRange, format: .number)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.decimalPad)
             }
-            HStack{
-                Text("Duration between steps")
-                TextField("duration",value: $currTest.duration, format: .number)
-                    .multilineTextAlignment(.trailing)
-                    .keyboardType(.decimalPad)
+        
+            if(currTest.name == "Step"){
+                SetStepConfigs()
+            } else if(currTest.name == "Endurance"){
+                SetEnduranceConfigs()
+            } else if (currTest.name == "Pyramid"){
+                SetPyramidConfigs()
+            } else{
+                SetJustRowConfigs()
             }
-            HStack{
-                Text("Target")
-                TextField("duration",value: $currTest.target, format: .number)
-                    .multilineTextAlignment(.trailing)
-                    .keyboardType(.decimalPad)
-            }
+            
             Button("Set configs") {
                 hideKeyboard()
             }
@@ -60,10 +61,3 @@ extension View {
     }
 }
 #endif
-
-//struct SetConfigs_Preview : PreviewProvider{
-//    @State static var currObject = Test()
-//    static var previews: some View {
-//        SetConfigs(currTest: $currObject)
-//    }
-//}
