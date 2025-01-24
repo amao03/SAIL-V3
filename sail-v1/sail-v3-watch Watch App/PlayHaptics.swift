@@ -11,35 +11,35 @@ import HealthKit
 
 final class PlayHaptics: NSObject, ObservableObject{
     static let time = PlayHaptics()
-    var connector = ConnectToWatch.connect
+//    var connector = ConnectToWatch.connect
     
-    var playingTimer: Timer?
-    var currPatternIndex = 0
+    @Published var playingTimer: Timer?
+    @Published var currPatternIndex = 0
     
-    public func startPlaying(){
+    public func startPlaying(pattern: MadePattern){
+//        connector.updating = false
         print("start playing haptics")
         
-        let currPattern = connector.pattern.HapticArray
-        let currHaptic = currPattern[currPatternIndex % currPattern.count]
+        var currPattern = pattern.HapticArray
+        var currHaptic = currPattern[self.currPatternIndex % currPattern.count]
+
+        Haptics.play(currHaptic: currHaptic)
         currPatternIndex += 1
-        Haptics.play(currHaptic: currPattern[currPatternIndex % currPattern.count])
         
-        playingTimer = Timer.scheduledTimer(timeInterval: connector.pattern.duration, target: self, selector: #selector(playing), userInfo: nil, repeats: true)
+        playingTimer = Timer.scheduledTimer(withTimeInterval: pattern.duration, repeats: true) { timer in
+            print("Timer fired!")
+            
+            var currPattern = pattern.HapticArray
+            var currHaptic = currPattern[self.currPatternIndex % currPattern.count]
+            self.currPatternIndex += 1
+            Haptics.play(currHaptic: currHaptic)
+        }
     }
     
-    @objc func playing(){
-        if(connector.updating){
-            endPlaying()
-            return
-        } else if (connector.stopTest){
-            endPlaying()
-            return
-        }
-        
-        let currPattern = connector.pattern.HapticArray
-        let currHaptic = currPattern[currPatternIndex % currPattern.count]
-        currPatternIndex += 1
-        Haptics.play(currHaptic: currHaptic)
+    public func updatingPlaying(pattern: MadePattern){
+        print("updating playing haptics")
+        endPlaying()
+        startPlaying(pattern: pattern)
     }
     
     public func endPlaying(){

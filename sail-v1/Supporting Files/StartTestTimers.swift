@@ -71,12 +71,14 @@ final class StartTestTimers: NSObject, ObservableObject{
             self.end = true
             overallTimer?.invalidate()
             updateData?.invalidate()
+            connector.sendDataToWatch(sendObject: true)
             return
         } else if self.end{
             print("done with overall")
             self.end = true
             overallTimer?.invalidate()
             updateData?.invalidate()
+            connector.sendDataToWatch(sendObject: true)
             fakeDataIndex = 0
             return
         }
@@ -88,6 +90,7 @@ final class StartTestTimers: NSObject, ObservableObject{
         print("end endurance test")
         updateData?.invalidate()
         overallTimer?.invalidate()
+        connector.sendDataToWatch(sendObject: true)
         return
     }
 

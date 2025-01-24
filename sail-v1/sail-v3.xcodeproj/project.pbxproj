@@ -60,6 +60,8 @@
 		68948E2E2D0BF8C300C0BBA0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68948E2D2D0BF8C300C0BBA0 /* SummaryView.swift */; };
 		68948E302D0BFE0600C0BBA0 /* SetAtPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68948E2F2D0BFE0600C0BBA0 /* SetAtPattern.swift */; };
 		68948E322D0BFE2D00C0BBA0 /* SetUnderPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68948E312D0BFE2D00C0BBA0 /* SetUnderPattern.swift */; };
+		689ADA8C2D43409C0062AB91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BDF2B22E108007F7AA9 /* Assets.xcassets */; };
+		689ADA8D2D4340BE0062AB91 /* PlayHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A56342D38C23D00B3FC85 /* PlayHaptics.swift */; };
 		689B25432B5B0A7B00034462 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B25422B5B0A7B00034462 /* TransferService.swift */; };
 		68A43BC82B22E08C007F7AA9 /* sail_v3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BC72B22E08C007F7AA9 /* sail_v3App.swift */; };
 		68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BCB2B22E08F007F7AA9 /* Assets.xcassets */; };
@@ -76,7 +78,6 @@
 		68A43C0D2B22EAB0007F7AA9 /* Data_Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BFD2B22E519007F7AA9 /* Data_Types.swift */; };
 		68A43C122B22EB99007F7AA9 /* Watch_Landing_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43C112B22EB99007F7AA9 /* Watch_Landing_View.swift */; };
 		68A43C152B22EDDD007F7AA9 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A43BF12B22E32F007F7AA9 /* Haptics.swift */; };
-		68A43C172B22F4DC007F7AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A43BDF2B22E108007F7AA9 /* Assets.xcassets */; };
 		68A69C7C2CFCFF6200C7D49B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A69C7B2CFCFF6100C7D49B /* Test.swift */; };
 		68A69C7D2CFCFFDF00C7D49B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A69C7B2CFCFF6100C7D49B /* Test.swift */; };
 		68AF68892C93F25F0063CC22 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF68882C93F25F0063CC22 /* BluetoothView.swift */; };
@@ -527,7 +528,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				68A43BCF2B22E08F007F7AA9 /* Preview Assets.xcassets in Resources */,
-				68A43C172B22F4DC007F7AA9 /* Assets.xcassets in Resources */,
 				68A43BCC2B22E08F007F7AA9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +536,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689ADA8C2D43409C0062AB91 /* Assets.xcassets in Resources */,
 				68AF69552C9400350063CC22 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +581,7 @@
 				6850FBF42D08FE9C00B38636 /* C2TimeInterval+Parsing.swift in Sources */,
 				6850FBF52D08FE9C00B38636 /* C2StrokeCount+Parsing.swift in Sources */,
 				6850FBF62D08FE9C00B38636 /* IntervalType.swift in Sources */,
+				689ADA8D2D4340BE0062AB91 /* PlayHaptics.swift in Sources */,
 				6850FBF72D08FE9C00B38636 /* C2Work+Parsing.swift in Sources */,
 				68CBCE1B2D0CBD89005EAED4 /* StartTestView.swift in Sources */,
 				6837FDDA2D09017C00105443 /* SelectDataTypeView.swift in Sources */,

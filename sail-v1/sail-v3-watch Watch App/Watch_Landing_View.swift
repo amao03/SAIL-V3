@@ -38,41 +38,28 @@ struct Watch_Landing_View : View {
                         VStack{
                             if connector.updating{
 //                                let _ = self.update()
-                                let _ = timerObj.startPlaying()
+//                                let _ = timerObj.startPlaying()
                                 Text("updating...")
                             }
-                            Text("watch view")
-//                            NavigationLink(destination: DisplayInfo(currTest: connector.test)){
-//                                Text("View Patterns")
-//                            }
-//                            if timerObj.end{
-//                                Button(action:{
-//                                    print("starting....")
-//                                    timerObj.toggleEnd()
-//                                    timerObj.startOverallTimer()
-//                                }){
-//                                    Text("Start")
-//                                }
-//                            }
-//                            else{
-//                                Button(action:{
-//                                    timerObj.toggleEnd()
-//                                    print("stopping")
-//                                }){
-//                                    Text("stop")
-//                                }
-                                ZStack{
-                                    IndicatorView(animationState: connector.pattern.animationState)
-                                    
-                                    if (connector.pattern.animationState == AnimationState.above){
-                                        Text("Playing Above")
-                                    } else if (connector.pattern.animationState == AnimationState.under){
-                                        Text("Playing Under")
-                                    } else {
-                                        Text("Playing At")
-                                    }
+                            
+                            if connector.stopTest{
+                                Text("watch view")
+                        
+                               
+                            }
+                            
+                            ZStack{
+                                IndicatorView(animationState: connector.pattern.animationState)
+                                
+                                if (connector.pattern.animationState == AnimationState.above){
+                                    Text("Playing Above")
+                                } else if (connector.pattern.animationState == AnimationState.under){
+                                    Text("Playing Under")
+                                } else {
+                                    Text("Playing At")
                                 }
-//                                
+                            }
+//
 //                            }
                         }
                     }

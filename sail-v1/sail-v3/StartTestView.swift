@@ -1,28 +1,3 @@
-////
-////  StartTestView.swift
-////  sail-v3
-////
-////  Created by Alice Mao on 12/13/24.
-////
-//
-//import Foundation
-//import SwiftUI
-//
-//struct StartTestView : View{
-//    @EnvironmentObject private var currTest : Test
-//    @EnvironmentObject var connector: ConnectToWatch
-//
-//    var body: some View {
-//        Button(action:{
-//            connector.sendDataToWatch(sendObject: currTest)
-//        }){
-//            Text("Send data to Watch")
-//        }
-//    }
-//}
-//
-
-
 //
 //  RowingTestView.swift
 //  v2
@@ -63,6 +38,12 @@ struct StartTestView: View {
                         timerObj.startOverallTimer()
                     }){
                         Text("Start test")
+                    }
+        
+                    Button(action:{
+                        connector.sendDataToWatch(sendObject: true)
+                    }){
+                        Text("end test")
                     }
         
         /*

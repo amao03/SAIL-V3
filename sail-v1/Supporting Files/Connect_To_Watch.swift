@@ -14,6 +14,7 @@ final class ConnectToWatch: NSObject, ObservableObject {
     
     static let connect = ConnectToWatch()
     public let session = WCSession.default
+    public let timerObj = PlayHaptics()
     
     @Published var pattern:MadePattern = MadePattern()
     @Published var receivedInitial:Bool = false
@@ -88,14 +89,26 @@ extension ConnectToWatch: WCSessionDelegate{
         if let data = applicationContext["data"] as? Data {
             let decodedPattern = MadePattern.decoder(data)
             self.pattern = decodedPattern
+            
+            self.stopTest = false
+            
+            if !self.receivedInitial{
+                print("calling start playing")
+                self.timerObj.startPlaying(pattern: self.pattern)
+            } else{
+                print("calling update playing")
+                self.timerObj.updatingPlaying(pattern: self.pattern)
+            }
+            
             self.receivedInitial = true
-            self.updating = true
+//            self.updating = true
             print("received pattern: \(self.pattern)")
         }
         
         if let endResponse = applicationContext["endResponse"] as? Bool {
-            self.stopTest = endResponse
+            self.stopTest = true
             print("stop test received")
+            self.timerObj.endPlaying()
         }
         
     }
