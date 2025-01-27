@@ -46,7 +46,7 @@ struct Watch_Landing_View : View {
                                 Text("watch view")
                         
                                
-                            }
+                            } else{
                             
                             ZStack{
                                 IndicatorView(animationState: connector.pattern.animationState)
@@ -60,7 +60,7 @@ struct Watch_Landing_View : View {
                                 }
                             }
 //
-//                            }
+                            }
                         }
                     }
                     

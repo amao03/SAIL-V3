@@ -85,30 +85,31 @@ extension ConnectToWatch: WCSessionDelegate{
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
-
-        if let data = applicationContext["data"] as? Data {
-            let decodedPattern = MadePattern.decoder(data)
-            self.pattern = decodedPattern
-            
-            self.stopTest = false
-            
-            if !self.receivedInitial{
-                print("calling start playing")
-                self.timerObj.startPlaying(pattern: self.pattern)
-            } else{
-                print("calling update playing")
-                self.timerObj.updatingPlaying(pattern: self.pattern)
+        DispatchQueue.main.async {
+            if let data = applicationContext["data"] as? Data {
+                let decodedPattern = MadePattern.decoder(data)
+                self.pattern = decodedPattern
+                
+                self.stopTest = false
+                
+                if !self.receivedInitial{
+                    print("calling start playing")
+                    self.timerObj.startPlaying(pattern: self.pattern)
+                } else{
+                    print("calling update playing")
+                    self.timerObj.updatingPlaying(pattern: self.pattern)
+                }
+                
+                self.receivedInitial = true
+                //            self.updating = true
+                print("received pattern: \(self.pattern)")
             }
             
-            self.receivedInitial = true
-//            self.updating = true
-            print("received pattern: \(self.pattern)")
-        }
-        
-        if let endResponse = applicationContext["endResponse"] as? Bool {
-            self.stopTest = true
-            print("stop test received")
-            self.timerObj.endPlaying()
+            if let endResponse = applicationContext["endResponse"] as? Bool {
+                self.stopTest = true
+                print("stop test received")
+                self.timerObj.endPlaying()
+            }
         }
         
     }

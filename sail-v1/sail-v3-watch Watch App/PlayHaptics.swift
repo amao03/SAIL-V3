@@ -11,17 +11,15 @@ import HealthKit
 
 final class PlayHaptics: NSObject, ObservableObject{
     static let time = PlayHaptics()
-//    var connector = ConnectToWatch.connect
     
     @Published var playingTimer: Timer?
     @Published var currPatternIndex = 0
     
     public func startPlaying(pattern: MadePattern){
-//        connector.updating = false
         print("start playing haptics")
         
-        var currPattern = pattern.HapticArray
-        var currHaptic = currPattern[self.currPatternIndex % currPattern.count]
+        let currPattern = pattern.HapticArray
+        let currHaptic = currPattern[self.currPatternIndex % currPattern.count]
 
         Haptics.play(currHaptic: currHaptic)
         currPatternIndex += 1
@@ -29,8 +27,8 @@ final class PlayHaptics: NSObject, ObservableObject{
         playingTimer = Timer.scheduledTimer(withTimeInterval: pattern.duration, repeats: true) { timer in
             print("Timer fired!")
             
-            var currPattern = pattern.HapticArray
-            var currHaptic = currPattern[self.currPatternIndex % currPattern.count]
+            let currPattern = pattern.HapticArray
+            let currHaptic = currPattern[self.currPatternIndex % currPattern.count]
             self.currPatternIndex += 1
             Haptics.play(currHaptic: currHaptic)
         }
