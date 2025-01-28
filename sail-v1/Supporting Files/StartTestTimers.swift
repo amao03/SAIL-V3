@@ -29,8 +29,10 @@ final class StartTestTimers: NSObject, ObservableObject{
     public func startOverallTimer(){
         print("start overall timer")
         
+        self.end = false
         setCurrentValue()
         determinePattern()
+        connector.sendDataToWatch(sendObject: currPattern)
         
         //updates value and pattern based on the interval user selects for updateSecs
         updateData = Timer.scheduledTimer(timeInterval: test.updateData, target: self, selector: #selector(updateDataTimer), userInfo: nil, repeats: true)
@@ -50,12 +52,17 @@ final class StartTestTimers: NSObject, ObservableObject{
         //Just row
         if self.end{
             print("done with overall")
-            self.end = true
-            overallTimer?.invalidate()
-            updateData?.invalidate()
-            fakeDataIndex = 0
+            endTimers()
         }
 
+    }
+    
+    public func endTimers(){
+        self.end = true
+        overallTimer?.invalidate()
+        updateData?.invalidate()
+        connector.sendDataToWatch(sendObject: true)
+        fakeDataIndex = 0
     }
     
     @objc func updateDataTimer(){
@@ -66,31 +73,26 @@ final class StartTestTimers: NSObject, ObservableObject{
     }
     
     @objc func fireStepTimer(){
+        test.target = test.target + test.step
+        print("update Step \(test.target)")
+        
         if(test.target > test.endVal){
+            test.target = test.endVal
             print("done with step timer")
-            self.end = true
-            overallTimer?.invalidate()
-            updateData?.invalidate()
-            connector.sendDataToWatch(sendObject: true)
+            endTimers()
             return
         } else if self.end{
+            test.target = test.endVal
             print("done with overall")
-            self.end = true
-            overallTimer?.invalidate()
-            updateData?.invalidate()
-            connector.sendDataToWatch(sendObject: true)
-            fakeDataIndex = 0
+            endTimers()
             return
         }
-        print("update Step \(test.target)")
-        test.target = test.target + test.step
+        
     }
     
     @objc func fireEnduranceTimer(){
         print("end endurance test")
-        updateData?.invalidate()
-        overallTimer?.invalidate()
-        connector.sendDataToWatch(sendObject: true)
+        endTimers()
         return
     }
 

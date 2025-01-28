@@ -2,7 +2,7 @@
 //  RowingTestView.swift
 //  v2
 //
-//  Created by Lucas Drummond on 5/21/24.
+//  Created by Alice Mao on 5/21/24.
 //
 
 import SwiftUI
@@ -12,6 +12,8 @@ struct StartTestView: View {
     @EnvironmentObject var currTest : Test
     @EnvironmentObject var connector: ConnectToWatch
     @ObservedObject var timerObj = StartTestTimers.time
+    var fetching = FetchData.sharedInstance
+    @ObservedObject var compass = Compass()
 
     var hasConnectedRower: Bool = true
     var activeTest: RowingTest?
@@ -34,17 +36,39 @@ struct StartTestView: View {
     }
     
     var body: some View {
-                    Button(action:{
-                        timerObj.startOverallTimer()
-                    }){
-                        Text("Start test")
-                    }
-        
-                    Button(action:{
-                        connector.sendDataToWatch(sendObject: true)
-                    }){
-                        Text("end test")
-                    }
+        VStack{
+            Button(action:{
+                timerObj.startOverallTimer()
+            }){
+                Text("Start test")
+            }
+            
+            Button(action:{
+                timerObj.endTimers()
+            }){
+                Text("end test")
+            }
+            
+            Text("Target: \(self.currTest.target)")
+            if currTest.type == DataType.altitude{
+                                Text("Your altitude is \(self.compass.altitude)")
+                                    .font(.headline)
+                                    .padding()
+                                
+                            }
+                            
+                            if currTest.type == DataType.direction{
+                                Text("Your direction is \(self.compass.direction)")
+                                    .font(.headline)
+                                    .padding()
+                                                            }
+                            
+                            if (currTest.type == DataType.rower){
+                                Text("Your power is \(fetching.strokePower)")
+                                    .font(.headline)
+                                    .padding()
+                            }
+        }
         
         /*
         VStack{

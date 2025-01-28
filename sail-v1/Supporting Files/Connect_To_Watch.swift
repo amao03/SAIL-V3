@@ -101,7 +101,6 @@ extension ConnectToWatch: WCSessionDelegate{
                 }
                 
                 self.receivedInitial = true
-                //            self.updating = true
                 print("received pattern: \(self.pattern)")
             }
             
