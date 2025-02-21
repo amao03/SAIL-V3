@@ -10,9 +10,11 @@ import SwiftUI
 struct OnboardView : View {
     @EnvironmentObject var currTest:Test
     @StateObject var connector = ConnectToWatch.connect
+    @State var concept2monitor:PerformanceMonitor?
     
     var body : some View{
         TabView{
+            BluetoothView(concept2monitor: $concept2monitor)
             SelectTestView().environmentObject(currTest)
             SelectDataTypeView().environmentObject(currTest)
             SetConfigs().environmentObject(currTest)

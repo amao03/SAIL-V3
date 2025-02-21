@@ -13,7 +13,7 @@ struct StartTestView: View {
 
     @EnvironmentObject var currTest : Test
     @ObservedObject var timerObj = StartTestTimers.time
-    var fetching = FetchData.sharedInstance
+    @ObservedObject var fetching = FetchData.sharedInstance
     @ObservedObject var compass = Compass()
     
     @State var isTestRunning = false

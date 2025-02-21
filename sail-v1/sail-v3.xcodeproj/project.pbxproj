@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		680180982D567BC00062CF02 /* exportCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680180972D567BBC0062CF02 /* exportCSV.swift */; };
 		6823073C2D38CF58002A1032 /* Rowing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6823073B2D38CF58002A1032 /* Rowing View.swift */; };
 		6837FDDA2D09017C00105443 /* SelectDataTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6837FDD92D09017700105443 /* SelectDataTypeView.swift */; };
 		6837FDDC2D090FCF00105443 /* SelectTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6837FDDB2D090FCF00105443 /* SelectTestView.swift */; };
@@ -127,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		680180972D567BBC0062CF02 /* exportCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exportCSV.swift; sourceTree = "<group>"; };
 		6823073B2D38CF58002A1032 /* Rowing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rowing View.swift"; sourceTree = "<group>"; };
 		6837FDD92D09017700105443 /* SelectDataTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectDataTypeView.swift; path = "sail-v3/onboarding views/SelectDataTypeView.swift"; sourceTree = SOURCE_ROOT; };
 		6837FDDB2D090FCF00105443 /* SelectTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTestView.swift; sourceTree = "<group>"; };
@@ -386,7 +384,6 @@
 		68A43BC62B22E08C007F7AA9 /* sail-v3 */ = {
 			isa = PBXGroup;
 			children = (
-				680180972D567BBC0062CF02 /* exportCSV.swift */,
 				684A56202D38996900B3FC85 /* testConfigs */,
 				6837FDDD2D09121600105443 /* OnboardView.swift */,
 				68CBCE1A2D0CBD89005EAED4 /* StartTestView.swift */,
@@ -585,7 +582,6 @@
 				68AF68892C93F25F0063CC22 /* BluetoothView.swift in Sources */,
 				68A43BC82B22E08C007F7AA9 /* sail_v3App.swift in Sources */,
 				68EFE3DF2C62978F00B4B5A9 /* Altitude.swift in Sources */,
-				680180982D567BC00062CF02 /* exportCSV.swift in Sources */,
 				68A69C7D2CFCFFDF00C7D49B /* Test.swift in Sources */,
 				68AF68E62C93F3440063CC22 /* Subject.swift in Sources */,
 				684A56192D36124D00B3FC85 /* HealthKit.swift in Sources */,

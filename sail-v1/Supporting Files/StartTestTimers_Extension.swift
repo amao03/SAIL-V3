@@ -39,8 +39,8 @@ extension StartTestTimers{
         case DataType.direction:
             currentData = Double(compass.direction)
         case DataType.rower:
-            currentData = Double(fetchData.strokePower)
-            
+            currentData = Double(FetchData.sharedInstance.strokePower)
+            print("fetch data: \(FetchData.sharedInstance.strokePower)")
         }
         
         print("Val: \(currentData)")

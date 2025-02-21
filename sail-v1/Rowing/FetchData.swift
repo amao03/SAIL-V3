@@ -14,6 +14,7 @@ class FetchData: NSObject, ObservableObject {
     
     var strokePower: Int = .zero {
         didSet {
+            print("update stroke power \(strokePower)")
             objectWillChange.send()
         }
     }
@@ -70,14 +71,26 @@ class FetchData: NSObject, ObservableObject {
 //            if let weakSelf = self {
                 DispatchQueue.global(qos: .background).async {
                     DispatchQueue.main.async {
-                        print("Power: \(strokePower)")
-//                        self.connector.sendRower(sendObject: strokePower)
+                        print("strokePower: \(strokePower)")
                         self.strokePower = strokePower
-
 //                    }
                 }
             }
         })
+        
+//        strokePowerDisposable = concept2monitor?.strokePower.attach(observer: {
+//            [weak self] (strokePower:C2Power) -> Void in
+////            if let weakSelf = self {
+//                DispatchQueue.global(qos: .background).async {
+//                    DispatchQueue.main.async {
+//                        print("Power: \(strokePower)")
+////                        self.connector.sendRower(sendObject: strokePower)
+//                        weakSelf.strokePower = strokePower
+//
+////                    }
+//                }
+//            }
+//        })
     }
 
     private func detachObservers() {
