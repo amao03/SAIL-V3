@@ -7,23 +7,17 @@
 
 import SwiftUI
 
-struct AppView: View {
-    let persistenceController = PersistenceController.shared
-
-    var body: some View {
-        ContentView()
-            .environment(\.managedObjectContext, persistenceController.container.viewContext)
-    }
-}
-
 @main
 struct sail_v3App: App {
     @StateObject var currTest = Test.test
-
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             OnboardView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(currTest)
+                
         }
     }
 }

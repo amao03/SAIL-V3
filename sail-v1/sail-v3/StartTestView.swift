@@ -9,22 +9,27 @@ import SwiftUI
 import Charts
 
 struct StartTestView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
     @EnvironmentObject var currTest : Test
-    @EnvironmentObject var connector: ConnectToWatch
     @ObservedObject var timerObj = StartTestTimers.time
     var fetching = FetchData.sharedInstance
     @ObservedObject var compass = Compass()
+    
+    @State var isTestRunning = false
 
     var hasConnectedRower: Bool = true
-    var activeTest: RowingTest?
-    var previousTest: RowingTest?
-    var activeInterval: Interval?
-    var previousInterval: Interval?
-    var displayInterval: Interval?
-    var strokePower: C2Power?
-    var strokeRate: C2StrokeRate?
-    var distance: C2Distance?
-    var strokeCount: C2StrokeCount?
+    @State var activeTest: RowingTest?
+    @State var previousTest: RowingTest?
+    @State var activeInterval: Interval?
+    @State var previousInterval: Interval?
+    @State var displayInterval: Interval?
+    @State var activeTestTimer: Timer?
+    @State var strokePower: C2Power?
+    @State var strokeRate: C2StrokeRate?
+    @State var distance: C2Distance?
+    @State var strokeCount: C2StrokeCount?
+    @State var concept2monitor:PerformanceMonitor?
     @State var activeIntervalsArray: [Interval] = []
     
     var hasActiveTest: Bool {
@@ -35,132 +40,94 @@ struct StartTestView: View {
         return activeTest ?? previousTest
     }
     
+    
     var body: some View {
         VStack{
-            Button(action:{
-                timerObj.startOverallTimer()
-            }){
-                Text("Start test")
-            }
-            
-            Button(action:{
-                timerObj.endTimers()
-            }){
-                Text("end test")
-            }
-            
-            Text("Target: \(self.currTest.target)")
-            if currTest.type == DataType.altitude{
-                                Text("Your altitude is \(self.compass.altitude)")
-                                    .font(.headline)
-                                    .padding()
-                                
-                            }
-                            
-                            if currTest.type == DataType.direction{
-                                Text("Your direction is \(self.compass.direction)")
-                                    .font(.headline)
-                                    .padding()
-                                                            }
-                            
-                            if (currTest.type == DataType.rower){
-                                Text("Your power is \(fetching.strokePower)")
-                                    .font(.headline)
-                                    .padding()
-                            }
-        }
-        
-        /*
-        VStack{
-            HStack(alignment: .bottom) {
-                let formattedPower: String = String(strokePower ?? 0)
-                let formattedStrokeRate: String = String(strokeRate ?? 0)
-                let formattedDistance: String = String(format: "%.1f", distance ?? 0.0)
-                
-                VStack(alignment: .leading) {
-                    Text(formattedPower)
-                        .font(.system(size: 54))
-                    Label("Power", systemImage: "bolt.fill")
-                        .labelStyle(.titleAndIcon)
-                }
-                .fixedSize()
-                
-                Spacer()
-                
-                VStack(alignment: .center) {
-                    Text(formattedStrokeRate)
-                        .font(.system(size: 54))
-                    Label("Strokes p/m", systemImage: "staroflife")
-                        .labelStyle(.titleAndIcon)
-                }
-                .fixedSize()
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text(formattedDistance)
-                        .font(.system(size: 54))
-                    Label("Distance", systemImage: "scribble.variable")
-                        .labelStyle(.titleAndIcon)
-                }
-                .fixedSize()
-            }.opacity(hasConnectedRower ? 1 : 0.3)
-            
-            VStack {
-                let curDurationInterval: TimeInterval = getElapsed(displayTest?.starttime, displayInterval?.timestamp)
-                let curDuration: String = Duration(
-                    secondsComponent: Int64(curDurationInterval),
-                    attosecondsComponent: 0
-                ).formatted(.time(pattern: .minuteSecond))
-                
-                HStack {
-                    Button(action: toggleTest) {
-                        Text(hasActiveTest ? "Stop Test" : "Start Test")
-                    }
-                    .font(.system(size: 24))
-                    .buttonStyle(.bordered)
-                    .disabled(!hasConnectedRower)
+            VStack{
+                HStack(alignment: .bottom) {
+                    let formattedPower:String = String(timerObj.currentData)
+                    let formattedTarget:String = String(currTest.target)
                     
-                    PulsingCircle(isActive: hasActiveTest)
-                        .frame(width: 40, height: 40, alignment: .trailing)
+                    VStack(alignment: .center) {
+                        Text(formattedPower)
+                            .font(.system(size: 54))
+                        Label("Power", systemImage: "bolt.fill")
+                            .labelStyle(.titleAndIcon)
+                    }
+                    .fixedSize()
                     
                     Spacer()
                     
-                    VStack(alignment: .trailing) {
-                        Text("\(curDuration)")
-                            .font(.system(size: 36))
-                        
-                        Label("Duration", systemImage: "clock.fill")
-                            .labelStyle(.titleOnly)
-                            .font(.system(size: 12))
+                    VStack(alignment: .center) {
+                        Text(formattedTarget)
+                            .font(.system(size: 54))
+                        Text("Target")
                     }
+                    .fixedSize()
                 }
-                .animation(nil)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 8, trailing: 0))
                 
-                Divider()
-                
-                Chart(activeIntervalsArray) {
-                    LineMark(
-                        x: .value("Time", $0.timestamp!),
-                        y: .value("Power", $0.power)
-                    )
+                VStack {
+                    let displayTest = activeTest ?? previousTest
+                    let displayInterval = activeInterval ?? previousInterval
+                    
+                    let curDurationInterval: TimeInterval = getElapsed(displayTest?.starttime, displayInterval?.timestamp)
+                    let curDuration: String = Duration(
+                        secondsComponent: Int64(curDurationInterval),
+                        attosecondsComponent: 0
+                    ).formatted(.time(pattern: .minuteSecond))
+                    
+                    HStack {
+                        Button(action: toggleTest) {
+                            Text(hasActiveTest ? "Stop Test" : "Start Test")
+                        }
+                        .font(.system(size: 24))
+                        .buttonStyle(.bordered)
+                        
+                        PulsingCircle(isActive: hasActiveTest)
+                            .frame(width: 40, height: 40, alignment: .trailing)
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing) {
+                            Text("\(curDuration)")
+                                .font(.system(size: 36))
+                            
+                            Label("Duration", systemImage: "clock.fill")
+                                .labelStyle(.titleOnly)
+                                .font(.system(size: 12))
+                        }
+                    }
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 8, trailing: 0))
+                    
+                    Divider()
+                    
+                    Chart(activeIntervalsArray) {
+                        LineMark(
+                            x: .value("Time", $0.timestamp!),
+                            y: .value("Power", $0.target)
+                        ).foregroundStyle(.blue) // First line (actual values)
+                        
+                        LineMark(
+                            x: .value("Time", $0.timestamp!),
+                            y: .value("Target", $0.target)
+                        )
+                        .foregroundStyle(.red)
+                    }.chartXAxis {
+                        AxisMarks()
+                    }
+                    .chartYAxis {
+                        AxisMarks()
+                    }
+                    .frame(height: 300)
+                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                    
                 }
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                
-            }
-            .opacity((hasConnectedRower) ? 1 : 0.3)
-            .overlay(content: {
-                Text("Connect to Rower")
-                    .foregroundColor(.blue)
-            })
-            
-        }.padding(30)
-//            .rotationEffect(<#T##Angle#>)*/
-        
+            }.padding(30)
+        }
     }
     
     private func toggleTest() {
+        print("toggle test")
         if(hasActiveTest) {
             stopTest()
         }
@@ -171,43 +138,69 @@ struct StartTestView: View {
     
     private func startTest() {
         debugPrint("Started Test");
+        
+        let newRowingTest = RowingTest(context: viewContext)
+        newRowingTest.starttime = Date()
+        newRowingTest.testName = currTest.name
+        newRowingTest.subjectId = currTest.subjectID
+        activeTest = newRowingTest
+        
+        activeTestTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: onTimerTick)
+        
+        addNewInterval()
+        
+        timerObj.startOverallTimer()
     }
     
     private func onTimerTick(timer: Timer) {
-        //        addNewInterval()
+        if timerObj.end{
+            stopTest()
+        } else{
+            addNewInterval()
+        }
     }
     
     private func addNewInterval() {
-        //        if(concept2monitor == nil) {
-        //            return
-        //        }
-        //        let newInterval = Interval(context: viewContext)
-        //
-        //        newInterval.timestamp = Date()
-        //        newInterval.power = Double(concept2monitor?.strokePower.value ?? 0)
-        //        newInterval.distance = Double(concept2monitor?.distance.value ?? 0)
-        //        newInterval.strokeRate = Int16(concept2monitor?.strokeRate.value ?? 0)
-        //
-        //        activeInterval = newInterval
-        //        if(activeTest != nil) {
-        //            newInterval.parentTest = activeTest
-        //            activeIntervalsArray.append(newInterval)
-        //            previousInterval = activeInterval;
-        //        }
+                let newInterval = Interval(context: viewContext)
+        
+                newInterval.timestamp = Date()
+                newInterval.value = Double(concept2monitor?.strokePower.value ?? 0)
+                newInterval.target = Double(concept2monitor?.distance.value ?? 0)
+        
+                activeInterval = newInterval
+                if(activeTest != nil) {
+                    newInterval.parentTest = activeTest
+                    activeIntervalsArray.append(newInterval)
+           
+//                    previousInterval = activeInterval;
+                }
     }
     
-    private func stopTest() {
+    public func stopTest() {
         debugPrint("Stopped Test");
-        //        activeTest?.endtime = Date()
-        //        saveData()
+        timerObj.endTimers()
+        activeTest?.endtime = Date()
+        saveData()
         //        previousTest = activeTest;
-        //        activeTest = nil;
+        activeTest = nil;
         //
-        //        activeInterval = nil;
-        //        if(activeTestTimer != nil) {
-        //            activeTestTimer?.invalidate()
-        //            activeTestTimer = nil;
-        //        }
+                activeInterval = nil;
+                    activeTestTimer?.invalidate()
+                    activeTestTimer = nil;
+        activeIntervalsArray = []
         //        powerDisposable?.dispose()
     }
+    
+    private func saveData() {
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
+   
 }

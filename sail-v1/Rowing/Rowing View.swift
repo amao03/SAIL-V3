@@ -187,7 +187,6 @@ struct ContentView: View {
                                     .font(.system(size: 12))
                             }
                         }
-                        .animation(nil)
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 8, trailing: 0))
                         
                         Divider()
@@ -195,7 +194,7 @@ struct ContentView: View {
                         Chart(activeIntervalsArray) {
                             LineMark(
                                 x: .value("Time", $0.timestamp!),
-                                y: .value("Power", $0.power)
+                                y: .value("Power", $0.value)
                             )
                         }
                         .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
@@ -214,24 +213,11 @@ struct ContentView: View {
                     })
                 }
                 
-//                SavedTestsView()
+                SavedTestsView()
             }
        }
     }
-    
-    private func attachObservers(){
-        powerData = concept2monitor!.strokePower.attach(observer: {
-          (currPow:C2Power) -> Void in
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.async {
-                    currPower = currPow
-                    if currPattern.name != previousPattern.name {
-                        previousPattern = currPattern
-                    }
-            }
-          }
-        })
-    }
+
     
     private func toggleTest() {
         debugPrint("Toggle Test");
@@ -251,9 +237,8 @@ struct ContentView: View {
 //        newRowingTest.protocolName = protocolObj.name
         newRowingTest.subjectId = subjectId
         activeTest = newRowingTest
-        attachObservers()
-        activeTestTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: onTimerTick)
-        addNewInterval()
+//        addNewInterval()
+        
     }
     
     private func onTimerTick(timer: Timer) {
@@ -267,7 +252,7 @@ struct ContentView: View {
         let newInterval = Interval(context: viewContext)
         
         newInterval.timestamp = Date()
-        newInterval.power = Double(concept2monitor?.strokePower.value ?? 0)
+        newInterval.value = Double(concept2monitor?.strokePower.value ?? 0)
         
         activeInterval = newInterval
         if(activeTest != nil) {
@@ -281,15 +266,6 @@ struct ContentView: View {
         debugPrint("Stopped Test");
         activeTest?.endtime = Date()
         saveData()
-        previousTest = activeTest;
-        activeTest = nil;
-        
-        activeInterval = nil;
-        if(activeTestTimer != nil) {
-            activeTestTimer?.invalidate()
-            activeTestTimer = nil;
-        }
-        powerData?.dispose()
     }
     
     private func saveData() {

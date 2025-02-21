@@ -61,14 +61,17 @@ extension StartTestTimers{
         if currentData < (target - test.underRange){
             currPattern = test.underPattern
             currPattern.animationState = AnimationState.under
+            currentSound = test.underSound
         }
         else if currentData > (target + test.aboveRange){
             currPattern = test.abovePattern
             currPattern.animationState = AnimationState.above
+            currentSound = test.aboveSound
         }
         else {
             currPattern = test.atPattern
             currPattern.animationState = AnimationState.at
+            currentSound = test.atSound
         }
     }
     
@@ -76,14 +79,17 @@ extension StartTestTimers{
         if currentData == 0{
             currPattern = test.underPattern
             currPattern.animationState = AnimationState.under
+            currentSound = test.underSound
         }
         else if currentData == 2{
             currPattern = test.abovePattern
             currPattern.animationState = AnimationState.above
+            currentSound = test.aboveSound
         }
         else {
             currPattern = test.atPattern
             currPattern.animationState = AnimationState.at
+            currentSound = test.atSound
         }
         print("Set Pattern: \(currPattern)")
     }

@@ -21,6 +21,7 @@ struct OnboardView : View {
             SetUnderPattern().environmentObject(currTest)
             SummaryView().environmentObject(currTest).environmentObject(connector)
             StartTestView().environmentObject(currTest).environmentObject(connector)
+            SavedTestsView()
         }
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .always))

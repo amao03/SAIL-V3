@@ -10,7 +10,7 @@ import CoreData
 @discardableResult func createSampleInterval(context: NSManagedObjectContext, rowingTest: RowingTest, date: Date?) -> Interval {
     let interval = Interval(context: context)
     interval.timestamp = date ?? Date()
-    interval.power = Double.random(in: 0..<200)
+    interval.value = Double.random(in: 0..<200)
     interval.parentTest = rowingTest
     return interval
 }
@@ -53,7 +53,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "v2")
+        container = NSPersistentContainer(name: "rowingData")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

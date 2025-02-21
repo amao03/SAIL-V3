@@ -11,12 +11,18 @@ class Test: Identifiable, ObservableObject{
     static var test:Test = Test()
     
     @Published var name:String
+    @Published var subjectID = "0"
 
     @Published var type = DataType.rower
     
     @Published var abovePattern = MadePatternsList.getPatternByName("super pulse")!
     @Published var atPattern = MadePatternsList.getPatternByName("heartbeat")!
     @Published var underPattern = MadePatternsList.getPatternByName("short-long")!
+    
+    @Published var aboveSound = "alarm"
+    @Published var atSound = "game"
+    @Published var underSound = "clock"
+    
     
     @Published var underRange = 10.0
     @Published var aboveRange = 10.0
@@ -36,12 +42,18 @@ class Test: Identifiable, ObservableObject{
    
     init(){
         self.name = "Step"
+        self.subjectID = "0"
         self.updateData = 3.0
         self.underRange = 10.0
         self.aboveRange = 10.0
         self.abovePattern = MadePatternsList.getPatternByName("super pulse")!
         self.atPattern = MadePatternsList.getPatternByName("heartbeat")!
         self.underPattern = MadePatternsList.getPatternByName("short-long")!
+        
+        self.aboveSound = "alarm"
+        self.atSound = "game"
+        self.underSound = "clock"
+        
         self.type = DataType.rower
         
         //endurance
