@@ -80,7 +80,7 @@ final class StartTestTimers: NSObject, ObservableObject {
         setCurrentValue()
         determinePattern()
         playSound()
-        //        connector.sendDataToWatch(sendObject: currPattern)
+        connector.sendDataToWatch(sendObject: currPattern)
         print("updateData")
     }
 
