@@ -119,6 +119,5 @@ final class StartTestTimers: NSObject, ObservableObject {
         audioPlayer = try! AVAudioPlayer(contentsOf: url!)
         audioPlayer?.volume = 1
         audioPlayer?.play()
-
     }
 }

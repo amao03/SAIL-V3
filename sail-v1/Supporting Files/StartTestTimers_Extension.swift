@@ -76,12 +76,13 @@ extension StartTestTimers{
     }
     
     func setCurrentFakePattern(){
-        if currentData == 0{
+        print("SET: \(currentData)")
+        if currentData == 0.0{
             currPattern = test.underPattern
             currPattern.animationState = AnimationState.under
             currentSound = test.underSound
         }
-        else if currentData == 2{
+        else if currentData == 2.0{
             currPattern = test.abovePattern
             currPattern.animationState = AnimationState.above
             currentSound = test.aboveSound

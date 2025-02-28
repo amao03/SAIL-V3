@@ -6,29 +6,45 @@
 //
 
 import SwiftUI
+import AVFoundation
 
+var sounds = ["alarm", "game", "clock", "ADSR_1", "bleep", "pulse", "techno"]
 struct SetAbovePattern : View {
     @EnvironmentObject var currTest : Test
+    @State var audioPlayer: AVAudioPlayer?
     
     var body: some View {
         VStack{
-            Text("**Set Above Pattern**")
-                .font(.system(size: 20))
-                .padding(.bottom)
-            
-            Picker("Data Type", selection: $currTest.abovePattern) {
-                ForEach(MadePatternsList.madePatternsList, id: \.self) { currPattern in
-                    if(currPattern.name != "ERROR"){
-                        Text(String(describing: currPattern.name))
-                    }
+            Text("**Select above sound**")
+            Picker("Sound", selection: $currTest.aboveSound) {
+                ForEach(sounds, id: \.self) { sound in
+                    Text(sound)
                 }
             }
             .pickerStyle(.wheel)
             .frame(height: 120)
+//            .onReceive([self.currTest.atSound].publisher.first()) { value in
+//                        self.playSound(fileName: currTest.atSound)
+//             }
             
-            Text("**Selected:** \(currTest.abovePattern.name)")
-            Text("**Description:** \(currTest.abovePattern.description)")
-            
+            Button(action: {playSound(fileName: currTest.aboveSound)}) {
+                Text("play \(currTest.aboveSound)")
+            }
+            .font(.system(size: 24))
+            .buttonStyle(.bordered)
         }.padding(30)
+    }
+    
+    func playSound(fileName: String) {
+        var fullFileName = fileName + "-crop"
+        audioPlayer?.stop()
+        audioPlayer = nil
+        
+        print("play sound")
+        let url = Bundle.main.url( forResource: fullFileName, withExtension: "mp3")
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: url!)
+        audioPlayer?.volume = 1
+        audioPlayer?.play()
     }
 }
