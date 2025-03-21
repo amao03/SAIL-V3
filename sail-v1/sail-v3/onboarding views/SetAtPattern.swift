@@ -25,7 +25,7 @@ struct SetAtPattern : View {
 //            .onReceive([self.currTest.atSound].publisher.first()) { value in
 //                        self.playSound(fileName: currTest.atSound)
 //             }
-            
+            Text("play the 1s audio clip")
             Button(action: {playSound(fileName: currTest.atSound)}) {
                 Text("play \(currTest.atSound)")
             }
@@ -35,7 +35,7 @@ struct SetAtPattern : View {
     }
     
     func playSound(fileName: String) {
-        var fullFileName = fileName + "-crop"
+        var fullFileName = "1s_"+fileName
         audioPlayer?.stop()
         audioPlayer = nil
         

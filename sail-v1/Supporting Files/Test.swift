@@ -50,9 +50,9 @@ class Test: Identifiable, ObservableObject{
         self.atPattern = MadePatternsList.getPatternByName("heartbeat")!
         self.underPattern = MadePatternsList.getPatternByName("short-long")!
         
-        self.aboveSound = "alarm"
-        self.atSound = "game"
-        self.underSound = "clock"
+        self.aboveSound = "FREQ_HIGH"
+        self.atSound = "FREQ_MID"
+        self.underSound = "FREQ_LOW"
         
         self.type = DataType.rower
         

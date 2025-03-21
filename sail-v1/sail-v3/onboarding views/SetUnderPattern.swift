@@ -25,7 +25,7 @@ struct SetUnderPattern : View {
 //            .onReceive([self.currTest.atSound].publisher.first()) { value in
 //                        self.playSound(fileName: currTest.atSound)
 //             }
-            
+            Text("play the full audio clip")
             Button(action: {playSound(fileName: currTest.underSound)}) {
                 Text("play \(currTest.underSound)")
             }
@@ -35,7 +35,7 @@ struct SetUnderPattern : View {
     }
     
     func playSound(fileName: String) {
-        var fullFileName = fileName + "-crop"
+        var fullFileName = fileName
         audioPlayer?.stop()
         audioPlayer = nil
         
