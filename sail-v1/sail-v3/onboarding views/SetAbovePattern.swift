@@ -8,7 +8,6 @@
 import SwiftUI
 import AVFoundation
 
-var sounds = ["alarm", "game", "clock", "ADSR_1", "bleep", "pulse", "techno"]
 struct SetAbovePattern : View {
     @EnvironmentObject var currTest : Test
     @State var audioPlayer: AVAudioPlayer?
